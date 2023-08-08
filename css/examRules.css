@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #000;
+}
+:root{
+    --pri: #45CFDD;
+    --sec: #164B60;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #fff;
+}
+body #back {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    background: var(--sec);
+}
+.container div > p{
+    padding-bottom: 10px;
+}
+#startExam{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+    height: 35px;
+    float: right;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #45CFDD;
+}
+hr{
+    width: 80%;
+}

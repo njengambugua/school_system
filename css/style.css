@@ -1,0 +1,191 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #000;
+}
+:root {
+  --pri: #45cfdd;
+  --sec: #164b60;
+}
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+#navbar {
+  display: flex;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  flex-direction: row;
+  background: var(--pri);
+}
+#navbar #logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 100px;
+}
+#navbar #logo img {
+  padding: 10px;
+  height: inherit;
+}
+#navbar #options {
+  width: 100%;
+}
+#navbar #options ul {
+  height: 100%;
+}
+#navbar #options ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+#navbar #options ul li a {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  background: thistle;
+}
+
+
+#wholeBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  height: fit-content;
+  gap: 20px;
+  padding-top: 70px;
+  width: 100%;
+}
+#wholeBody #studentinfo {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 20px;
+  border-radius: 10px;
+  background: var(--sec);
+}
+#wholeBody #studentinfo #studInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+}
+#wholeBody #studentinfo #studInfo > div:nth-child(1) {
+  flex-grow: 1;
+}
+#wholeBody #studentinfo #studInfo #info {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: #999;
+}
+body #wholeBody #btn {
+  border: 0;
+  float: right;
+  color: #000;
+}
+body #wholeBody #btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 90px;
+  border-radius: 10px;
+  background: #45cfdd;
+  text-decoration: none;
+}
+
+
+
+
+
+
+article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: 80%;
+  color: white;
+}
+article .img1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.img1 h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 900;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+.sch_motto {
+  font-weight: 500;
+  color: white;
+  margin-bottom: 2rem;
+}
+.cta {
+  padding: 20px;
+  font-size: 1.4rem;
+  color: white;
+  border-radius: 0.8rem;
+  background-color: rgb(38, 84, 224);
+  transition: all 0.5s;
+}
+.cta:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  transform: scale(1.2);
+}
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-150px);
+  }
+  50% {
+    transform: translatex(150px);
+  }
+  100% {
+    transform: translatex(-150px);
+  }
+}
+.animate--fast {
+  animation-duration: 3s;
+}
+.animate--slow {
+  animation-duration: 5s;
+}
+.animate--forever {
+  animation-iteration-count: infinite;
+}
+.animate--reals {
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+.slideInLeft {
+  animation-name: slideInLeft;
+  animation-timing-function: ease-in-out;
+}
+article img {
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  padding: 4rem;
+  left: 0;
+  z-index: -2;
+}
