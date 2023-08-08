@@ -1,1 +1,1 @@
-# Schhol_System
+# School_System
