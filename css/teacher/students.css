@@ -1,0 +1,27 @@
+.main {
+  padding-left: 12rem;
+  width: 100%;
+}
+.main-content-holder{
+  width: 100%;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+  padding-right: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+  grid-auto-rows: auto;
+  grid-row-gap: 1rem;
+}
+.main-content-holder>*{
+  width: 100%;
+}
+.all_students, .student_profile, .student_academics, .student_attendance{
+  background: #164b60;
+  height: 30vh;
+  border-radius: 1.2em;
+  color: white;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
