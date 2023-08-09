@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  background-color: white;
+  color: #164b60;
+  font-family: "Nunito Sans", sans-serif;
+}
+.teacher-navbar {
+  position: fixed;
+  height: 100vh;
+  min-width: 12rem;
+  left: 0;
+  z-index: 10;
+  background-color: #45cfdd;
+  /* display: flex;
+  flex-direction: column; */
+  display: grid;
+  grid-template-rows: 10% 90%;
+}
+.top-nav,
+.other-navbars {
+  width: 100%;
+  height: 100%;
+}
+.top-nav {
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.avatar-holder {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.avatar-holder > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.avatar-name > p {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.other-navbars {
+  margin-top: 1rem;
+}
+.icons-holder {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.icons-holder>a{
+    text-decoration: none;
+}
+.home-item {
+  background-color: #164b60;
+}
+.icon-item {
+  width: 100%;
+  height: 3rem;
+display: grid;
+  grid-template-columns: 25% 75%;
+  align-content: center;
+padding-left: 2rem;
+  color: black;
+}
+.nav-icon > i {
+  font-size: 1.3em;
+  color: black;
+}
+.header-btn{
+    padding: 0.5rem;
+    background-color: #45cfdd;
+    color: #164b60;
+    text-decoration: none;
+    border: 0px;
+    outline: none;
+    border-radius: 0.2rem;
+}.header-btn>a{
+    text-decoration: none;
+}
+.teacher-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 4rem;
+  background-color: #164b60;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 1.2rem;
+}
+.main {
+  padding-left: 12rem;
+  width: 100%;
+}
+.main-content-holder{
+    width: 100%;
+    padding-left: 2rem;
+    padding-top: 0.5rem;
+    padding-right: 2rem;
+}
+.main-content-holder>*{
+    width: 100%;
+}
+.headline-fee{
+    width: 100%;
+    height: 30vh;
+    background: #164b60;
+    border-radius: 1.2em;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-content: center;
+}
+.fees-amount{
+    color: white;
+}
+.fees-amount>h4{
+    font-size: 2.3em;
+    color: #45cfdd;
+}
+.fees-amount>h1{
+    font-size: 4em;
+    color: white;
+}
+.attendance-display{
+    color: white;
+}
+.attendance-display>h4{
+    font-size: 2rem;
+    color: #45cfdd;
+}
+.attendance-display>span{
+    display: flex;
+    align-items: center;
+}
+.attendance-display>span>h1{
+    font-size: 4rem;
+}
+.hostel-display{
+     width: 100%;
+    height: 30vh;
+    padding-left: 2rem;
+    background: #45cfdd;
+    margin-top: 2rem;
+    border-radius: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: start; */
+    justify-content: space-evenly;
+
+}
+.hostel-display>p{
+    font-size: 2rem;
+}
