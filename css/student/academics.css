@@ -1,0 +1,39 @@
+.top-select-head {
+  background: #164b60;
+  height: 7vh;
+  border-radius: 0.3em;
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.print-btn {
+  padding: 0.7em;
+  background-color: #45cfdd;
+  border-radius: 0.3rem;
+  border: 0px;
+  outline: none;
+}
+.select-grade {
+  padding: 0.6em;
+  background: #45cfdd;
+  color: #164b60;
+  border: 0px;
+  outline: none;
+  border-radius: 0.3em;
+}
+.academics-table-holder{
+    width: 100%;
+    margin-top: 1.2rem;
+    /* background-color: #164b60; */
+    height: 78vh;
+    padding: 2rem;
+}
+.academics-table-holder>table{
+    /* background: #164b60; */
+    color: #164b60;
+}
+.tbody-fee tr {
+  height: 50px; 
+}
