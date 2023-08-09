@@ -1,0 +1,41 @@
+:root{
+    --pri: #45CFDD;
+    --sec: #164B60;
+}
+.main-content-holder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    z-index: 2;
+}
+#date {
+    font-size: 2em;
+    margin-left: 100px;
+    color: var(--sec);
+}
+#time_subject_details{
+    display: flex;
+    background: var(--sec);
+    border-radius: 15px;
+}
+#time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    width: 250px;
+    color: #aaaaaa;
+}
+#subject_details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#subject {
+    font-size: 1.7em;
+    color: #fff;
+}
+#details {
+    color: var(--pri);
+}

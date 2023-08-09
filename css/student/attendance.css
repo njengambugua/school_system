@@ -1,0 +1,32 @@
+.attendance-holder {
+  width: 90%;
+  height: 89vh;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+}
+.attendance-table {
+  width: 100%;
+  /* background-color: #164b60; */
+  color: #164b60;
+  height: 28vh;
+  position: relative;
+  border: 1px solid white;
+  display: grid;
+  grid-template-columns: 10% 90%;
+  overflow-y: scroll;
+}
+.attendance-table::-webkit-scrollbar{
+    width: 10px;
+}.attendance-table::-webkit-scrollbar-thumb {
+  background: #164b60;
+  border-radius: 5px;
+}
+.attendance-thead {
+  position: sticky;
+  top: 0;
+  background-color: #45cfdd;
+}
+.attendance-term > h4 {
+  position: sticky;
+  top: 45%;
+}
