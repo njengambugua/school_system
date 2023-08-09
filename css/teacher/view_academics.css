@@ -1,0 +1,51 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+.search-bar {
+  background: #164b60;
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  padding: 0.3em;
+}
+.select-view {
+  padding: 0.3em;
+  background: #45cfdd;
+  border-radius: 0.4em;
+  border: 0px;
+  outline: none;
+}
+.select-view-btn {
+  padding: 0.3em;
+  background: white;
+  color: #164b60;
+  border: 0px;
+  border-radius: 0.4em;
+}
+.view-academics-container {
+  margin-top: 0.3em;
+  width: 100%;
+  height: 82vh;
+  overflow: scroll;
+  position: relative;
+}
+.view-academics-container::-webkit-scrollbar {
+  /* color: #45cfdd; */
+  width: 7px;
+}
+.view-academics-container::-webkit-scrollbar-thumb {
+  background-color: #45cfdd;
+  border-radius: 5px;
+}
+.view-academics-container::-webkit-scrollbar-thumb:hover {
+  background: #164b60;
+}
+.thead-academics {
+  position: sticky;
+  top: -0.3em;
+  background: #164b60;
+  color: white;
+}
+.table-academics {
+  width: 100% !important;
+  overflow-y: scroll;
+}
