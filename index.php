@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -15,11 +15,11 @@
         <div id="options">
             <ul>
                 <li>
-                    <a href="./php/student_page/student_page.html">Home</a>
-                    <a href="php/admission.html">Admissions</a>
+                    <a href="./php/student_page/student_page.php">Home</a>
+                    <a href="php/admission.php">Admissions</a>
                     <a href="#">Fees</a>
                     <a href="#">About</a>
-                    <a href="./php/login.html">Login</a>
+                    <a href="./php/login.php">Login</a>
                 </li>
             </ul>
         </div>

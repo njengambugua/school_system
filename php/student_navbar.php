@@ -36,49 +36,49 @@
       </div>
       <div class="other-navbars">
         <div class="icons-holder">
-          <a href="./student_page.html" class="icon-item home-item">
+          <a href="./student_page.php" class="icon-item home-item">
             <div class="nav-icon">
               <i class="bx bx-home-circle"></i>
             </div>
             <div class="nav-name"> Home </div>
           </a>
 
-          <a href="./student_page_fees.html" class="icon-item">
+          <a href="./student_page_fees.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bxs-credit-card"></i>
             </div>
             <div class="nav-name"> Fees </div>
           </a>
 
-          <a href="./student_pages_academics.html" class="icon-item">
+          <a href="./student_pages_academics.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-book-open"></i>
             </div>
             <div class="nav-name"> Academics </div>
           </a>
 
-          <a href="./student_page_attendance.html" class="icon-item">
+          <a href="./student_page_attendance.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-list-ul"></i>
             </div>
             <div class="nav-name"> Attendance </div>
           </a>
 
-          <a href="" class="icon-item">
+          <a href="./student_page_event.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-calendar-check"></i>
             </div>
             <div class="nav-name"> Events </div>
           </a>
 
-          <a href="" class="icon-item">
+          <a href="./student_page_timetable.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-time-five"></i>
             </div>
             <div class="nav-name"> Timetable </div>
           </a>
 
-          <a href="" class="icon-item">
+          <a href="./student_page_profile.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-user-circle"></i>
             </div>
@@ -90,30 +90,9 @@
     <!-- Header -->
     <header class="student-header">
       <div class="header-items">
-        <button class="header-btn"><a href="/index.html">Home Main</a></button>
+        <button class="header-btn"><a href="../../index.php">Home Main</a></button>
         <button class="header-btn"><a href="">Logout</a></button>
       </div>
     </header>
-    <main class="main">
-      <div class="main-content-holder">
-        <div class="headline-fee">
-          <div class="fees-amount">
-            <h4>Total Fees</h4>
-            <h1>0.00</h1>
-          </div>
-          <div class="attendance-display">
-            <h4>Weeks Attended</h4>
-            <span>
-              <h1>40</h1>
-              <p>Weeks</p>
-            </span>
-          </div>
-        </div>
-        <div class="hostel-display">
-          <h1>Student Hostel</h1>
-          <p>- - -</p>
-        </div>
-      </div>
-    </main>
   </body>
 </html>

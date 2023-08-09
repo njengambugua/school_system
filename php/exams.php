@@ -78,7 +78,7 @@
         var btn = document.querySelector('#submit')
         btn.addEventListener('click', ()=>{
             alert('You have completed your exam. Your parent will receive an email of your results.');
-            open('../index.html')
+            open('../index.php')
         })
     </script>
 </body>

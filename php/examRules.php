@@ -56,7 +56,7 @@
             </p>
         </div>
         <hr>
-        <a href="exams.html" id="startExam">Start Exam</a>
+        <a href="exams.php" id="startExam">Start Exam</a>
     </div>
 </body>
 </html>

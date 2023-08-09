@@ -103,7 +103,7 @@
                 </div>
             </div>
         </div>
-        <a id="btn" href="../php/examRules.html">Submit</a>
+        <a id="btn" href="../php/examRules.php">Submit</a>
     </div>
 </body>
 </html>
