@@ -54,3 +54,7 @@ body form div input{
 body form div a{
     text-decoration: none;
 }
+.log{
+    display: flex;
+    gap: 1rem;
+}

@@ -17,7 +17,10 @@
             <label>Password</label>
             <input type="text">
         </div>
-        <a id="loginBtn" href="./student_page/student_page.php">Login</a>
+        <section class="log">
+            <a id="loginBtn" href="./student_page/student_page.php">Login as Student</a>
+            <a id="loginBtn" href="./teacher_page/teacher_page.php">Login as Teacher</a>
+        </section>
         <div>
             <a href="#">Forgot Password?</a>
         </div>
