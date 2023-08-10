@@ -49,14 +49,6 @@
             </div>
             <div class="nav-name"> Students </div>
           </a>
-
-          
-          <a href="./teacher_page_timetable.php" class="icon-item">
-            <div class="nav-icon">
-              <i class="bx bx-time-five"></i>
-            </div>
-            <div class="nav-name"> Timetable </div>
-          </a>
           
           <a href="./teacher_page_messages.php" class="icon-item">
             <div class="nav-icon">
