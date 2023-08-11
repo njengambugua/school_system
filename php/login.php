@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="../css/login.css">
     <title>Document</title>
 </head>
 <body>
@@ -17,7 +17,10 @@
             <label>Password</label>
             <input type="text">
         </div>
-        <a id="loginBtn" href="./student_page/student_page.html">Login</a>
+        <section class="log">
+            <a id="loginBtn" href="./student_page/student_page.php">Login as Student</a>
+            <a id="loginBtn" href="./teacher_page/teacher_page.php">Login as Teacher</a>
+        </section>
         <div>
             <a href="#">Forgot Password?</a>
         </div>

@@ -1,0 +1,21 @@
+#teacherInfo {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 30px;
+    border: 0;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px 2px #000;
+}
+#information {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+#teacherPassportDiv img{
+    float: right;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}

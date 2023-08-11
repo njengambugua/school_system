@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/student/main.css" />
+    <link rel="stylesheet" href="../../css/teacher/main.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -20,12 +20,12 @@
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800;900;1000&display=swap"
       rel="stylesheet"
     />
-    <title>Student Portal</title>
+    <title>Teacher Portal</title>
   </head>
   <body>
     
     <!-- sidenav -->
-   <nabar class="student-navbar">
+   <nabar class="teacher-navbar">
       <div class="top-nav">
         <div class="avatar-holder">
           <img src="../../images/yellow_grt.jpg" alt="profile image" />
@@ -36,49 +36,28 @@
       </div>
       <div class="other-navbars">
         <div class="icons-holder">
-          <a href="./student_page.html" class="icon-item home-item">
+          <a href="./teacher_page.php" class="icon-item home-item">
             <div class="nav-icon">
               <i class="bx bx-home-circle"></i>
             </div>
             <div class="nav-name"> Home </div>
           </a>
 
-          <a href="./student_page_fees.html" class="icon-item">
-            <div class="nav-icon">
-              <i class="bx bxs-credit-card"></i>
-            </div>
-            <div class="nav-name"> Fees </div>
-          </a>
-
-          <a href="./student_pages_academics.html" class="icon-item">
+          <a href="./teacher_pages_students.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-book-open"></i>
             </div>
-            <div class="nav-name"> Academics </div>
+            <div class="nav-name"> Students </div>
           </a>
-
-          <a href="./student_page_attendance.html" class="icon-item">
+          
+          <a href="./teacher_page_messages.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-list-ul"></i>
             </div>
-            <div class="nav-name"> Attendance </div>
+            <div class="nav-name"> Messages </div>
           </a>
 
-          <a href="" class="icon-item">
-            <div class="nav-icon">
-              <i class="bx bx-calendar-check"></i>
-            </div>
-            <div class="nav-name"> Events </div>
-          </a>
-
-          <a href="" class="icon-item">
-            <div class="nav-icon">
-              <i class="bx bx-time-five"></i>
-            </div>
-            <div class="nav-name"> Timetable </div>
-          </a>
-
-          <a href="" class="icon-item">
+          <a href="./teacher_page_profile.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-user-circle"></i>
             </div>
@@ -88,32 +67,11 @@
       </div>
     </nabar>
     <!-- Header -->
-    <header class="student-header">
+    <header class="teacher-header">
       <div class="header-items">
-        <button class="header-btn"><a href="/index.html">Home Main</a></button>
+        <button class="header-btn"><a href="../../index.php">Home Main</a></button>
         <button class="header-btn"><a href="">Logout</a></button>
       </div>
     </header>
-    <main class="main">
-      <div class="main-content-holder">
-        <div class="headline-fee">
-          <div class="fees-amount">
-            <h4>Total Fees</h4>
-            <h1>0.00</h1>
-          </div>
-          <div class="attendance-display">
-            <h4>Weeks Attended</h4>
-            <span>
-              <h1>40</h1>
-              <p>Weeks</p>
-            </span>
-          </div>
-        </div>
-        <div class="hostel-display">
-          <h1>Student Hostel</h1>
-          <p>- - -</p>
-        </div>
-      </div>
-    </main>
   </body>
 </html>
