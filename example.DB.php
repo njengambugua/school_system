@@ -1,22 +1,35 @@
 <?php
-// These are the credentials you'll use to connect to your database
-$server_name = "localhost";
-$mysql_user = "username";
-$password = "password";
-$databases_we_are_using = "database";
+class DatabaseConnection
+{
+    private $host;
+    private $username;
+    private $password;
+    private $dbname;
+    private $conn;
 
-try {
-    $connection = new PDO("mysql:host=$server_name;dbname=$databases_we_are_using", $mysql_user, $password);
+    public function __construct()
+    {
+        $this->host = 'localhost';
+        $this->username = '';
+        $this->password = '';
+        $this->dbname = '';
 
-    // Set PDO error mode to exception
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        try {
+            $dsn = "mysql:host=$this->host;dbname=$this->dbname";
+            $this->conn = new PDO($dsn, $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die("Connection failed: " . $e->getMessage());
+        }
+    }
 
-    // You are now connected to the database!
-    // echo "<br>Connected successfully!<br>";
-} catch (PDOException $e) {
-    // If there is an error, handle it here
-    echo "Connection failed: " . $e->getMessage();
-    die();
+    public function getConnection()
+    {
+        return $this->conn;
+    }
+
+    public function closeConnection()
+    {
+        $this->conn = null;
+    }
 }
-
-?>
