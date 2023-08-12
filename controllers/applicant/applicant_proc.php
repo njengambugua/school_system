@@ -6,14 +6,23 @@ $obj = (object)$_POST;
 
 $user = new applicant($obj);
 
-if ($user->create()) {
-    header('Location: ../../php/examRules.php');
+if ($_POST['action'] == 'Apply') {
+
+    if ($user->create()) {
+        header('Location: ../../php/examRules.php');
+    } else {
+        header('Location: ../../php/admission.php');
+    }
 } else {
     header('Location: ../../php/admission.php');
 }
 
-// if ($user->retrieve(7)) {
-//     echo $user;
-// }
-
-print_r($user->retrieve(7));
+if (isset($_GET['applicant'])) {
+    print_r($_GET);
+    $id = $_GET['applicant'];
+    $data = $user->retrieve($id);
+    if ($data) {
+       $_SESSION['applicant_data'] = $data;
+        header('Location: ../../php/exams.php');
+    }
+}
