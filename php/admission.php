@@ -105,7 +105,7 @@
                 </div>
             </div>
         </div>
-        <input type="submit" id="btn" value="Submit">
+        <input type="submit" id="btn" value="Apply" name="action">
     </form>
 </body>
 
