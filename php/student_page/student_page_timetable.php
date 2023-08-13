@@ -61,8 +61,6 @@
                 <div id="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore autem ducimus, ullam, velit adipisci voluptatum id totam suscipit quos dolorum ipsum. Accusamus tenetur reiciendis praesentium reprehenderit mollitia dicta repudiandae quod.</div>
             </div>
         </div>
-
-
       </div>
     </main>
   </body>
