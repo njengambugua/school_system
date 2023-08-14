@@ -9,10 +9,10 @@ class DatabaseConnection
 
     public function __construct()
     {
-        $this->host = 'localhost';
-        $this->username = 'alvin';
-        $this->password = '1#GranTurismo';
-        $this->dbname = 'schoolSystem';
+        $this->host = '';
+        $this->username = '';
+        $this->password = '';
+        $this->dbname = '';
 
         try {
             $dsn = "mysql:host=$this->host;dbname=$this->dbname";
