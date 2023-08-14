@@ -14,6 +14,7 @@ class applicant
 
     function __construct($obj)
     {
+        print_r($obj);
         $this->validate($obj);
         $this->Name = $obj->Name;
         $this->Age = $obj->Age;
