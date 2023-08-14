@@ -1,6 +1,7 @@
 <?php
 session_start();
-// print_r($_SESSION['applicant_data'])
+// print_r($_SESSION['applicant_data']);
+// print_r($_SESSION['exams']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,75 +17,51 @@ session_start();
     <header>
         <h1>Interview Pursuit Admission Test</h1>
     </header>
-    <div class="manyQuestions">
+    <form method="POST" action="../controllers/exams/exams_proc.php" class="manyQuestions">
+        <?php foreach ($_SESSION["exams"] as $question) { ?>
 
-        <div class="question">
-            <p>
-                What color is the sky?
-            </p>
-            <div class="options">
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
+            <div class="question">
+                <p>
+                    <?php echo $question->question ?>
+                </p>
+                <div class="options">
+                    <div>
+                        <input type="radio" name="answer<?php echo $question->id ?>" id="answer1" value="<?php echo $question->answer1 ?>" required>
+                        <label for="answer1">
+                            <?php echo $question->answer1 ?>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer<?php echo $question->id ?>" id="answer2" value="<?php echo $question->answer2 ?>" required>
+                        <label for="answer2">
+                            <?php echo $question->answer2 ?>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer<?php echo $question->id ?>" id="answer3" value="<?php echo $question->answer3 ?>" required>
+                        <label for="answer3">
+                            <?php echo $question->answer3 ?>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer<?php echo $question->id ?>" id="answer4" value="<?php echo $question->answer4 ?>" required>
+                        <label for="answer4">
+                            <?php echo $question->answer4 ?>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php } ?>
 
-        <div class="question">
-            <p>
-                What color is the sky?
-            </p>
-            <div class="options">
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
-                </div>
-            </div>
-        </div>
+        <input type="submit" id="submit" name="action" value="submit-exam">
 
-        <div class="question">
-            <p>
-                What color is the sky?
-            </p>
-            <div class="options">
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
-                </div>
-                <div>
-                    <input type="checkbox">Red
-                </div>
-            </div>
-        </div>
+    </form>
 
-    </div>
-    <a id="submit" href="#">Submit</a>
     <script>
         var btn = document.querySelector('#submit')
         btn.addEventListener('click', () => {
             alert('You have completed your exam. Your parent will receive an email of your results.');
-            open('../index.php')
+            // open('../index.php')
         })
     </script>
 </body>
