@@ -15,16 +15,15 @@ if ($_POST['action'] == 'Apply') {
         include('../../models/parent/parent_class.php');
         $parent = new parent7($obj);
         if($parent->create()) {
-            echo "Parent Created";
+            echo "<br>Parent Created";
         }
         else {
-            echo "Parent Not Created";
+            echo "<br>Parent Not Created";
 
         }
         echo "<hr>";
         echo "<br>Record Inserted successfully";
-        // header('Location: ../../php/examRules.php');
-        // header("Location: ../../models/parent/parent_DBO.php");
+        header('Location: ../../php/examRules.php');
     } else {
         echo "<br>Record was not inserted successfully";
         // header('Location: ../../php/admission.php');
