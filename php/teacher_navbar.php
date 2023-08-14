@@ -43,6 +43,14 @@
             <div class="nav-name"> Home </div>
           </a>
 
+          <a href="./teacher_page_timetable.php" class="icon-item">
+            <div class="nav-icon">
+              <i class="bx bx-book-open"></i>
+            </div>
+            <div class="nav-name"> Timetable </div>
+          </a>
+
+
           <a href="./teacher_pages_students.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-book-open"></i>

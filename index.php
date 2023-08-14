@@ -10,7 +10,7 @@
     <section id="navbar">
         <div id="logo">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Culcheth_High_School_Logo.png" alt="School Logo">
-            <h2 style="color: black"> Wisedigits Day and Boarding School</h2>
+            <h2 style="color: black">Wisedigits Day and Boarding School</h2>
         </div>
         <div id="options">
             <ul>
