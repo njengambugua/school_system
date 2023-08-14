@@ -4,7 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
 
-class exams_DBO{
+class exams_DBO
+{
   public $query;
   public  $execute;
   private $conn;
@@ -16,7 +17,8 @@ class exams_DBO{
     $this->conn = $db->getConnection();
   }
 
-  function insert($obj) {
+  function insert($obj)
+  {
     try {
 
       $query = "INSERT INTO exams(question,answer1,answer2,answer3,answer4,level,correct_answer)VALUES(:question,:answer1,:answer2,:answer3,:answer4,:level,:correct_answer)";
@@ -32,32 +34,29 @@ class exams_DBO{
       $this->lastInsertId = $this->conn->lastInsertId();
       $_SESSION['exam_id'] = $this->lastInsertId;
       return true;
-
     } catch (\Throwable $th) {
       return false;
     }
   }
 
-  function select($id) {
+  function select($level)
+  {
     try {
-
-      if (isset($id)) {
-        $query = "SELECT * FROM exams WHERE id=:id";
+      if (isset($level)) {
+        $query = "SELECT * FROM exams WHERE level=:level";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id',$id);
+        $stmt->bindParam(':level', $level);
         $stmt->execute();
         $res = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $res;
       } else {
         $query = "SELECT * FROM exams";
-        $res = $this->conn->query($query);
+        $stmt = $this->conn->query($query);
+        $res = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $res;
       }
-      
-    } catch (\Throwable $th) {
+    } catch (PDOException $e) {
       return false;
     }
-    
   }
-
 }

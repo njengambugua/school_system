@@ -3,7 +3,7 @@ include('../../models/applicant/applicant_class.php');
 // print_r($_POST);
 $obj = (object)$_POST;
 // print_r($obj);
-
+session_start();
 $user = new applicant($obj);
 
 if ($_POST['action'] == 'Apply') {
@@ -22,7 +22,10 @@ if (isset($_GET['applicant'])) {
     $id = $_GET['applicant'];
     $data = $user->retrieve($id);
     if ($data) {
-       $_SESSION['applicant_data'] = $data;
-        header('Location: ../../php/exams.php');
+        // $applicant_level = $data['Level'];
+        $_SESSION['applicant_data'] = $data;
+        $applicant_level = $data[0]->Level;
+
+        header("Location: ../exams/exams_proc.php?level=$applicant_level");
     }
 }
