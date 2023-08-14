@@ -58,6 +58,13 @@
             <div class="nav-name"> Students </div>
           </a>
           
+          <a href="./teacher_pages_exam.php" class="icon-item">
+            <div class="nav-icon">
+              <i class="bx bx-book-open"></i>
+            </div>
+            <div class="nav-name"> Generate Exam </div>
+          </a>
+
           <a href="./teacher_page_messages.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-list-ul"></i>
