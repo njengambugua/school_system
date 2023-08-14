@@ -53,8 +53,13 @@ session_start();
             </div>
         <?php } ?>
 
+
+        <input type="submit" id="submit" name="action" value="submit-exam">
+
+
         <input type="submit" id="submit" name="action" value="submit-exam">
      
+
     </form>
 
     <script>

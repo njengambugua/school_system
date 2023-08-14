@@ -1,7 +1,14 @@
 <?php
 include('../../models/applicant/applicant_class.php');
 
+// print_r($_POST);
 $obj = (object)$_POST;
+// print_r($obj);
+session_start();
+
+
+$obj = (object)$_POST;
+
 $user = new applicant($obj);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['obj'] = $obj;
@@ -30,11 +37,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 if (isset($_GET['applicant'])) {
+
+    // print_r($_GET);
+
     $id = $_GET['applicant'];
     print_r($id);
     $data = $user->retrieve($id);
     
     if ($data) {
+
+        // $applicant_level = $data['Level'];
+        $_SESSION['applicant_data'] = $data;
+        $applicant_level = $data[0]->Level;
+
         $applicant_level = $data[0]->Level;
         header("Location: ../exams/exams_proc.php?level=$applicant_level");
     }

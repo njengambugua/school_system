@@ -6,6 +6,12 @@ include('../../models/exams/exams_class.php');
 // '
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+
+
+// '
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+
   if ($_POST['action'] == 'Filter') {
     $obj = (object)$_POST;
     // print_r($obj);
@@ -23,6 +29,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   if ($_POST['action'] == 'submit-exam') {
+
+    $marks = 0;
+    foreach ($_SESSION["exams"] as $question) {
+      $questionId = $question->id;
+      $selected = $_POST["answer$questionId"];
+      if ($question->correct_answer == $selected) {
+        $marks++;
+      }
+    }
+    $perc_score = ($marks / count($_SESSION['exams'])) * 100;
+    if ($perc_score > 65) {
+      echo "you have been enrolled";
+    } else {
+
     $marks=0;
     foreach ($_SESSION["exams"] as $question) {
       $questionId = $question->id;
@@ -35,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($perc_score>65) {
       echo "you have been enrolled";
     }else{
+
       echo "Sorry, Please try another day";
     }
   }
@@ -42,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 if (isset($_GET['level'])) {
   // echo "level is:". $_GET['level'];
+
 
   $exam = new exams;
   $level = $_GET['level'];
