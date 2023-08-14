@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <section id="navbar">
         <div id="logo">
@@ -23,28 +25,28 @@
             </ul>
         </div>
     </section>
-    <div id="wholeBody">
+    <form id="wholeBody" method="post" action="../controllers/applicant/applicant_proc.php">
         <div id="studentinfo">
             <h4 for="">Student Information</h4>
             <div id="studInfo">
                 <div id="info">
                     <label>Name</label>
-                    <input type="text">
+                    <input type="text" name="Name">
                 </div>
                 <div id="info">
                     <label>Age</label>
-                    <input type="number">
+                    <input type="number" name="Age">
                 </div>
                 <div id="info">
                     <label>Gender</label>
-                    <select>
-                        <option value="">Male</option>
-                        <option value="">Female</option>
+                    <select name="Gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>
                 <div id="info">
                     <label>Level of education</label>
-                    <select>
+                    <select name="Level">
                         <option value="PP1">PP1</option>
                         <option value="PP2">PP2</option>
                         <option value="Grade_1">Grade 1</option>
@@ -69,9 +71,9 @@
                 </div>
                 <div id="info">
                     <label>Gender</label>
-                    <select>
-                        <option value="">Male</option>
-                        <option value="">Female</option>
+                    <select name="Parent_Gender">
+                        <option value="Male">Male</option>
+                        <option value="Female ">Female</option>
                     </select>
                 </div>
                 <div id="info">
@@ -103,7 +105,8 @@
                 </div>
             </div>
         </div>
-        <a id="btn" href="../php/examRules.php">Submit</a>
-    </div>
+        <input type="submit" id="btn" value="Apply" name="action">
+    </form>
 </body>
+
 </html>
