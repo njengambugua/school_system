@@ -15,7 +15,6 @@ class applicant_DBO
 
     public function __construct()
     {
-
         $db = new DatabaseConnection();
         $this->conn = $db->getConnection();
     }
@@ -23,8 +22,8 @@ class applicant_DBO
     function insert($obj)
     {
         try {
-            $query = "INSERT INTO applicant(Name, Age, Gender, Level) VALUES(:Name, :Age, :Gender, :Level)";
-            $stmt = $this->conn->prepare($query);
+            $studentQuery = "INSERT INTO applicant(Name, Age, Gender, Level) VALUES(:Name, :Age, :Gender, :Level)";
+            $stmt = $this->conn->prepare($studentQuery);
             $stmt->bindParam(':Name', $obj->Name);
             $stmt->bindParam(':Age', $obj->Age);
             $stmt->bindParam(':Gender', $obj->Gender);
@@ -33,6 +32,7 @@ class applicant_DBO
             $stmt->execute();
             $this->lastInsertId = $this->conn->lastInsertId();
             $_SESSION['applicant_id'] = $this->lastInsertId;
+            echo "<br>Applicant Id: ".$_SESSION['applicant_id'];
             return true;
         } catch (\Throwable $th) {
             return false;

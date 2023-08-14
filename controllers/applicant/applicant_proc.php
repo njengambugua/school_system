@@ -1,28 +1,48 @@
 <?php
 include('../../models/applicant/applicant_class.php');
-// print_r($_POST);
+echo "<hr>";
 $obj = (object)$_POST;
-// print_r($obj);
+$_SESSION['obj'] = $obj;
+echo "<hr>";
 
 $user = new applicant($obj);
 
 if ($_POST['action'] == 'Apply') {
-
+    echo "<br>Button was clicked";
     if ($user->create()) {
-        header('Location: ../../php/examRules.php');
+        echo "<br>About to include parent";
+        echo "<hr>";
+        include('../../models/parent/parent_class.php');
+        $parent = new parent7($obj);
+        if($parent->create()) {
+            echo "Parent Created";
+        }
+        else {
+            echo "Parent Not Created";
+
+        }
+        echo "<hr>";
+        echo "<br>Record Inserted successfully";
+        // header('Location: ../../php/examRules.php');
+        // header("Location: ../../models/parent/parent_DBO.php");
     } else {
-        header('Location: ../../php/admission.php');
+        echo "<br>Record was not inserted successfully";
+        // header('Location: ../../php/admission.php');
     }
 } else {
+    echo "<br>Button was not clicked";
     header('Location: ../../php/admission.php');
 }
 
+echo "<br>Done";
+
 if (isset($_GET['applicant'])) {
+    echo "<br>Applicant is set";
     print_r($_GET);
     $id = $_GET['applicant'];
     $data = $user->retrieve($id);
     if ($data) {
        $_SESSION['applicant_data'] = $data;
-        header('Location: ../../php/exams.php');
+        // header('Location: ../../php/exams.php');
     }
 }

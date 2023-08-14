@@ -9,7 +9,7 @@
 <body>
   <?php
   include('../../php/teacher_navbar.php');
-  include('../../example.DB.php');
+  include('../../DB.php');
 
   // Creating an object of the class
   $dbConnection = new DatabaseConnection();
@@ -28,7 +28,7 @@
       <?php
       // Retrieving the rest of the data
           // Assuming the teacher's ID
-      $_SESSION['teacher'] = 1;
+      $_SESSION['teacher'] = 3;
       $day = 'Monday';
       // $day = 'Tuesday';
       // $day = 'Wednesday';
