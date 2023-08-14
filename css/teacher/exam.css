@@ -1,0 +1,26 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+.select-grade {
+  padding: 0.6em;
+  background: #45cfdd;
+  color: #164b60;
+  border: 0px;
+  outline: none;
+  border-radius: 0.3em;
+  display: flex;
+  align-items: center;
+}
+.select_heads{
+  display: flex;
+  flex-direction: column;
+  background: #164b60;
+  border-radius: 0.3em;
+  height: 5vh;
+  padding-left: 1rem;
+  gap: 3rem;
+}
+.select {
+  display: none;
+}
+.left-select-head{
+  display: flex;
+}
