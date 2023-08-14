@@ -89,6 +89,10 @@
                     <input type="text" name="parentContact">
                 </div>
                 <div id="info">
+                    <label>Email</label>
+                    <input type="text" name="parentEmail">
+                </div>
+                <div id="info">
                     <label>Religion</label>
                     <select name="parentReligion">
                         <option>Christianity</option>

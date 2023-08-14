@@ -27,7 +27,6 @@ class ParentDBO {
     function insert($obj) {
         try {
             echo "<br>Insertion try method called";
-            $applicant_id = $_SESSION['applicant_id'];
             $query = "INSERT INTO parent(Name, Gender, Occupation, Relationship, Contact, Email, Location, Religion, applicant_id)
             VALUES(:Name, :Gender, :Occupation, :Relationship, :Contact, :Email, :Location, :Religion, :applicant_id)";
             echo "<br>".$query;
@@ -36,9 +35,11 @@ class ParentDBO {
             $stmt->bindParam(":Gender", $obj->gender);
             $stmt->bindParam(":Occupation", $obj->occupation);
             $stmt->bindParam(":Contact", $obj->contact);
+            $stmt->bindParam(":Email", $obj->email);
             $stmt->bindParam(":Religion", $obj->religion);
             $stmt->bindParam(":Relationship", $obj->relationship );
             $stmt->bindParam(":Location", $obj->location);
+            $stmt->bindParam(":applicant_id", $_SESSION['applicant_id']);
 
             echo "About to excecute command.<br>";
             $stmt->execute();

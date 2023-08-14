@@ -13,6 +13,7 @@ class parent7 {
     public $gender;
     public $occupation;
     public $contact;
+    public $email;
     public $religion;
     public $relationship;
     public $location;
@@ -22,6 +23,7 @@ class parent7 {
         $this->gender = $obj->parentGender;
         $this->occupation = $obj->parentOccupation;
         $this->contact = $obj->parentContact;
+        $this->email = $obj->parentEmail;
         $this->religion = $obj->parentReligion;
         $this->relationship = $obj->parentRelationship;
         $this->location = $obj->parentLocation;

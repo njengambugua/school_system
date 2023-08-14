@@ -36,3 +36,7 @@ CREATE TABLE teacher_subjects (
     FOREIGN KEY (teacher_id) REFERENCES teachers(id),
     FOREIGN KEY (subject_id) REFERENCES subjects(id)
 );
+
+
+DELETE FROM applicant;
+ALTER TABLE applicant AUTO_INCREMENT = 1;
