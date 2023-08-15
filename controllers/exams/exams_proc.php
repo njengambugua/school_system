@@ -2,20 +2,13 @@
 
 include('../../models/exams/exams_class.php');
 
-
-// '
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-
-
-// '
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
   if ($_POST['action'] == 'Filter') {
     $obj = (object)$_POST;
     // print_r($obj);
-    $exam = new exams;
+    $exam = new exams();
     if ($exam->create($obj)) {
       echo "
       <script>
@@ -29,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 
   if ($_POST['action'] == 'submit-exam') {
-
+    $applicant_id = $_GET['applicant_id'];
     $marks = 0;
     foreach ($_SESSION["exams"] as $question) {
       $questionId = $question->id;
@@ -40,26 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $perc_score = ($marks / count($_SESSION['exams'])) * 100;
     if ($perc_score > 65) {
-      echo "you have been enrolled";
+      header("Location: ../students/students_proc.php?applicant_id=" . $applicant_id);
     } else {
-
-    $marks=0;
-    foreach ($_SESSION["exams"] as $question) {
-      $questionId = $question->id;
-      $selected = $_POST["answer$questionId"];
-      if ($question->correct_answer == $selected ) {
-        $marks++;
-      } 
-    }
-    $perc_score = ($marks/count($_SESSION['exams']))*100;
-    if ($perc_score>65) {
-      echo "you have been enrolled";
-    }else{
-
       echo "Sorry, Please try another day";
     }
   }
 }
+
+
 
 if (isset($_GET['level'])) {
   // echo "level is:". $_GET['level'];
