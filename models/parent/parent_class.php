@@ -1,12 +1,5 @@
 <?php
-echo "parent_class.php has been called.";
-
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
-echo "<br>Calling parent_DBO.php.";
 include('parent_DBO.php');
-echo "<br>parent_class.php continiation";
 
 class parent7 {
     public $name;
@@ -31,16 +24,16 @@ class parent7 {
 
     function create() {
         $parent = new ParentDBO();
-        echo "<br>About to call Insert";
         if ($parent->insert($this)) {
-            echo "Parent added successfully";
             return true;
         }
         else {
-            echo "An error occured.";
             return false;
         }
     }
+    function retrieve($id) {
+        $parent = new ParentDBO;
+        $data = $parent->select($id);
+    }
 }
-
 ?>
