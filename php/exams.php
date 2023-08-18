@@ -1,6 +1,5 @@
 <?php
 session_start();
-// print_r($_SESSION['applicant_data']);
 // print_r($_SESSION['exams']);
 ?>
 <!DOCTYPE html>
@@ -17,7 +16,7 @@ session_start();
     <header>
         <h1>Interview Pursuit Admission Test</h1>
     </header>
-    <form method="POST" action="../controllers/exams/exams_proc.php" class="manyQuestions">
+    <form method="POST" action="../controllers/exams/exams_proc.php?applicant_id=<?php echo $_SESSION['applicant_id'] ?>" class="manyQuestions">
         <?php foreach ($_SESSION["exams"] as $question) { ?>
 
             <div class="question">
@@ -54,7 +53,7 @@ session_start();
         <?php } ?>
 
         <input type="submit" id="submit" name="action" value="submit-exam">
-     
+        
     </form>
 
     <script>
