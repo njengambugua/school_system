@@ -14,6 +14,7 @@ body {
 .manyQuestions{
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
     width: 80%;
 }
 .manyQuestions > .question{

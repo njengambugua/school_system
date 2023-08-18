@@ -34,8 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $perc_score = ($marks / count($_SESSION['exams'])) * 100;
     if ($perc_score > 65) {
       header("Location: ../students/students_proc.php?applicant_id=" . $applicant_id);
+      unset($_SESSION['exams']);
     } else {
       echo "Sorry, Please try another day";
+      unset($_SESSION['exams']);
     }
   }
 }

@@ -39,6 +39,7 @@ body form div input{
     border-radius: 10px;
     border: 0;
     margin-top: 5px;
+    color: black;
 }
     body form #loginBtn{
         display: flex;
