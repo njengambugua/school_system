@@ -71,18 +71,44 @@ class Email
             $this->mail->Body = $body;
 
             if ($this->mail->send()) {
-                echo "Email sent <br><br>";
+                return true;
             } else {
                 echo "Something is wrong: <br><br>" . $this->mail->ErrorInfo;
+                return false;
             }
         } catch (\Throwable $th) {
-            echo "failed to send";
+            return false;
+        }
+    }
+
+
+    function sendHtml($address)
+    {
+
+        $page = file_get_contents($this->message);
+        $subject = $this->subject;
+
+        $replacements = array(
+            '{{ STUDENT_NAME }}' => 'Vincent',
+            '{{ STUDENT_REGNO }}' => 32843,
+            '{{ STUDENT_REG_MD5 }}'=> md5(32843)
+        );
+
+        $content = str_replace(array_keys($replacements), array_values($replacements), $page);
+        $this->mail->addAddress($address);
+        $this->mail->Subject = $subject;
+        $this->mail->Body = $content;
+        if ($this->mail->send()) {
+            return true;
+        } else {
+            echo "page not sent: <br><br>" . $this->mail->ErrorInfo;
+            return false;
         }
     }
 }
 
 
-$recipients = ['ndegwavincent7@gmail.com', 'vincentndungu393@gmail.com'];
-$email = new Email('Hello', 'Attendance');
-// $email->sendMany($recipients);
-$email->send('john898mbugua@gmail.com');
+
+
+$email = new Email('../sendEmail/failed.php', 'WiseDigits Academy Enrollment');
+$email->sendHtml('ndegwavincent7@gmail.com');
