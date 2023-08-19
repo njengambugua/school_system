@@ -28,40 +28,49 @@
     <main class="main">
       <div class="main-content-holder">
         <div id="date">
-            <p>August 9, 2023</p>
+            <!-- <p>August 9, 2023</p> -->
+            <form  method="post" action="" id="dayDiv">
+                <select name="day" id="days">
+                  <option selected disabled>Choose day</option>
+                  <option class="dayOptions" value="Monday">Monday</option>
+                  <option class="dayOptions" value="Tuesday">Tuesday</option>
+                  <option class="dayOptions" value="Wednesday">Wednesday</option>
+                  <option class="dayOptions" value="Thursday">Thursday</option>
+                  <option class="dayOptions" value="Friday">Friday</option>
+                </select>
+              <input type="submit" value="Sort" name="action" id="sortButton">
+            </form>
         </div>
         <!-- Classes -->
-        <div id="time_subject_details">
-            <div id='time'>08:00 - 10:00</div>
-            <div id='subject_details'>
-                <div id="subject">Mathematics</div>
-                <div id="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore autem ducimus, ullam, velit adipisci voluptatum id totam suscipit quos dolorum ipsum. Accusamus tenetur reiciendis praesentium reprehenderit mollitia dicta repudiandae quod.</div>
-            </div>
-        </div>
+        <?php
+        include("../../DB.php");
+        $db = new DatabaseConnection;
+        $conn = $db->getConnection();
 
-        <div id="time_subject_details">
-            <div id='time'>08:00 - 10:00</div>
-            <div id='subject_details'>
-                <div id="subject">Mathematics</div>
-                <div id="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore autem ducimus, ullam, velit adipisci voluptatum id totam suscipit quos dolorum ipsum. Accusamus tenetur reiciendis praesentium reprehenderit mollitia dicta repudiandae quod.</div>
-            </div>
-        </div>
-
-        <div id="time_subject_details">
-            <div id='time'>08:00 - 10:00</div>
-            <div id='subject_details'>
-                <div id="subject">Mathematics</div>
-                <div id="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore autem ducimus, ullam, velit adipisci voluptatum id totam suscipit quos dolorum ipsum. Accusamus tenetur reiciendis praesentium reprehenderit mollitia dicta repudiandae quod.</div>
-            </div>
-        </div>
-        <div id="time_subject_details">
-            <div id='time'>08:00 - 10:00</div>
-            <div id='subject_details'>
-                <div id="subject">Mathematics</div>
-                <div id="details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore autem ducimus, ullam, velit adipisci voluptatum id totam suscipit quos dolorum ipsum. Accusamus tenetur reiciendis praesentium reprehenderit mollitia dicta repudiandae quod.</div>
-            </div>
-        </div>
+        if (isset($_POST['action'])) {
+          $grade = 'Grade 1';
+          $retrieveCommand = "SELECT * FROM timetable INNER JOIN teachers ON timetable.teacher = teachers.id WHERE timetable.class = '$grade' AND timetable.day = '$_POST[day]'";
+          echo "<h1>$_POST[day]</h1>";
+          $results = $conn->query($retrieveCommand);
+          $resultsObj = $results->fetchAll(PDO::FETCH_OBJ);
+          foreach($resultsObj as $record) {
+              echo "
+              <div id='time_subject_details'>
+              <div id='time'>$record->period</div>
+              <div id='subject_details'>
+              <div id='subject'>$record->subject</div>
+              <div id='details'>$record->name<br>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum impedit officiis expedita voluptates soluta reprehenderit quae, dolorum asperiores ipsa sit hic perspiciatis minus, corrupti, dicta error? Natus atque ratione id.
+              </div>
+              </div>
+              </div>
+              ";
+          }
+        }
+        ?>
       </div>
     </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>

@@ -21,7 +21,7 @@
       $tableName = 'timetable';
       echo "
       <div id='date'>
-        <p>August 9, 2023</p>
+        <h1>August 9, 2023</h1>
       </div>
       ";
       ?>

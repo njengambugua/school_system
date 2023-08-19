@@ -91,7 +91,6 @@ class ParentDBO {
                 $deleteQuery = 'DELETE from parent where id=:id';
                 $stmt = $this->conn->prepare($deleteQuery);
                 $stmt->bindParam(':id', $id);
-
                 if($stmt->execute()) {
                     return true;
                 }

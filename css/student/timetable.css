@@ -10,9 +10,10 @@
     z-index: 2;
 }
 #date {
-    font-size: 2em;
-    margin-left: 100px;
-    color: var(--sec);
+    display: flex;
+    align-items: center;
+    height: 80px;
+    color: var(--sec)
 }
 #time_subject_details{
     display: flex;
@@ -38,4 +39,42 @@
 }
 #details {
     color: var(--pri);
+}
+#days {
+    border: none;
+    padding: 0 30px 0px 15px;
+    color: #fff;
+    background: var(--sec);
+    font-size: 20px;
+    width: 200px;
+    height: 40px;
+    caret-color: white;
+}
+.dayOptions{
+    font-size: 16px;
+}
+#timetableSortButton {
+    width: 100px;
+    height: fit-content;
+}
+#dayDiv{
+    display: flex;
+    gap: 30px;
+}
+ion-icon{
+    position: absolute;
+    width: 25px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#sortButton{
+    width: 70px;
+    border: 0;
+    color: #FFF;
+    background: var(--sec);
 }

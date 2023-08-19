@@ -31,9 +31,15 @@ class parent7 {
             return false;
         }
     }
+
     function retrieve($id) {
         $parent = new ParentDBO;
         $data = $parent->select($id);
+    }
+    
+    function remove($obj) {
+        $rmParent = new ParentDBO;
+        $rmParent->delete($obj->id);
     }
 }
 ?>
