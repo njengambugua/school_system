@@ -89,7 +89,7 @@
                 <td>$record->healthAndNutrition%</td>
                 <td>$record->movementAndCreatives%</td>
                 <td>";
-                  echo ((int)$record->english + (int)$record->mathematics + (int)$record->kiswahili + (int)$record->envitonmentalArt + (int)$record->religiousAct + (int)$record->healthAndNutrition + (int)$record->movementAndCreatives) / 7;"
+                  echo number_format(((int)$record->english + (int)$record->mathematics + (int)$record->kiswahili + (int)$record->envitonmentalArt + (int)$record->religiousAct + (int)$record->healthAndNutrition + (int)$record->movementAndCreatives) / 7, 2).'%';"
                 </td>
               </tr>
               ";
