@@ -32,7 +32,6 @@ class applicant_DBO
             $stmt->execute();
             $this->lastInsertId = $this->conn->lastInsertId();
             $_SESSION['applicant_id'] = $this->lastInsertId;
-            echo "<br>Applicant Id: ".$_SESSION['applicant_id'];
             return true;
         } catch (\Throwable $th) {
             return false;

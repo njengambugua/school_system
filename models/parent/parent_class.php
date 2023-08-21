@@ -34,6 +34,11 @@ class parent7 {
     function retrieve($id) {
         $parent = new ParentDBO;
         $data = $parent->select($id);
+        if ($data) {
+            return $data;
+        } else {
+            return false;
+        }
     }
 }
 ?>

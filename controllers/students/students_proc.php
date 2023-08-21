@@ -20,7 +20,6 @@ if ($_POST['action'] == 'Login') {
   $obj = (object)$_POST;
   if ($student->retrieve($obj)) {
     if ($student->numRows) {
-      $_SESSION['std_data'] = $student->data;
       header('Location: ../../php/student_page/student_page.php');
     } else{
       header("Location: ../../php/login.php");

@@ -1,8 +1,6 @@
 <?php
 include('../../DB.php');
 
-$obj = $_SESSION['obj'];
-
 class ParentDBO {
     // Public Connection
     public $query;
@@ -19,7 +17,7 @@ class ParentDBO {
         try {
             $query = "INSERT INTO parent(Name, Gender, Occupation, Relationship, Contact, Email, Location, Religion, applicant_id)
             VALUES(:Name, :Gender, :Occupation, :Relationship, :Contact, :Email, :Location, :Religion, :applicant_id)";
-            echo "<br>".$query;
+            // echo "<br>".$query;
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(":Name", $obj->name);
             $stmt->bindParam(":Gender", $obj->gender);
@@ -38,72 +36,74 @@ class ParentDBO {
         }
         catch (\Throwable $th) {
             throw $th;
+            return false;
         }
     }
 
     function select($id) {
         try{
             if(isset($id)) {
-                $selectQuery = "SELECT * FROM parent WHERE id = :id";
+                $selectQuery = "SELECT * FROM parent WHERE id=:id";
                 $stmt = $this->conn->prepare($selectQuery);
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+                $stmt->bindParam(':id', $id);
                 $stmt->execute();
-                $selectResults = $stmt->fetchAll(PDO::FETCH_OBJ);
+                $selectResults = $stmt->fetch(PDO::FETCH_OBJ);
 
                 return $selectResults;
             }
             else{
                 $selectQuery = "SELECT * FROM parent";
-                $stmt = $this->conn->prepare($selectQuery);
+                $stmt = $this->conn->query($selectQuery);
                 $stmt->execute();
                 $selectResults = $stmt->fetchAll(PDO::FETCH_OBJ);
 
                 return $selectResults;
             }
         }
-        catch(\Throwable) {
+        catch(\Throwable $th) {
+            throw $th;
             return false;
         }
     }
-    function update($id, $data) {
-        try {
-            foreach($data as $key => $value) {
-                $updateQuery = "UPDATE parent SET $key = :value WHERE id = :id";
-                $stmt = $this->conn->prepare($updateQuery);
-                $stmt->bindParam(':value', $value);
-                $stmt->bindParam(':id', $id);
+//     function update($id, $data) {
+//         try {
+//             foreach($data as $key => $value) {
+//                 $updateQuery = "UPDATE parent SET $key = :value WHERE id = :id";
+//                 $stmt = $this->conn->prepare($updateQuery);
+//                 $stmt->bindParam(':value', $value);
+//                 $stmt->bindParam(':id', $id);
 
-                if ($stmt->execute()) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-        }
-        catch (Throwable $th) {
-            throw new Exception('Error: '.$th->getMessage());
-        }
-    }
-    function delete($id) {
-        try {
-            if(isset($id)) {
-                $deleteQuery = 'DELETE from parent where id=:id';
-                $stmt = $this->conn->prepare($deleteQuery);
-                $stmt->bindParam(':id', $id);
+//                 if ($stmt->execute()) {
+//                     return true;
+//                 }
+//                 else {
+//                     return false;
+//                 }
+//             }
+//         }
+//         catch (Throwable $th) {
+//             throw new Exception('Error: '.$th->getMessage());
+//         }
+//     }
+//     function delete($id) {
+//         try {
+//             if(isset($id)) {
+//                 $deleteQuery = 'DELETE from parent where id=:id';
+//                 $stmt = $this->conn->prepare($deleteQuery);
+//                 $stmt->bindParam(':id', $id);
 
-                if($stmt->execute()) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            }
-        }
-        catch (Throwable $th) {
-            throw new Exception('Error: '.$th->getMessage());
-        }
-    }
+//                 if($stmt->execute()) {
+//                     return true;
+//                 }
+//                 else {
+//                     return false;
+//                 }
+//             }
+//         }
+//         catch (Throwable $th) {
+//             throw new Exception('Error: '.$th->getMessage());
+//         }
+//     }
 }
-echo "<h3>Parent DBO ended</h3>";
+// echo "<h3>Parent DBO ended</h3>";
 ?>

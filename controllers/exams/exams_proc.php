@@ -42,12 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 
-
-
 if (isset($_GET['level'])) {
-  // echo "level is:". $_GET['level'];
-
-
   $exam = new exams;
   $level = $_GET['level'];
   $exams_data = $exam->retrieve($level);
