@@ -19,10 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         if ($status) {
             $student_regno = $data->regno;
             $email = new Email('../../sendEmail/passes.php', 'WiseDigits Academy Enrollment');
-            $email->sendHtml($data->Email, $student_name, $student_regno);
+            if ($email->sendHtml($data->Email, $student_name, $student_regno)) {
+                header('Location: ../../php/admission.php');
+            }
         } else {
             $email = new Email("../../sendEmail/failed.php", 'WiseDigits Academy Enrollment');
-            $email->sendHtml($data->Email, $student_name, '000'); // Assuming '000' is a string
+            if ($email->sendHtml($data->Email, $student_name, '000')) {
+                header('Location: ../../php/admission.php');
+            }
         }
     } else {
         echo "failed to fetch data";
