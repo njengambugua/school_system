@@ -4,7 +4,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 use PHPMailer\PHPMailer\PHPMailer;
-
 require('../vendor/autoload.php');
 
 class Email
@@ -82,16 +81,16 @@ class Email
     }
 
 
-    function sendHtml($address)
+    function sendHtml($address,$student_name,$student_regno)
     {
 
         $page = file_get_contents($this->message);
         $subject = $this->subject;
 
         $replacements = array(
-            '{{ STUDENT_NAME }}' => 'Vincent',
-            '{{ STUDENT_REGNO }}' => 32843,
-            '{{ STUDENT_REG_MD5 }}'=> md5(32843)
+            '{{ STUDENT_NAME }}' => $student_name,
+            '{{ STUDENT_REGNO }}' => $student_regno,
+            '{{ STUDENT_REG_MD5 }}'=> md5($student_regno)
         );
 
         $content = str_replace(array_keys($replacements), array_values($replacements), $page);
@@ -111,4 +110,4 @@ class Email
 
 
 $email = new Email('../sendEmail/failed.php', 'WiseDigits Academy Enrollment');
-$email->sendHtml('ndegwavincent7@gmail.com');
+$email->sendHtml('ndegwavincent7@gmail.com',"Vincent", "STD23");
