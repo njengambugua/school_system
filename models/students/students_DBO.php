@@ -42,14 +42,13 @@ class students_DBO
   function select($obj)
   {
     try {
-      $this->query = "SELECT * FROM students WHERE regno=:regno AND password=:password";
+      $this->query = "SELECT * FROM students s JOIN applicant a ON a.id=s.applicant_id JOIN parent p ON p.applicant_id=s.applicant_id WHERE s.regno=:regno AND s.password=:password";
       $this->stmt = $this->conn->prepare($this->query);
       $this->stmt->bindParam(':regno', $obj->regno);
       $this->stmt->bindParam(':password', $obj->password);
       $this->stmt->execute();
       $this->numRows = $this->stmt->rowCount();
       $this->res = $this->stmt->fetch(PDO::FETCH_OBJ);
-      $_SESSION['res'] = $this->res;
       if (!$this->res) {
         $_SESSION['error'] = 'This account does not exist';
       } else {

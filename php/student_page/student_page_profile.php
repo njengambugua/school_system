@@ -35,12 +35,12 @@
       <article class="student">
         <div class="desc"><h1>Student Details</h1></div>
         <div class="student_details">
-          <div><span>Name: Marcos M</span></div>
-          <div><span>Reg No: RWX</span></div>
-          <div><span>Age: 12</span></div>
-          <div><span>Level: Grade 1</span></div>
-          <div><span>Gender: Male</span></div>
-          <div><span>Religion: Christian</span></div>
+          <div><span>Name: <?php echo $_SESSION['res']->Name?></span></div>
+          <div><span>Reg No: <?php echo $_SESSION['res']->regno?></span></div>
+          <div><span>Age: <?php echo $_SESSION['res']->Age?></span></div>
+          <div><span>Level: <?php echo $_SESSION['res']->Level?></span></div>
+          <div><span>Gender: <?php echo $_SESSION['res']->Gender?></span></div>
+          <div><span>Religion: <?php echo $_SESSION['res']->Religion?></span></div>
         </div>
         <div class="avatar img">
           <img src="../../images/yellow_grt.jpg" alt="profile image" />
@@ -49,13 +49,14 @@
       <article class="parent">
         <div class="desc"><h1>Parent Details</h1></div>
         <div class="parent_details">
-          <div><span>Name: Mary M</span></div>
-          <div><span>Contact: 0712345678</span></div>
-          <div><span>Email: test@example.com</span></div>
-          <div><span>Gender: Female</span></div>
-          <div><span>Religion: Christian</span></div>
-          <div><span>Location: Nairobi</span></div>
-          <div><span>Relationship: Mother</span></div>
+          <div><span>Name: <?php echo $_SESSION['res']->Name?></span></div>
+          <div><span>Contact: <?php echo $_SESSION['res']->Contact?></span></div>
+          <div><span>Email: <?php echo $_SESSION['res']->Email?></span></div>
+          <div><span>Gender: <?php echo $_SESSION['res']->Gender?></span></div>
+          <div><span>Religion: <?php echo $_SESSION['res']->Religion?></span></div>
+          <div><span>Location: <?php echo $_SESSION['res']->Location?></span></div>
+          <div><span>Relationship: <?php echo $_SESSION['res']->Relationship?></span></div>
+          <div><span>Occupation: <?php echo $_SESSION['res']->Occupation?></span></div>
         </div>
       </article>
     </div>
