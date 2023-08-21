@@ -1,7 +1,8 @@
 <?php
 include('parent_DBO.php');
 
-class parent7 {
+class parent7
+{
     public $name;
     public $gender;
     public $occupation;
@@ -11,7 +12,12 @@ class parent7 {
     public $relationship;
     public $location;
 
-    function __construct($obj) {
+    function __construct()
+    {
+    }
+
+    function create($obj)
+    {
         $this->name = $obj->parentName;
         $this->gender = $obj->parentGender;
         $this->occupation = $obj->parentOccupation;
@@ -20,19 +26,16 @@ class parent7 {
         $this->religion = $obj->parentReligion;
         $this->relationship = $obj->parentRelationship;
         $this->location = $obj->parentLocation;
-    }
-
-    function create() {
         $parent = new ParentDBO();
         if ($parent->insert($this)) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
-    function retrieve($id) {
+    function retrieve($id)
+    {
         $parent = new ParentDBO;
         $data = $parent->select($id);
         if ($data) {
@@ -41,5 +44,15 @@ class parent7 {
             return false;
         }
     }
+
+    function applicant_parent($id,$status)
+    {
+        $parent = new ParentDBO;
+        $data = $parent->join_applicant_parent($id,$status);
+        if ($data) {
+            return $data;
+        } else {
+            return false;
+        }
+    }
 }
-?>

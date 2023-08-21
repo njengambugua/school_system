@@ -4,7 +4,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 use PHPMailer\PHPMailer\PHPMailer;
-require('../vendor/autoload.php');
+
+require(__DIR__ . '/../vendor/autoload.php');
+
 
 class Email
 {
@@ -81,7 +83,7 @@ class Email
     }
 
 
-    function sendHtml($address,$student_name,$student_regno)
+    function sendHtml($address, $student_name, $student_regno)
     {
 
         $page = file_get_contents($this->message);
@@ -90,14 +92,16 @@ class Email
         $replacements = array(
             '{{ STUDENT_NAME }}' => $student_name,
             '{{ STUDENT_REGNO }}' => $student_regno,
-            '{{ STUDENT_REG_MD5 }}'=> md5($student_regno)
+            '{{ STUDENT_REG_MD5 }}' => md5($student_regno)
         );
 
         $content = str_replace(array_keys($replacements), array_values($replacements), $page);
         $this->mail->addAddress($address);
         $this->mail->Subject = $subject;
         $this->mail->Body = $content;
+
         if ($this->mail->send()) {
+            echo "Email send to ". $address;
             return true;
         } else {
             echo "page not sent: <br><br>" . $this->mail->ErrorInfo;
@@ -106,8 +110,5 @@ class Email
     }
 }
 
-
-
-
-$email = new Email('../sendEmail/failed.php', 'WiseDigits Academy Enrollment');
-$email->sendHtml('ndegwavincent7@gmail.com',"Vincent", "STD23");
+// $email = new Email('../sendEmail/failed.php', 'WiseDigits Academy Enrollment');
+// $email->sendHtml('ndegwavincent7@gmail.com', "Vincent", "STD23");
