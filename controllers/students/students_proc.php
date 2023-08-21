@@ -8,9 +8,10 @@ if (isset($_GET['applicant_id'])) {
   $regno = "SDT".$_GET['applicant_id'];
   $obj->regno = $regno;
   $obj->applicant_id = $_GET['applicant_id'];
-  ;
+  $status = $_GET['status'];
   if ($student->create($obj)) {
-    header('Location: ../../php/login.php');
+    header("Location: ../EmailSender/email_sender_proc.php?applicant_id=" . $obj->applicant_id . "&status=" . $status);
+    // header('Location: ../../php/login.php');
   } else {
     echo 'Error creating Student: ';
   }
