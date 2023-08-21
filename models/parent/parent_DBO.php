@@ -65,45 +65,6 @@ class ParentDBO {
             return false;
         }
     }
-//     function update($id, $data) {
-//         try {
-//             foreach($data as $key => $value) {
-//                 $updateQuery = "UPDATE parent SET $key = :value WHERE id = :id";
-//                 $stmt = $this->conn->prepare($updateQuery);
-//                 $stmt->bindParam(':value', $value);
-//                 $stmt->bindParam(':id', $id);
 
-//                 if ($stmt->execute()) {
-//                     return true;
-//                 }
-//                 else {
-//                     return false;
-//                 }
-//             }
-//         }
-//         catch (Throwable $th) {
-//             throw new Exception('Error: '.$th->getMessage());
-//         }
-//     }
-//     function delete($id) {
-//         try {
-//             if(isset($id)) {
-//                 $deleteQuery = 'DELETE from parent where id=:id';
-//                 $stmt = $this->conn->prepare($deleteQuery);
-//                 $stmt->bindParam(':id', $id);
-
-//                 if($stmt->execute()) {
-//                     return true;
-//                 }
-//                 else {
-//                     return false;
-//                 }
-//             }
-//         }
-//         catch (Throwable $th) {
-//             throw new Exception('Error: '.$th->getMessage());
-//         }
-//     }
 }
-// echo "<h3>Parent DBO ended</h3>";
 ?>

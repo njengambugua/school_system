@@ -128,7 +128,7 @@ LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+-- !40103 SET TIME_ZONE=@OLD_TIME_ZONE;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
@@ -140,3 +140,22 @@ UNLOCK TABLES;
 
 -- Dump completed on 2023-08-11 11:25:02
 
+CREATE TABLE academics(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  studentId INT FOREIGN KEY REFERENCES students.id,
+  mathematics INT,
+  english INT,
+  kiswahili INT,
+  envitonmentalArt INT,
+  religiousAct INT,
+  healthAndNutrition INT,
+  movementAndCreatives INT,
+);
+
+
+
+SELECT `Name`, regno, english, mathematics, kiswahili, `envitonmentalArt`, `religiousAct`,  `healthAndNutrition`, `movementAndCreatives`
+FROM academics
+INNER JOIN applicant
+INNER JOIN students
+ON academics.id = applicant.id = students.applicant_id;
