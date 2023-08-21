@@ -101,12 +101,14 @@ class Email
         $this->mail->Body = $content;
 
         if ($this->mail->send()) {
-            echo "Email send to ". $address;
+            echo "Email send to " . $address;
             return true;
         } else {
             echo "page not sent: <br><br>" . $this->mail->ErrorInfo;
             return false;
         }
+
+        header("../php/admission.php");
     }
 }
 
