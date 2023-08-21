@@ -20,7 +20,6 @@ class students{
     $this->obj = new stdClass;
     $this->obj->id = $obj->id;
     $this->obj->regno = $obj->regno;
-    $this->obj->applicant_id = $obj->applicant_id;
     $this->obj->password = $obj->password;
   }
   
