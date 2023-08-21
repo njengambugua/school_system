@@ -41,10 +41,5 @@ class parent7 {
             return false;
         }
     }
-    
-    function remove($obj) {
-        $rmParent = new ParentDBO;
-        $rmParent->delete($obj->id);
-    }
 }
 ?>
