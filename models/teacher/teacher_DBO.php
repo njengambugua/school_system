@@ -18,6 +18,4 @@ class teacherDBO{
     $this->stmt->execute();
     $this->lastInsertId = $this->conn->lastInsertId();
   }
-
-  function 
 }

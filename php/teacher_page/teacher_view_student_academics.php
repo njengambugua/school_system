@@ -11,9 +11,7 @@
 <body>
   <?php
   include('../../php/teacher_navbar.php');
-  include("../../DB.php");
-  $db = new DatabaseConnection;
-  $conn = $db->getConnection();
+  include("../../controllers/students/retrieve_student_academics.php"); //Returns an object called $academics
   ?>
   <main class="main">
     <div class="main-content-holder">
@@ -55,7 +53,7 @@
         <table class="table table-bordered table-academics">
           <thead class="thead-academics">
             <th scope="col">Student Name</th>
-            <th scope="col">Reg No</th>
+            <!-- <th scope="col">Reg No</th> -->
             <th scope="col">English</th>
             <th scope="col">Maths</th>
             <th scope="col">Kiswahili</th>
@@ -67,20 +65,10 @@
           </thead>
           <tbody class="tbody-academics">
             <?php
-            $retrieveRecord = 
-            "SELECT `Name`, regno, english, mathematics, kiswahili, `envitonmentalArt`, `religiousAct`,  `healthAndNutrition`, `movementAndCreatives`
-            FROM academics
-            INNER JOIN applicant
-            INNER JOIN students
-            ON academics.id = applicant.id = students.applicant_id";
-
-            $results = $conn->query($retrieveRecord);
-            $academics = $results->fetchAll(PDO::FETCH_OBJ);
             foreach($academics as $record) {
               echo "
               <tr>
                 <td>$record->Name</td>
-                <td>$record->regno</td>
                 <td>$record->english%</td>
                 <td>$record->mathematics%</td>
                 <td>$record->kiswahili%</td>

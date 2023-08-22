@@ -75,4 +75,25 @@ class students_DBO
       return false;
     }
   }
+  
+  function studentAcademics(){
+    try {
+      $retrieveRecord =
+        "SELECT `Name`, regno, english, mathematics, kiswahili, `envitonmentalArt`, `religiousAct`,  `healthAndNutrition`, `movementAndCreatives`
+        FROM academics
+        INNER JOIN applicant
+        INNER JOIN students
+        ON academics.studentId = applicant.id = students.applicant_id
+        -- WHERE Level = 'pp1'
+        ";
+
+      $results = $this->conn->query($retrieveRecord);
+      $academics = $results->fetchAll(PDO::FETCH_OBJ);
+      return $academics;
+    }
+    catch (Throwable $th){
+      throw $th;
+    }
+  }
+
 }

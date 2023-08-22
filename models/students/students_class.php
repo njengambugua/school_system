@@ -59,6 +59,9 @@ class students{
     } else {
       return false;
     }
-    
+  }
+
+  public function readAcademics(){
+    return $this->studentsObj->studentAcademics();
   }
 }
