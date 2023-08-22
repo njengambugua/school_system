@@ -9,36 +9,20 @@
 <body>
   <?php
   include('../../php/teacher_navbar.php');
-  include('../../DB.php');
-
-  // Creating an object of the class
-  $dbConnection = new DatabaseConnection();
-  $conn = $dbConnection->getConnection();
+  
   ?>
   <main class="main">
-      <div class="main-content-holder">
+    <div class="main-content-holder">
       <?php
       $tableName = 'timetable';
       echo "
       <div id='date'>
-        <h1>August 9, 2023</h1>
+      <h1>August 9, 2023</h1>
       </div>
       ";
       ?>
       <?php
-      // Retrieving the rest of the data
-          // Assuming the teacher's ID
-      $_SESSION['teacher'] = 3;
-      $day = 'Monday';
-      // $day = 'Tuesday';
-      // $day = 'Wednesday';
-      // $day = 'Thursday';
-      // $day = 'Friday';
-      $retrieveAllData = "SELECT * FROM ".$tableName." WHERE teacher = ".$_SESSION['teacher'];
-      // $retrieveAllData = "SELECT * FROM ".$tableName." WHERE day = '$day' and teacher = ".$_SESSION['teacher'];
-      // $retrieveAllData = "SELECT * FROM ".$tableName." WHERE day = '$day' and class = 'Grade 1'";
-      // echo $retrieveAllData;
-      $dataResults = $conn->query($retrieveAllData);
+      include("../../controllers/teacher/timetable_proc.php");
       $dataObj = $dataResults->fetchAll(PDO::FETCH_OBJ);
 
       foreach ($dataObj as $task) {
