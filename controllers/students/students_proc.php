@@ -5,7 +5,7 @@ $student = new students;
 
 if (isset($_GET['applicant_id'])) {
   $obj = new stdClass;
-  $regno = "SDT".$_GET['applicant_id'];
+  $regno = "SDT" . $_GET['applicant_id'];
   $obj->regno = $regno;
   $obj->applicant_id = $_GET['applicant_id'];
   $status = $_GET['status'];
@@ -21,9 +21,9 @@ if ($_POST['action'] == 'Login') {
   $obj = (object)$_POST;
   if ($student->retrieve($obj)) {
     if ($student->numRows) {
-      $student->data;
+      $_SESSION['res'] = $student->data;
       header("Location: ../../php/student_page/student_page.php");
-    } else{
+    } else {
       header("Location: ../../php/login.php");
     }
   } else {

@@ -49,10 +49,10 @@
       <article class="parent">
         <div class="desc"><h1>Parent Details</h1></div>
         <div class="parent_details">
-          <div><span>Name: <?php echo $_SESSION['res']->Name?></span></div>
+          <div><span>Name: <?php echo $_SESSION['res']->Parent_Name?></span></div>
           <div><span>Contact: <?php echo $_SESSION['res']->Contact?></span></div>
           <div><span>Email: <?php echo $_SESSION['res']->Email?></span></div>
-          <div><span>Gender: <?php echo $_SESSION['res']->Gender?></span></div>
+          <div><span>Gender: <?php echo $_SESSION['res']->Parent_Gender?></span></div>
           <div><span>Religion: <?php echo $_SESSION['res']->Religion?></span></div>
           <div><span>Location: <?php echo $_SESSION['res']->Location?></span></div>
           <div><span>Relationship: <?php echo $_SESSION['res']->Relationship?></span></div>

@@ -140,9 +140,9 @@ UNLOCK TABLES;
 
 -- Dump completed on 2023-08-11 11:25:02
 
-CREATE TABLE academics(
+CREATE TABLE academics (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  studentId INT FOREIGN KEY REFERENCES students.id,
+  studentId INT,
   mathematics INT,
   english INT,
   kiswahili INT,
@@ -150,9 +150,8 @@ CREATE TABLE academics(
   religiousAct INT,
   healthAndNutrition INT,
   movementAndCreatives INT,
+  FOREIGN KEY (studentId) REFERENCES students(id)
 );
-
-
 
 SELECT `Name`, regno, english, mathematics, kiswahili, `envitonmentalArt`, `religiousAct`,  `healthAndNutrition`, `movementAndCreatives`
 FROM academics
