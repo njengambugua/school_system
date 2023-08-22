@@ -17,8 +17,8 @@ if (isset($_GET['applicant_id'])) {
   }
 }
 
-if ($_POST['action'] == 'Login') {
-  $obj = (object)$_POST;
+if ($_SESSION['loginData']['action'] == 'Login') {
+  $obj = (object)$_SESSION['loginData'];
   if ($student->retrieve($obj)) {
     if ($student->numRows) {
       $_SESSION['res'] = $student->data;
