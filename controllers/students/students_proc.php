@@ -17,16 +17,32 @@ if (isset($_GET['applicant_id'])) {
   }
 }
 
-if ($_SESSION['loginData']['action'] == 'Login') {
+if (isset($_SESSION['loginData']) && $_SESSION['loginData']['action'] == 'Login') {
   $obj = (object)$_SESSION['loginData'];
   if ($student->retrieve($obj)) {
     if ($student->numRows) {
       $_SESSION['res'] = $student->data;
+      unset($_SESSION['loginData']);
       header("Location: ../../php/student_page/student_page.php");
     } else {
+      unset($_SESSION['loginData']);
       header("Location: ../../php/login.php");
     }
   } else {
     $error = $student->error;
+  }
+}
+
+
+
+if ($_SERVER['REQUEST_METHOD'] == "GET") {
+  if (isset($_GET['student_regno'])) {
+    if ($student->getStudent($_GET['student_regno'])) {
+      $data = $student->data;
+      $_SESSION['student_data'] = $data;
+      header("Location: ../../php/teacher_page/teacher_view_student_profile.php");
+    } else {
+      echo "data no found";
+    }
   }
 }

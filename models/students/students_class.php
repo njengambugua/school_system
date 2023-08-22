@@ -1,6 +1,7 @@
 <?php
 include('students_DBO.php');
-class students{
+class students
+{
   public $regno;
   public $applicant_id;
   public $studentsObj;
@@ -16,44 +17,48 @@ class students{
     $this->error = $this->studentsObj->error;
   }
 
-  function setObj($obj){
+  function setObj($obj)
+  {
     $this->obj = new stdClass;
     $this->obj->id = $obj->id;
     $this->obj->regno = $obj->regno;
     $this->obj->password = $obj->password;
   }
-  
+
   function getObj()
   {
     return $this->obj;
   }
 
-  public function create($obj){
+  public function create($obj)
+  {
     $this->setObj($obj);
     $this->getObj();
     if ($this->studentsObj->insert($obj)) {
       $this->lastInsertId = $this->studentsObj->lastInsertId;
       return true;
-    } else{
+    } else {
       $this->error = $this->studentsObj->error;
       return false;
     }
   }
 
-  public function retrieve($obj) {
+  public function retrieve($obj)
+  {
     $this->setObj($obj);
     $this->getObj();
     if ($this->studentsObj->select($obj)) {
       $this->numRows = $this->studentsObj->numRows;
       $this->data = $this->studentsObj->res;
       return true;
-    } else{
+    } else {
       $this->error = $this->studentsObj->error;
       return false;
     }
   }
 
-  public function remove($id){
+  public function remove($id)
+  {
     if ($this->studentsObj->delete($id)) {
       return true;
     } else {
@@ -61,7 +66,21 @@ class students{
     }
   }
 
-  public function readAcademics(){
+  public function readAcademics()
+  {
     return $this->studentsObj->studentAcademics();
+  }
+
+
+  public function getStudent($regno)
+  {
+    if ($this->studentsObj->find_by_regno($regno)) {
+      $this->data = $this->studentsObj->res;
+      $this->numRows = $this->studentsObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->studentsObj->error;
+      return false;
+    }
   }
 }
