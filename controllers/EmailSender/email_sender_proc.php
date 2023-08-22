@@ -20,12 +20,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $student_regno = $data->regno;
             $email = new Email('../../sendEmail/passes.php', 'WiseDigits Academy Enrollment');
             if ($email->sendHtml($data->Email, $student_name, $student_regno)) {
-                header('Location: ../../php/admission.php');
+                header('Location: ../../index.php');
             }
         } else {
             $email = new Email("../../sendEmail/failed.php", 'WiseDigits Academy Enrollment');
             if ($email->sendHtml($data->Email, $student_name, '000')) {
-                header('Location: ../../php/admission.php');
+                header('Location: ../../index.php');
             }
         }
     } else {
