@@ -42,6 +42,15 @@ CREATE TABLE
         FOREIGN KEY (subject_id) REFERENCES subjects(id)
     );
 
+CREATE TABLE 
+    fee(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        Bank_Name VARCHAR(255),
+        Date_paid DATE, Amount INT(11),
+        studentId INT,
+        FOREIGN KEY (studentId) REFERENCES students(id)
+    );
+
 DELETE FROM applicant;
 
 ALTER TABLE applicant AUTO_INCREMENT = 1;
