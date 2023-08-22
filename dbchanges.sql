@@ -1,8 +1,31 @@
+-- 22nd August 2023--------------------------------
+
+alter table teachers DROP COLUMN level;
+
+CREATE TABLE
+    level(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        level VARCHAR(11)
+    );
+
+CREATE TABLE
+    teacher_level(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        teacher_id INT,
+        level_id INT,
+        FOREIGN KEY (teacher_id) REFERENCES teachers(id),
+        FOREIGN KEY(level_id) REFERENCES level(id)
+    );
+
+-- 11:50--
+
 ALTER TABLE teachers ADD COLUMN staff_no VARCHAR(11);
 
 ALTER TABLE teachers ADD COLUMN password VARCHAR(255);
 
 ALTER TABLE teachers ADD COLUMN level VARCHAR(10);
+
+--======PASSED 22=======
 
 ALTER TABLE students
 ADD
@@ -50,11 +73,12 @@ CREATE TABLE
         FOREIGN KEY (subject_id) REFERENCES subjects(id)
     );
 
-CREATE TABLE 
+CREATE TABLE
     fee(
         id INT AUTO_INCREMENT PRIMARY KEY,
         Bank_Name VARCHAR(255),
-        Date_paid DATE, Amount INT(11),
+        Date_paid DATE,
+        Amount INT(11),
         studentId INT,
         FOREIGN KEY (studentId) REFERENCES students(id)
     );
