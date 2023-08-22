@@ -1,3 +1,7 @@
+ALTER TABLE teachers ADD COLUMN staff_no VARCHAR(11);
+
+ALTER TABLE teachers ADD COLUMN password VARCHAR(255);
+
 ALTER TABLE teachers ADD COLUMN level VARCHAR(10);
 
 ALTER TABLE students
