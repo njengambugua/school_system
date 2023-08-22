@@ -1,4 +1,8 @@
-ALTER TABLE students ADD COLUMN password VARCHAR(255) DEFAULT '12345678';
+ALTER TABLE teachers ADD COLUMN level VARCHAR(10);
+
+ALTER TABLE students
+ADD
+    COLUMN password VARCHAR(255) DEFAULT '12345678';
 
 ALTER TABLE applicant CHANGE `Level of education` Level VARCHAR(255);
 
