@@ -83,7 +83,7 @@ class Email
     }
 
 
-    function sendHtml($address, $student_name, $student_regno)
+    function sendHtml($address, $student_name, $student_regno, $applicant_id)
     {
 
         $page = file_get_contents($this->message);
@@ -92,7 +92,7 @@ class Email
         $replacements = array(
             '{{ STUDENT_NAME }}' => $student_name,
             '{{ STUDENT_REGNO }}' => $student_regno,
-            '{{ STUDENT_REG_MD5 }}' => md5($student_regno)
+            '{{ STUDENT_REG_MD5 }}' => $applicant_id
         );
 
         $content = str_replace(array_keys($replacements), array_values($replacements), $page);

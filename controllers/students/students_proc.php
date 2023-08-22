@@ -45,4 +45,28 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
       echo "data no found";
     }
   }
+
+  if (isset($_GET['grade']) && isset($_GET['subject'])) {
+    $obj = (object)$_GET;
+    if ($student->getStudentAttendance($obj)) {
+      $_SESSION['teacher_related'] = $student->data;
+      header("Location: ../../php/teacher_page/teacher_page_mark_attendance.php");
+    } else {
+      echo "Failed: " . $student->error;
+    }
+  }
+
+
+  if (isset($_GET['id'])) {
+    print_r($_GET);
+    if ($student->studentDetails($_GET['id'])) {
+      $_SESSION['reg_details'] = $student->data;
+      if ($student->readSubjects()) {
+        $_SESSION['subjects'] = $student->data;
+        header('Location: ../../php/student_page/student_page_register_subjects.php');
+      }
+    } else {
+      echo "Failed: " . $student->error;
+    }
+  }
 }
