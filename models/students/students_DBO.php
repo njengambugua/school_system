@@ -75,8 +75,9 @@ class students_DBO
       return false;
     }
   }
-  
-  function studentAcademics(){
+
+  function studentAcademics()
+  {
     try {
       $retrieveRecord =
         "SELECT `Name`, regno, english, mathematics, kiswahili, `envitonmentalArt`, `religiousAct`,  `healthAndNutrition`, `movementAndCreatives`
@@ -90,10 +91,26 @@ class students_DBO
       $results = $this->conn->query($retrieveRecord);
       $academics = $results->fetchAll(PDO::FETCH_OBJ);
       return $academics;
-    }
-    catch (Throwable $th){
+    } catch (Throwable $th) {
       throw $th;
     }
   }
 
+  function find_by_regno($regno)
+  {
+    try {
+      $this->query = "SELECT * FROM students s JOIN applicant a ON a.id=s.applicant_id JOIN parent p ON p.applicant_id=s.applicant_id WHERE s.regno=:regno";
+      $this->stmt = $this->conn->prepare($this->query);
+      $this->stmt->bindParam("regno", $regno);
+      $this->stmt->execute();
+
+      $this->numRows = $this->stmt->rowCount();
+
+      $this->res = $this->stmt->fetch(PDO::FETCH_OBJ);
+      return true;
+    } catch (PDOException $th) {
+      $this->error = $th->getMessage();
+      return false;
+    }
+  }
 }

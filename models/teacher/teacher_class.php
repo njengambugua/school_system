@@ -61,4 +61,30 @@ class Teacher
             return false;
         }
     }
+
+
+    public function retrieveTeacherLevel($id)
+    {
+        if ($this->teacherObj->selectLevel($id)) {
+            $this->data = $this->teacherObj->res;
+            $this->numRows = $this->teacherObj->numRows;
+            return true;
+        } else {
+            $this->error = $this->teacherObj->error;
+            return false;
+        }
+    }
+
+
+    public function retrieveTeacherSubjects($id)
+    {
+        if ($this->teacherObj->selectSubject($id)) {
+            $this->data = $this->teacherObj->res;
+            $this->numRows = $this->teacherObj->numRows;
+            return true;
+        } else {
+            $this->error = $this->teacherObj->error;
+            return false;
+        }
+    }
 }
