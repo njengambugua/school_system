@@ -118,13 +118,13 @@ class students_DBO
   public function selectStudentAttendance($obj)
   {
     try {
-      $this->query = "SELECT * FROM students s JOIN applicant a ON s.applicant_id = a.id JOIN student_subject ss ON ss.student_id = s.id JOIN subjects sj ON ss.subject_id = sj.id WHERE a.Level = :grade AND WHERE sj.subjectName = :subject";
+      $this->query = "SELECT * FROM students s JOIN applicant a ON s.applicant_id = a.id JOIN student_subject ss ON ss.student_id = s.id JOIN subjects sj ON ss.subject_id = sj.id WHERE a.Level = :grade AND sj.subjectName = :subject";
       $this->stmt = $this->conn->prepare($this->query);
       $this->stmt->bindParam("grade", $obj->grade);
       $this->stmt->bindParam("subject", $obj->subject);
       $this->stmt->execute();
 
-      $this->res = $this->stmt->fetch(PDO::FETCH_OBJ);
+      $this->res = $this->stmt->fetchAll(PDO::FETCH_OBJ);
       return true;
     } catch (PDOException $e) {
       $this->error = $e->getMessage();

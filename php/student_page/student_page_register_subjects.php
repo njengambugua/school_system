@@ -25,16 +25,17 @@ if (isset($_SESSION['reg_details']) && isset($_SESSION['subjects'])) {
         <p>Pleae fill the form to complete your Registration</p>
     </div>
     <div class="form-container">
-        <form action="" method="post">
+        <form action="../../controllers/student_teacher_subjects/subjects.php" method="post">
+            <input type="hidden" name="studentId" value="<?php echo $reg_student->id ?>">
             <div class="mb-3">
                 <label for="" class="form-control label">
                     Registration Number:
-                    <input class="form-control" type="text" value="<?php echo $reg_student->regno ?>" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" name="regno" value="<?php echo $reg_student->regno ?>" aria-label="Disabled input example" readonly>
                 </label>
 
                 <label for="" class="form-control label">
                     Student Level Of Education:
-                    <input class="form-control" type="text" value="<?php echo $reg_student->Level ?>" aria-label="Disabled input example" disabled readonly>
+                    <input class="form-control" type="text" name="level" value="<?php echo $reg_student->Level ?>" aria-label="Disabled input example" readonly>
                 </label>
             </div>
             <h4 class="continuation-header">Please select the Subjects Accordingly</h4>
@@ -42,7 +43,7 @@ if (isset($_SESSION['reg_details']) && isset($_SESSION['subjects'])) {
                 <?php foreach ($subjects as $subject) { ?>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="<?php echo $subject->id ?>" id="flexCheckDefault" required>
+                        <input class="form-check-input" name="<?php echo $subject->subjectName ?>" type="checkbox" value="<?php echo $subject->id ?>" id="flexCheckDefault">
                         <label class="form-check-label" for="flexCheckDefault">
                             <?php echo $subject->subjectName ?>
                         </label>
