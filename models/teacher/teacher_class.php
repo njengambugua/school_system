@@ -62,6 +62,9 @@ class Teacher
         }
     }
 
+    function edit($obj, $teacherid){
+        $this->teacherObj->update($obj, $teacherid);
+    }
 
     public function retrieveTeacherLevel($id)
     {
