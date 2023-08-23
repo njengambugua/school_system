@@ -1,12 +1,19 @@
--- 22nd August 2023--------------------------------
-
-alter table teachers DROP COLUMN level;
+-- 23 August 2023--------------------------------
 
 CREATE TABLE
-    level(
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        level VARCHAR(11)
+    schedule(
+        schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+        subject_id INT,
+        teacher_id INT,
+        day_of_week VARCHAR(30),
+        time VARCHAR(100),
+        level_id INT,
+        Foreign Key (subject_id) REFERENCES subjects(id),
+        Foreign Key (teacher_id) REFERENCES teachers(id),
+        Foreign Key (level_id) REFERENCES level(id)
     );
+
+-- 22nd August 2023--------------------------------
 
 CREATE TABLE
     teacher_level(
@@ -18,6 +25,14 @@ CREATE TABLE
     );
 
 -- 1709hrs---
+
+alter table teachers DROP COLUMN level;
+
+CREATE TABLE
+    level(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        level VARCHAR(11)
+    );
 
 CREATE TABLE
     student_subject(

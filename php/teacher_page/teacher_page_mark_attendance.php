@@ -89,7 +89,12 @@ if (empty($_SESSION['teacher_data'])) {
                     </div>
                 <?php  } ?>
             </table>
-            <input type="submit" name="action" class="mark-attendance-btn" value="Mark Attendance">
+
+            <?php if (!empty($teacher_related)) { ?>
+                <div class="no-student">
+                    <input type="submit" name="action" class="mark-attendance-btn" value="Mark Attendance">
+                </div>
+            <?php  } ?>
         </form>
 
 
