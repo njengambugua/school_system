@@ -42,7 +42,7 @@
             <div class="nav-name">Database</div>
           </a>
 
-          <a href="#" class="icon-item">
+          <a href="" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-book-open"></i>
             </div>
@@ -50,7 +50,7 @@
           </a>
 
 
-          <a href="#" class="icon-item">
+          <a href="teacher.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-book-open"></i>
             </div>
@@ -64,6 +64,20 @@
             <div class="nav-name">Events</div>
           </a>
 
+          <a href="subjects.php" class="icon-item">
+            <div class="nav-icon">
+              <i class="bx bx-book-open"></i>
+            </div>
+            <div class="nav-name">Subjects</div>
+          </a>
+
+          <a href="level.php" class="icon-item">
+            <div class="nav-icon">
+              <i class="bx bx-book-open"></i>
+            </div>
+            <div class="nav-name">Level</div>
+          </a>
+
           <a href="#" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-list-ul"></i>
@@ -71,7 +85,7 @@
             <div class="nav-name">Messages</div>
           </a>
 
-          <a href="#" class="icon-item">
+          <a href="" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-user-circle"></i>
             </div>
