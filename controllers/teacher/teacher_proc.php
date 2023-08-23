@@ -1,6 +1,5 @@
 <?php
 
-use GuzzleHttp\Psr7\Header;
 
 session_start();
 error_reporting(E_ALL);
@@ -30,8 +29,16 @@ if (isset($_SESSION['loginData']) && $_SESSION['loginData']['action'] == 'Login'
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['student_regno'])) {
         header("Location: ../students/students_proc.php?student_regno=" . $_POST['student_regno'] . "");
-    } else {
-        header("Location: ../../php/teacher_page/teacher_view_student_profile.php");
+    }
+
+
+    if ($_POST['action'] == 'Add Teacher') {
+        $obj = (object)$_POST;
+        if ($teacher->create($obj)) {
+            $lastId = $teacher->lastInsertId;
+            $_SESSION['obj'] = $obj;
+            header("Location: ../teacher_subject/teacher_subject_proc.php?last=".$lastId);
+        }
     }
 }
 

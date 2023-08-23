@@ -34,4 +34,18 @@ class Subjects_DBO
       return false;
     }
   }
+
+  function select()
+  {
+    try {
+      $this->sql="SELECT * FROM subjects";
+      $this->stmt = $this->conn->query($this->sql);
+      $this->res = $this->stmt->fetchAll(PDO::FETCH_OBJ);
+      $this->numRows = $this->stmt->rowCount();
+      return true;
+    } catch (PDOException $e) {
+      $this->error = $e->getMessage();
+      return false;
+    }
+  }
 }

@@ -38,4 +38,15 @@ class Level
       return false;
     }
   }
+
+  function retrieve(){
+    if ($this->levelObj->select()) {
+      $this->data = $this->levelObj->res;
+      $this->numRows = $this->levelObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->levelObj->error;
+      return false;
+    }
+  }
 }
