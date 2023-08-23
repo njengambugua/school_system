@@ -9,6 +9,7 @@ if ($_POST['action'] == 'Login') {
         header('Location: ../controllers/teacher/teacher_proc.php');
     } elseif (preg_match("/^Admin/", $_POST['regno'])) {
         $_SESSION['loginData'] = $_POST;
+        header('Location: ../controllers/admin/admin_proc.php');
     } else {
         header('Location: login.php');
     }

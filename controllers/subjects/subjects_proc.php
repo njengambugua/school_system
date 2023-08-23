@@ -13,3 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
   }
 }
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+  if (isset($_GET['source'])) {
+    if ($subject->retrieve()) {
+      $_SESSION['subject_data'] = $subject->data;
+      header('Location: ../../php/admin/teacher.php');
+    } else {
+      
+    }
+  }
+}

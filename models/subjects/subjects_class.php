@@ -38,4 +38,15 @@ class Subjects
       return false;
     }
   }
+
+  function retrieve(){
+    if ($this->subjectsObj->select()) {
+      $this->data = $this->subjectsObj->res;
+      $this->numRows = $this->subjectsObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->subjectsObj->error;
+      return false;
+    }
+  }
 }

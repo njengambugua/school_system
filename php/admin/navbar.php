@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,7 +51,7 @@
           </a>
 
 
-          <a href="teacher.php" class="icon-item">
+          <a href="../../controllers/level/level_proc.php?source=<?php echo md5($_SESSION['loginData']['regno'])?>" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-book-open"></i>
             </div>

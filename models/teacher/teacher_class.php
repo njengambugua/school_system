@@ -23,6 +23,7 @@ class Teacher
     function setObj($obj)
     {
         $this->obj = new stdClass;
+        $this->obj->trname = $obj->trname;
         $this->obj->regno = $obj->regno;
         $this->obj->password = $obj->password;
     }

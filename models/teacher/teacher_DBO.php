@@ -19,9 +19,11 @@ class teacherDBO
   function insert($obj)
   {
     try {
-      $this->sql = "INSERT INTO teachers(name)VALUES(:name)";
+      $this->sql = "INSERT INTO teachers(name,staff_no,password)VALUES(:name,:staffno,:password)";
       $this->stmt = $this->conn->prepare($this->sql);
-      $this->stmt->bindParam(':name', $obj->name);
+      $this->stmt->bindParam(':name', $obj->trname);
+      $this->stmt->bindParam(':staffno', $obj->regno);
+      $this->stmt->bindParam(':password', $obj->password);
       $this->stmt->execute();
       $this->lastInsertId = $this->conn->lastInsertId();
       return true;
