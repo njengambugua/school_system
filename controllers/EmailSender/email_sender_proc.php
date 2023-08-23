@@ -15,16 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     if ($data) {
         $parent_name = $data->Parent_Name;
         $student_name = $data->Name;
+        $applicant_id = $_GET['applicant_id'];
 
         if ($status) {
             $student_regno = $data->regno;
             $email = new Email('../../sendEmail/passes.php', 'WiseDigits Academy Enrollment');
-            if ($email->sendHtml($data->Email, $student_name, $student_regno)) {
+            if ($email->sendHtml($data->Email, $student_name, $student_regno, $applicant_id)) {
                 header('Location: ../../index.php');
             }
         } else {
             $email = new Email("../../sendEmail/failed.php", 'WiseDigits Academy Enrollment');
-            if ($email->sendHtml($data->Email, $student_name, '000')) {
+            if ($email->sendHtml($data->Email, $student_name, '000', '000')) {
                 header('Location: ../../index.php');
             }
         }

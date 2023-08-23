@@ -14,7 +14,8 @@
     <p>Your Regitsration Number is {{ STUDENT_REGNO }}</p>
     <p>Default password: 12345678</p>
     <p>Follow the following link to login the student portal:
-        <a href="/wise/{{ STUDENT_REG_MD5 }}">student portal</a>
+
+        <a href="http://localhost:8009/school_system/controllers/students/students_proc.php?id={{ STUDENT_REG_MD5 }}">student portal</a>
     </p>
 </body>
 

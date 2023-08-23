@@ -83,4 +83,44 @@ class students
       return false;
     }
   }
+
+
+  public function getStudentAttendance($obj)
+  {
+    if ($this->studentsObj->selectStudentAttendance($obj)) {
+      $this->data = $this->studentsObj->res;
+      $this->numRows = $this->studentsObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->studentsObj->error;
+      return false;
+    }
+  }
+
+
+  public function studentDetails($id)
+  {
+    if ($this->studentsObj->getRegDetails($id)) {
+      $this->data = $this->studentsObj->res;
+      $this->numRows = $this->studentsObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->studentsObj->error;
+      return false;
+    }
+  }
+
+
+
+  public function readSubjects()
+  {
+    if ($this->studentsObj->selectSubjects()) {
+      $this->data = $this->studentsObj->res;
+      $this->numRows = $this->studentsObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->studentsObj->error;
+      return false;
+    }
+  }
 }

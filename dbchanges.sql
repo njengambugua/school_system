@@ -17,7 +17,18 @@ CREATE TABLE
         FOREIGN KEY(level_id) REFERENCES level(id)
     );
 
--- 11:50--
+-- 1709hrs---
+
+CREATE TABLE
+    student_subject(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        student_id INT,
+        subject_id INT,
+        Foreign Key (student_id) REFERENCES students(id),
+        Foreign Key (subject_id) REFERENCES subjects(id)
+    );
+
+-- ==============================
 
 ALTER TABLE teachers ADD COLUMN staff_no VARCHAR(11);
 
