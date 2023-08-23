@@ -1,0 +1,52 @@
+.table-header-display {
+  display: flex;
+  margin-top: 0.4em;
+  width: 70%;
+  margin-left: 2em;
+  color: gray;
+  text-align: center;
+}
+.table-header-display > :nth-child(1) {
+  font-weight: bold;
+}
+.main {
+  display: grid;
+  justify-items: center;
+}
+.attendance-form {
+  width: 70% !important;
+  height: 74vh;
+  overflow-y: scroll;
+  padding: 0 !important;
+}
+.attendance-form::-webkit-scrollbar {
+  width: 5px;
+}
+.attendance-form::-webkit-scrollbar-thumb {
+  background: #164b60;
+}
+.attendance-form > table {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.thead-attendance {
+  position: sticky;
+  top: 0;
+  border-bottom: 0px Im !important;
+  border-style: none;
+  background: linear-gradient(35deg, #45cfdd, #164b60);
+}
+.thead-attendance > tr {
+  border: 0px;
+}
+.mark-attendance-btn {
+  position: absolute;
+  bottom: 3em;
+  right: 1em;
+  background-color: #164b60;
+  color: white;
+  border: 0px;
+  border-radius: 0.2em;
+  padding: 0.2em;
+}

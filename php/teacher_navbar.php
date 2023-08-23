@@ -40,7 +40,7 @@ if (empty($_SESSION['teacher_data'])) {
           </div>
           <div class="nav-name"> Home </div>
         </a>
-        <a href="../../controllers/teacher/teacher_proc.php?teacher_id=<?php echo $_SESSION['teacher_data']->id?>" class="icon-item">
+        <a href="../../controllers/teacher/teacher_proc.php?teacher_id=<?php echo $_SESSION['teacher_data']->teacher_id ?>" class="icon-item">
           <div class="nav-icon">
             <i class="bx bx-book-open"></i>
           </div>

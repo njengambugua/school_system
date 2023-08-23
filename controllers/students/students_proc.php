@@ -46,15 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
     }
   }
 
-  if (isset($_GET['grade']) && isset($_GET['subject'])) {
-    $obj = (object)$_GET;
-    if ($student->getStudentAttendance($obj)) {
-      $_SESSION['teacher_related'] = $student->data;
-      header("Location: ../../php/teacher_page/teacher_page_mark_attendance.php");
-    } else {
-      echo "Failed: " . $student->error;
-    }
-  }
 
 
   if (isset($_GET['id'])) {
@@ -65,6 +56,19 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         $_SESSION['subjects'] = $student->data;
         header('Location: ../../php/student_page/student_page_register_subjects.php');
       }
+    } else {
+      echo "Failed: " . $student->error;
+    }
+  }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (isset($_POST['grade']) && isset($_POST['subject'])) {
+    $obj = (object)$_POST;
+    if ($student->getStudentAttendance($obj)) {
+      $_SESSION['teacher_related'] = $student->data;
+      header("Location: ../../php/teacher_page/teacher_page_mark_attendance.php");
     } else {
       echo "Failed: " . $student->error;
     }
