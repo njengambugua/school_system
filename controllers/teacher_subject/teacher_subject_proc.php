@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
           $insertObj->subject_id = $value;
           print_r($insertObj);
           if ($tchsbj->create($insertObj)) {
-            echo "woohoo";
+            header("Location: ../teacher_level/teacher_level_proc.php?last=".$_GET['last']);
           }
         }
       }
