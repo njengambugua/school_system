@@ -11,7 +11,6 @@ $teacher = new Teacher();
 
 if (isset($_SESSION['loginData']) && $_SESSION['loginData']['action'] == 'Login') {
     $obj = (object)$_SESSION['loginData'];
-
     if ($teacher->retrieve($obj)) {
         if ($teacher->numRows) {
             $_SESSION['teacher_data'] = $teacher->data;

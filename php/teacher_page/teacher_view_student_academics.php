@@ -53,7 +53,6 @@
         <table class="table table-bordered table-academics">
           <thead class="thead-academics">
             <th scope="col">Student Name</th>
-            <!-- <th scope="col">Reg No</th> -->
             <th scope="col">English</th>
             <th scope="col">Maths</th>
             <th scope="col">Kiswahili</th>

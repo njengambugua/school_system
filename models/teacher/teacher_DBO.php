@@ -33,6 +33,27 @@ class teacherDBO
     }
   }
 
+  function update($obj, $teacherId)
+  {
+    $count = 4;
+
+    $cmd = 
+    "UPDATE teachers 
+    SET name = :name, staff_no = :staffNo, password = :password
+    WHERE id = :teacherId
+    ";
+
+    $this->stmt = $this->conn->prepare($cmd);
+    $this->stmt->bindParam(':name', $obj->name);
+    $this->stmt->bindParam(':staffNo', $obj->staff_no);
+    $this->stmt->bindParam(':password', $obj->password);
+    $this->stmt->bindParam(':teacherId', $teacherId);
+    $this->stmt->execute();
+    echo $cmd;
+    echo "<br>Complete";
+  }
+
+  
   function select($obj)
   {
     try {
@@ -66,8 +87,8 @@ class teacherDBO
       return false;
     }
   }
-
-
+  
+  
   function selectSubject($id)
   {
     try {
@@ -77,7 +98,7 @@ class teacherDBO
       $this->stmt->execute();
       $this->numRows = $this->stmt->rowCount();
       $this->res = $this->stmt->fetchAll(PDO::FETCH_OBJ);
-
+      
       return true;
     } catch (PDOException $th) {
       $this->error = $th->getMessage();
