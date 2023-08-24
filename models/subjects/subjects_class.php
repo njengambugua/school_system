@@ -26,10 +26,22 @@ class Subjects
     return $this->obj;
   }
 
+  function validate($obj) {
+    foreach ($obj as $key => $value) {
+      if ($key !== "action") {
+        if (is_string($value)) {
+            $modifiedValue = preg_replace('/\s+/', '_', $value);
+            $obj->$key = $modifiedValue;
+        }
+      }
+  }
+  }
+
   function create($obj)
   {
     $this->setObj($obj);
     $this->getObj();
+    $this->validate($obj);
     if ($this->subjectsObj->insert($obj)) {
       $this->lastInsertId = $this->subjectsObj->lastInsertId;
       return true;
