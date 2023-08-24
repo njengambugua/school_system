@@ -1,5 +1,7 @@
 -- 23 August 2023--------------------------------
 
+ALTER TABLE schedule ADD COLUMN teacher_name VARCHAR(14);
+
 CREATE TABLE
     schedule(
         schedule_id INT AUTO_INCREMENT PRIMARY KEY,

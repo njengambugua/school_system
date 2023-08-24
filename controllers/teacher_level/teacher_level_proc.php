@@ -6,8 +6,12 @@ $tchlvl = new Teacher_level;
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if (isset($_GET['last'])) {
     $obj = $_SESSION['obj'];
-    $subjects = array('Mathematics', 'English', 'Kiswahili', 'Social Studies', 'Art and Craft', 'Music', 'CRE', 'Home Science', 'P.H.E', 'Agriculture');
-
+    // $subjects = array('Mathematics', 'English', 'Kiswahili', 'Social Studies', 'Art and Craft', 'Music', 'CRE', 'Home Science', 'P.H.E', 'Agriculture');
+    $subjects = [];
+    foreach ($_SESSION['subject_data'] as $sub) {
+      array_push($subjects, $sub->subjectName);
+    }
+    print_r($subjects);
     foreach ($obj as $key => $value) {
       if ($key !== 'trname' && $key !== 'regno' && $key !== 'password' && $key !== 'action' && $key !== 'teacher_id') {
         if (!in_array($key, $subjects)) {

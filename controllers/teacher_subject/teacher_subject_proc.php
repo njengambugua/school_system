@@ -6,8 +6,12 @@ $tchsbj = new Teacher_subject;
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if (isset($_GET['last'])) {
     $obj = $_SESSION['obj'];
-    $levels = array('PP1', 'PP2', 'Grade_1', 'Grade_2', 'Grade_3', 'Grade_4', 'Grade_5', 'Grade_6', 'Form_1', 'Form_2');
-    
+    // $levels = array('PP1', 'PP2', 'Grade_1', 'Grade_2', 'Grade_3', 'Grade_4', 'Grade_5', 'Grade_6', 'Form_1', 'Form_2');
+    $levels=[];
+    foreach($_SESSION['level_data'] as $level){
+      array_push($levels, $level->level);
+    }
+    // print_r($levels);
     foreach ($obj as $key => $value) {
       if ($key !== 'trname' && $key !== 'regno' && $key !== 'password' && $key !== 'action' && $key !== 'teacher_id') {
         if (!in_array($key, $levels)) {
