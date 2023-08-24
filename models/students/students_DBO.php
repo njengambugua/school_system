@@ -1,9 +1,7 @@
 <?php
 
-include('../../DB.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start();
 
 class students_DBO
 {
@@ -60,6 +58,21 @@ class students_DBO
       $this->error = $e->getMessage();
       return false;
     }
+  }
+
+  function update($obj, $id){
+    $updateCommand =
+    "UPDATE students
+    SET regno = :regno, applicant_id = :applicantid, password = :pass
+    WHERE id = :id
+    ";
+    $this->stmt = $this->conn->prepare($updateCommand);
+    $this->stmt->bindParam(':regno', $obj->regno);
+    $this->stmt->bindParam(':applicantid', $obj->applicant_id);
+    $this->stmt->bindParam(':pass', $obj->password);
+    $this->stmt->bindParam(':id', $id);
+    $this->stmt->execute();
+    header('Location: ../../php/admin/database.php');
   }
 
   function delete($id)

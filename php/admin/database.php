@@ -11,8 +11,13 @@
 
 <body>
     <?php
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
     session_start();
-    // include('navbar.php');
+    include('navbar.php');
+    include('../../DB.php');
     include('../../models/admin/adminClass.php');
     $class = new adminClass;
     ?>
@@ -74,17 +79,17 @@
                                 ";
                             }
                             echo "
-                            <form name='id' action='teacher/editRecord.php' method='post'>
+                            <form name='id' action='editRecord.php' method='post'>
                                 <td>
                                     <button name='editBtn' type='submit' value = '$record->id'>$record->id EDIT</button>
                                 </td>
                             </form>
-                            <form action='teacher/deleteRecord.php'>
+                            <form action='deleteRecord.php' method='post'>
                                 <td>
-                                    <button name='deleteBtn' value = '$record->id'>$record->id DELETE</button>
+                                    <button name='deleteBtn' type='submit' value = '$record->id'>$record->id DELETE</button>
                                 </td>
-                            </form>
-                            ";
+                                </form>
+                                ";
                             echo "
                             </tr>
                             ";

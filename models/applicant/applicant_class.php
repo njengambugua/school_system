@@ -1,5 +1,4 @@
 <?php
-// include("./applicant_DBO.php");
 include('applicant_DBO.php');
 
 error_reporting(E_ALL);
@@ -61,6 +60,16 @@ class applicant
             return $data;
         } else {
             return false;
+        }
+    }
+
+    function update($obj, $id){
+        $dboObj = new applicant_DBO;
+        try{
+            $dboObj->update($id, $obj);
+        }
+        catch(Throwable $th){
+            throw $th;
         }
     }
 }

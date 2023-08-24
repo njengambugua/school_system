@@ -11,10 +11,16 @@
 <body>
     <?php
     session_start();
-    // include('navbar.php');
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+    // include('navbar.php')
     include('../../models/admin/adminClass.php');
-    $dbo = new adminClass;
+    include "../../DB.php";
+
+    $dbo = new adminClass();
     $colData = $dbo->getRow($_SESSION['tableName'], $_POST['editBtn']);
+    $_SESSION['selectedId'] = $_POST['editBtn'];
     ?>
     <main class='main'>
         <div class="main-content-holder">
@@ -64,4 +70,5 @@
         </div>
     </main>
 </body>
+
 </html>
