@@ -6,6 +6,9 @@ $obj = (object)$_POST;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if ($_POST['action'] == 'Add Subject') {
+
+    $objData = new stdClass;
+    $objData->subject_name = str_replace(' ', '_', $_POST['subject_name']);
     if ($subject->create($obj)) {
       header('Location: ../../php/admin/subjects.php');
     } else {
@@ -20,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $_SESSION['subject_data'] = $subject->data;
       header('Location: ../../php/admin/teacher.php');
     } else {
-      
     }
   }
 }
