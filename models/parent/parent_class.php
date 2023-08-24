@@ -45,6 +45,12 @@ class parent7
         }
     }
 
+    function change($obj, $id) {
+        echo "<br>Class called";
+        $parent = new ParentDBO;
+        $parent->edit($obj, $id);
+    }
+
     function applicant_parent($id,$status)
     {
         $parent = new ParentDBO;

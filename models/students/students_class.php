@@ -57,6 +57,11 @@ class students
     }
   }
 
+  public function edit($obj, $id){
+    $this->studentsObj->update($obj, $id);
+    header('Location: ../../php/admin/database.php');
+  }
+
   public function remove($id)
   {
     if ($this->studentsObj->delete($id)) {

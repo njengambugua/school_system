@@ -1,5 +1,5 @@
 <?php
-include('../../DB.php');
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -40,7 +40,6 @@ class ParentDBO
             return true;
         } catch (\Throwable $th) {
             throw $th;
-            return false;
         }
     }
 
@@ -65,8 +64,31 @@ class ParentDBO
             }
         } catch (\Throwable $th) {
             throw $th;
-            return false;
         }
+    }
+
+    function edit($obj, $id) {
+        echo "<br>DBO called";
+
+        $updateCmd =
+        "UPDATE parent
+        SET Name = :name, Gender = :gender, Occupation = :occupation, Relationship = :relationship, Contact = :contact, Email = :email, Location = :location, Religion = :religion, applicant_id = :applicantId
+        WHERE id = :id
+        ";
+        $stmt = $this->conn->prepare($updateCmd);
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':name', $obj->Name);
+        $stmt->bindParam(':gender', $obj->Gender);
+        $stmt->bindParam(':occupation', $obj->Occupation);
+        $stmt->bindParam(':relationship', $obj->Relationship);
+        $stmt->bindParam(':contact', $obj->Contact);
+        $stmt->bindParam(':email', $obj->Email);
+        $stmt->bindParam(':location', $obj->Location);
+        $stmt->bindParam(':religion', $obj->Religion);
+        $stmt->bindParam(':applicantId', $obj->applicant_id);
+
+        $stmt->execute();
+        echo "<br>Done";
     }
 
     function join_applicant_parent($id, $status)
