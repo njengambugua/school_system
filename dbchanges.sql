@@ -1,3 +1,9 @@
+-- 25 August 2023--------------------------------
+
+ALTER TABLE teacher_subjects ADD COLUMN level_id VARCHAR(255);
+
+-------------------------------------------------
+
 -- 23 August 2023--------------------------------
 
 ALTER TABLE schedule ADD COLUMN teacher_name VARCHAR(14);

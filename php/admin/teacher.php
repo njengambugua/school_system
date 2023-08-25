@@ -88,6 +88,9 @@ if (isset($_SESSION['level_data']) && isset($_SESSION['subject_data'])) {
               <input type="submit" class="btn btn-primary" name="action" value="Add Teacher_Subject">
             </div>
           <?php } ?>
+          <div class="submit">
+            <input type="submit" class="btn btn-primary" name="action" value="End">
+          </div>
           </form>
     </div>
   </main>
