@@ -1,4 +1,5 @@
 <?php
+echo "<h1>Admin class called</h1>";
 include('adminDBO.php');
 class adminClass{
     function retrieveTables() {
@@ -24,6 +25,11 @@ class adminClass{
     function getRow($tableName, $rowId) {
         $hs = new adminDBO;
         return $hs->selectRow($tableName, $rowId);
+    }
+
+    function insertEvent($obj){
+        $newEvent = new adminDBO;
+        $newEvent->addEvent($obj);
     }
 }
 ?>

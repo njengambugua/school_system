@@ -58,7 +58,7 @@
             <div class="nav-name">Teachers</div>
           </a>
           
-          <a href="#" class="icon-item">
+          <a href="event.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-book-open"></i>
             </div>

@@ -158,3 +158,13 @@ FROM academics
 INNER JOIN applicant
 INNER JOIN students
 ON academics.id = applicant.id = students.applicant_id;
+
+
+CREATE TABLE events(  
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    eventName VARCHAR(225),
+    eventDate DATE,
+    eventTime TIME,
+    venue VARCHAR(255),
+    description TEXT
+);
