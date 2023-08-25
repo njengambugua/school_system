@@ -65,6 +65,7 @@ class Teacher
 
     function edit($obj, $teacherid){
         $this->teacherObj->update($obj, $teacherid);
+        header('Location: ../../php/admin/database.php');
     }
 
     public function retrieveTeacherLevel($id)

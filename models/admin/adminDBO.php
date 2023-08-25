@@ -50,4 +50,24 @@ class adminDBO
         $results = $this->stmt->fetchAll(PDO::FETCH_OBJ);
         return $results;
     }
+
+    function addEvent($obj)
+    {
+        $insertCommand =
+            "INSERT INTO events(eventName, eventDate, eventTime, venue, description)
+        VALUES(:name, :date, :time, :venue, :description)
+        ";
+        $stmt = $this->conn->prepare($insertCommand);
+        $stmt->bindParam(':name', $obj->eventName);
+        $stmt->bindParam(':date', $obj->eventDate);
+        $stmt->bindParam(':time', $obj->eventTime);
+        $stmt->bindParam(':venue', $obj->eventVenue);
+        $stmt->bindParam(':description', $obj->eventDetails);
+        try {
+            $stmt->execute();
+            echo "Event added successfully";
+        } catch (PDOException $e) {
+            echo "<br>Error: " . $e->getMessage() . "<br>";
+        }
+    }
 }
