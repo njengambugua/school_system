@@ -18,4 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       }
     }
   }
+
+  if ($_POST['action'] == 'End') {
+    unset($_SESSION['level_id']);
+    header('Location: ../../php/admin/teacher.php');
+  }
 }
