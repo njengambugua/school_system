@@ -3,26 +3,17 @@ include('../../models/teacher_subject/teacher_subject_class.php');
 
 $tchsbj = new Teacher_subject;
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-  if (isset($_GET['last'])) {
-    $obj = $_SESSION['obj'];
-    // $levels = array('PP1', 'PP2', 'Grade_1', 'Grade_2', 'Grade_3', 'Grade_4', 'Grade_5', 'Grade_6', 'Form_1', 'Form_2');
-    $levels=[];
-    foreach($_SESSION['level_data'] as $level){
-      array_push($levels, $level->level);
-    }
-    // print_r($levels);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  if ($_POST['action'] == 'Add Teacher_Subject') {
+    $obj = (object)$_POST;
     foreach ($obj as $key => $value) {
-      if ($key !== 'trname' && $key !== 'regno' && $key !== 'password' && $key !== 'action' && $key !== 'teacher_id') {
-        if (!in_array($key, $levels)) {
-          // Create a new insertObj instance for each iteration
-          $insertObj = new stdClass();
-          $insertObj->teacher_id = $_GET['last'];
-          $insertObj->subject_id = $value;
-          print_r($insertObj);
-          if ($tchsbj->create($insertObj)) {
-            header("Location: ../teacher_level/teacher_level_proc.php?last=".$_GET['last']);
-          }
+      if ($key !== 'level' && $key !== 'action') {
+        $insertObj = new stdClass;
+        $insertObj->subject_id = $value;
+        $insertObj->teacher_id = $_SESSION['levels'][0]->teacher_id;
+        $insertObj->level_id = $obj->level;
+        if ($tchsbj->create($insertObj)) {
+          header("Location: ../../php/admin/teacher.php");
         }
       }
     }
