@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($teacher->create($obj)) {
             $lastId = $teacher->lastInsertId;
             $_SESSION['obj'] = $obj;
-            header("Location: ../teacher_subject/teacher_subject_proc.php?last=".$lastId);
+            header("Location: ../teacher_level/teacher_level_proc.php?last=" . $lastId);
         }
     }
 }

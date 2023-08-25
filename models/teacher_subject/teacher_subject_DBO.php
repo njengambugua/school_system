@@ -20,12 +20,14 @@ class Teacher_subject_DBO
     $this->conn = $db->getConnection();
   }
 
-  public function insert($obj) {
+  public function insert($obj)
+  {
     try {
-      $this->sql = "INSERT INTO teacher_subjects(teacher_id,subject_id)VALUES(:teacher_id,:subject_id)";
+      $this->sql = "INSERT INTO teacher_subjects(teacher_id,subject_id,level_id)VALUES(:teacher_id,:subject_id,:level_id)";
       $this->stmt = $this->conn->prepare($this->sql);
       $this->stmt->bindParam(':teacher_id', $obj->teacher_id);
       $this->stmt->bindParam(':subject_id', $obj->subject_id);
+      $this->stmt->bindParam(':level_id', $obj->level_id);
       $this->stmt->execute();
       $this->lastInsertId = $this->conn->lastInsertId();
       return true;

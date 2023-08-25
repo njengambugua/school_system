@@ -166,14 +166,13 @@ padding-left: 2rem;
 }
 .form_checkboxes{
   display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
 }
 
 .form-check-holder{
   display: grid;
   grid-template-columns: 1fr 1fr;
-
 }
 
 .form-check{
