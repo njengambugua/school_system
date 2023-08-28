@@ -86,7 +86,7 @@
             <div class="nav-name">Messages</div>
           </a>
 
-          <a href="" class="icon-item">
+          <a href="fees.php" class="icon-item">
             <div class="nav-icon">
               <i class="bx bx-user-circle"></i>
             </div>
