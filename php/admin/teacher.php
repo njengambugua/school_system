@@ -27,17 +27,17 @@ if (isset($_SESSION['level_data']) && isset($_SESSION['subject_data'])) {
         <form action="../../controllers/teacher/teacher_proc.php" method="post">
           <div class="mb-3">
             <label for="" class="form-label">Name</label>
-            <input type="text" class="form-control" name="trname" id="" aria-describedby="helpId" placeholder="">
+            <input type="text" class="form-control" name="trname" aria-describedby="helpId">
           </div>
 
           <div class="mb-3">
             <label for="" class="form-label">Staff Number</label>
-            <input type="text" class="form-control" name="regno" id="" aria-describedby="helpId" placeholder="">
+            <input type="text" class="form-control" name="regno" aria-describedby="helpId">
           </div>
 
           <div class="mb-3">
             <label for="" class="form-label">Password</label>
-            <input type="text" class="form-control" name="password" id="" aria-describedby="helpId" placeholder="">
+            <input type="text" class="form-control" name="password" aria-describedby="helpId">
           </div>
           <div class="mb-3">
             <label for="" class="form-label">Level</label>
@@ -55,43 +55,43 @@ if (isset($_SESSION['level_data']) && isset($_SESSION['subject_data'])) {
           <div class="submit">
             <input type="submit" class="btn btn-primary" name="action" value="Add Teacher">
           </div>
-
-        <?php } else { ?>
-          <form action="../../controllers/teacher_subject/teacher_subject_proc.php" method="post">
-            <div class="form_checkboxes">
-              <div>
-                <div class="mb-3">
-                  <label for="" class="form-label">Level</label>
-                  <select class="form-select form-select-lg" name="level" id="">
-                    <option selected>Select Level</option>
-                    <?php foreach ($selectedLevels as $level) { ?>
-                      <option value="<?php echo $level->id ?>"><?php echo $level->level ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
+        </form>
+      <?php } else { ?>
+        <form action="../../controllers/teacher_subject/teacher_subject_proc.php" method="post">
+          <div class="form_checkboxes">
+            <div>
               <div class="mb-3">
-                <label for="" class="form-label">Subject</label>
-                <div class="form-check-holder">
-                  <?php foreach ($subjectObj as $subject) { ?>
-                    <div class="form-check">
-                      <input class="form-check-input" name="<?php echo $subject->subjectName ?>" type="checkbox" value="<?php echo $subject->id ?>" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault">
-                        <?php echo $subject->subjectName ?>
-                      </label>
-                    </div>
+                <label for="" class="form-label">Level</label>
+                <select class="form-select form-select-lg" name="level" id="">
+                  <option selected>Select Level</option>
+                  <?php foreach ($selectedLevels as $level) { ?>
+                    <option value="<?php echo $level->id ?>"><?php echo $level->level ?></option>
                   <?php } ?>
-                </div>
+                </select>
               </div>
             </div>
-            <div class="submit">
-              <input type="submit" class="btn btn-primary" name="action" value="Add Teacher_Subject">
+            <div class="mb-3">
+              <label for="" class="form-label">Subject</label>
+              <div class="form-check-holder">
+                <?php foreach ($subjectObj as $subject) { ?>
+                  <div class="form-check">
+                    <input class="form-check-input" name="<?php echo $subject->subjectName ?>" type="checkbox" value="<?php echo $subject->id ?>" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <?php echo $subject->subjectName ?>
+                    </label>
+                  </div>
+                <?php } ?>
+              </div>
             </div>
-          <?php } ?>
+          </div>
+          <div class="submit">
+            <input type="submit" class="btn btn-primary" name="action" value="Add Teacher_Subject">
+          </div>
           <div class="submit">
             <input type="submit" class="btn btn-primary" name="action" value="End">
           </div>
-          </form>
+        </form>
+        <?php } ?>
     </div>
   </main>
 

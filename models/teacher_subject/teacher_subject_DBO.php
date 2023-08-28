@@ -36,4 +36,20 @@ class Teacher_subject_DBO
       return false;
     }
   }
+
+  public function select($id)
+  {
+    try {
+      $this->sql = "SELECT s.id as subject_id FROM teacher_subjects JOIN subjects s ON s.id=subject_id JOIN level l ON l.id=level_id JOIN teachers t ON t.id=teacher_id WHERE l.id=:id";
+      $this->stmt = $this->conn->prepare($this->sql);
+      $this->stmt->bindParam(':id', $id);
+      $this->stmt->execute();
+      $this->numRows = $this->stmt->rowCount();
+      $this->res = $this->stmt->fetchAll(PDO::FETCH_OBJ);
+      return true;
+    } catch (PDOException $e) {
+      $this->error = $e->getMessage();
+      return false;
+    }
+  }
 }
