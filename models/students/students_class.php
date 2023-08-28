@@ -57,7 +57,8 @@ class students
     }
   }
 
-  public function edit($obj, $id){
+  public function edit($obj, $id)
+  {
     $this->studentsObj->update($obj, $id);
     header('Location: ../../php/admin/database.php');
   }
@@ -115,8 +116,6 @@ class students
     }
   }
 
-
-
   public function readSubjects()
   {
     if ($this->studentsObj->selectSubjects()) {
@@ -127,5 +126,10 @@ class students
       $this->error = $this->studentsObj->error;
       return false;
     }
+  }
+
+  function getParentStudentInformation(){
+    $dataObj = new students_DBO;
+    return $dataObj->getParentStudentInfo();
   }
 }
