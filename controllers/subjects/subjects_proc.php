@@ -1,5 +1,6 @@
 <?php
 include('../../models/subjects/subjects_class.php');
+include('../../DB.php');
 
 $subject = new Subjects;
 $obj = (object)$_POST;
