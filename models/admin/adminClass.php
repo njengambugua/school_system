@@ -1,6 +1,11 @@
 <?php
-echo "<h1>Admin class called</h1>";
+// echo "<h1>Admin class called</h1>";
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 include('adminDBO.php');
+
 class adminClass{
     function retrieveTables() {
         try {
@@ -30,6 +35,11 @@ class adminClass{
     function insertEvent($obj){
         $newEvent = new adminDBO;
         $newEvent->addEvent($obj);
+    }
+
+    function getEvents() {
+        $events = new adminDBO;
+        return $events->readEvent();
     }
 }
 ?>

@@ -16,6 +16,7 @@ if (isset($_POST['action'])) {
     try{
         $newEvent = new adminClass;
         $newEvent->insertEvent((object)$_POST);
+        header('Location: ../../php/admin/event.php');
     }
     catch(Throwable $th){
         throw $th;
