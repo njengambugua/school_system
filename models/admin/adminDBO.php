@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 class adminDBO
 {
     public $conn;
@@ -69,5 +72,13 @@ class adminDBO
         } catch (PDOException $e) {
             echo "<br>Error: " . $e->getMessage() . "<br>";
         }
+    }
+
+    function readEvent(){
+        $readCommand = "SELECT * FROM events";
+        $stmt = $this->conn->prepare($readCommand);
+        $stmt->execute();
+        $eventsResults = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $eventsResults;
     }
 }
