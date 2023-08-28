@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('students_DBO.php');
 class students
 {

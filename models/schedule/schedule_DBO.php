@@ -105,16 +105,15 @@ class scheduleDBO
                     $this->stmt->bindParam(':time', $time->time);
                     $this->stmt->bindParam(':level_id', $time->level_id);
                     $this->stmt->bindParam(':teacher_name', $time->teacher_name);
-
-                    if ($this->stmt->execute()) {
-                        echo "Time table completed";
-                    } else {
-                        echo "Failed to generate time table: " . implode(" ", $this->stmt->errorInfo());
-                    }
+                    $this->stmt->execute();
+                    // if ($this->stmt->execute()) {
+                    //     echo "Time table completed";
+                    // } else {
+                    //     echo "Failed to generate time table: " . implode(" ", $this->stmt->errorInfo());
+                    // }
                     // }
 
                 }
-                return true;
             }
         }
     }
@@ -149,7 +148,14 @@ class scheduleDBO
             }
         }
     }
+
+    public function selectByDay($obj)
+    {
+        try {
+            $this->sql = 'SELECT * FROM schedule sc JOIN level l ON l.id = sc.level_id JOIN subjects s ON s.id = sc.subject_id WHERE level = :level';
+        } catch (PDOException $th) {
+            $this->error = $th->getMessage();
+        }
+    }
 }
 
-// $new  = new scheduleDBO();
-// $new->create();

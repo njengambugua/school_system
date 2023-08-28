@@ -1,6 +1,5 @@
 <?php
 include('../../models/students/students_class.php');
-include('../../DB.php');
 
 $student = new students;
 
