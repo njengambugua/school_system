@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -60,10 +60,9 @@ class students_DBO
     }
   }
 
-  function update($obj, $id)
-  {
+  function update($obj, $id){
     $updateCommand =
-      "UPDATE students
+    "UPDATE students
     SET regno = :regno, applicant_id = :applicantid, password = :pass
     WHERE id = :id
     ";
@@ -177,13 +176,5 @@ class students_DBO
       $this->error = $th->getMessage();
       return false;
     }
-  }
-
-  function getParentStudentInfo()
-  {
-    $this->query = "SELECT * FROM applicant a INNER JOIN parent p ON a.id = p.applicant_id INNER JOIN students s ON a.id = s.applicant_id WHERE s.id = 1";
-    $stmt = $this->conn->prepare($this->query);
-    $stmt->execute();
-    return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 }

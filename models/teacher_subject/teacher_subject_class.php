@@ -6,7 +6,7 @@ class Teacher_subject
   public $teacher_subjectObj;
   public $error;
   public $lastInsertId;
-  public $res;
+  public $data;
   public $numRows;
   public $obj;
 
@@ -34,6 +34,18 @@ class Teacher_subject
     $this->getObj();
     if ($this->teacher_subjectObj->insert($obj)) {
       $this->lastInsertId = $this->teacher_subjectObj->lastInsertId;
+      return true;
+    } else {
+      $this->error = $this->teacher_subjectObj->error;
+      return false;
+    }
+  }
+
+  public function retrieve($id)
+  {
+    if ($this->teacher_subjectObj->select($id)) {
+      $this->data = $this->teacher_subjectObj->res;
+      $this->numRows = $this->teacher_subjectObj->numRows;
       return true;
     } else {
       $this->error = $this->teacher_subjectObj->error;
