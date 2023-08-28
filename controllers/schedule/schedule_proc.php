@@ -33,17 +33,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    $obj = (object)$_POST;
 
-    if ($schedule->create($obj)) {
-        if ($schedule->retreive()) {
-            $data = $schedule->data;
-            $_SESSION['timetable'] = $data;
-            header('Location: ../../php/admin/timetable.php');
+    if (isset($_POST['input_0'])) {
+        $obj = (object)$_POST;
+        $schedule->create($obj);
+        $schedule->retreive();
+        $data = $schedule->data;
+        $_SESSION['timetable'] = $data;
+        header('Location: ../../php/admin/timetable.php');
+    }
+
+    if ($_POST['action'] == 'Sort Date') {
+        $day;
+        if ($_POST['day'] == 'Monday') {
+            $day = 'Day1';
+        } elseif ($_POST['day'] == 'Tuesday') {
+            $day = 'Day2';
+        } elseif ($_POST['day'] == 'Wednesday') {
+            $day = 'Day3';
+        } elseif ($_POST['day'] == 'Thursday') {
+            $day = 'Day4';
+        } elseif ($_POST['day'] == 'Friday') {
+            $day = 'Day5';
         } else {
-            echo "Error: " . $schedule->error;
+            echo "Enter valid day";
         }
-    } else {
-        echo "Error: " . $schedule->error;
+        $obj = new stdClass;
+        $obj->day = $day;
+        print_r($_SESSION['loginData']);
+        // if ($schedule->retreiveByDay($obj)) {
+        //     # code...
+        // }
     }
 }

@@ -47,4 +47,11 @@ class Schedule
             return false;
         }
     }
+
+    function retreiveByDay($obj)
+    {
+
+        if ($this->scheduleInstance->selectByDay($obj)) {
+        }
+    }
 }
