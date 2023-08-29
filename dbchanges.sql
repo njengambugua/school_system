@@ -1,10 +1,21 @@
--- 25 August 2023--------------------------------
+-- 28th August 20220-----------------------------
+
+CREATE TABLE
+    attendance (
+        attendance_id INT PRIMARY KEY AUTO_INCREMENT,
+        lession_id INT,
+        student_id INT,
+        FOREIGN KEY (lession_id) REFERENCES schedule(schedule_id),
+        FOREIGN KEY (student_id) REFERENCES students(id)
+    );
+
+-- 25th August 2023--------------------------------
 
 ALTER TABLE teacher_subjects ADD COLUMN level_id VARCHAR(255);
 
 -------------------------------------------------
 
--- 23 August 2023--------------------------------
+-- 23rd August 2023--------------------------------
 
 ALTER TABLE schedule ADD COLUMN teacher_name VARCHAR(14);
 
@@ -121,5 +132,4 @@ DELETE FROM applicant;
 
 ALTER TABLE applicant AUTO_INCREMENT = 1;
 
-ALTER TABLE parent
-CHANGE COLUMN Name parentName VARCHAR(25);
+ALTER TABLE parent CHANGE COLUMN Name parentName VARCHAR(25);
