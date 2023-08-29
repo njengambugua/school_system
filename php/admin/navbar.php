@@ -77,7 +77,14 @@
           <div class="nav-name">Messages</div>
         </a>
 
-        <a href="" class="icon-item">
+        <a href="bank.php" class="icon-item">
+          <div class="nav-icon">
+            <i class="bx bx-list-ul"></i>
+          </div>
+          <div class="nav-name">Bank</div>
+        </a>
+
+        <a href="../../controllers/bank/bank_proc.php?source=<?php echo md5(1) ?>" class="icon-item">
           <div class="nav-icon">
             <i class="bx bx-user-circle"></i>
           </div>
