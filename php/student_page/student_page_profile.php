@@ -35,7 +35,7 @@
                         <span><strong>Age: </strong> <?php echo $information->Age?></span>
                         <span><strong>Level: </strong> <?php echo $information->Level?></span>
                         <span><strong>Gender: </strong> <?php echo $information->Gender?></span>
-                        <span><strong>Religion: </strong> <?php echo $information->parentReligion?></span>
+                        <span><strong>Religion: </strong> <?php echo $information->Religion?></span>
                     </div>
                     <div class="avatar img">
                         <img src="../../images/yellow_grt.jpg" alt="profile image" />
@@ -49,11 +49,11 @@
                     <h1>Parent Details</h1>
                 </div>
                 <div class='details'>
-                    <span><strong>Name: </strong><?php echo $information->parentName?></span>
+                    <span><strong>Name: </strong><?php echo $information->Parent_Name?></span>
                     <span><strong>Contact:</strong> <?php echo $information->Contact?></span>
                     <span><strong>Email:</strong> <?php echo $information->Email?></span>
-                    <span><strong>Gender:</strong> <?php echo $information->parentGender?></span>
-                    <span><strong>Religion:</strong> <?php echo $information->parentReligion?></span>
+                    <span><strong>Gender:</strong> <?php echo $information->Parent_Gender?></span>
+                    <span><strong>Religion:</strong> <?php echo $information->Religion?></span>
                     <span><strong>Location:</strong><?php echo $information->Location?></span>
                     <span><strong>Relationship:</strong> <?php echo $information->Relationship?></span>
                     <span><strong>Occupation:</strong> <?php echo $information->Occupation?></span>

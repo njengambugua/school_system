@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+.create-body {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(45deg, #45cfdd, #164b60);
+}
+.top-main {
+  display: flex;
+}
+.existing-time-range {
+  width: 30% !important;
+  height: max-content;
+  color: white;
+  border: 1px solid #164b60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.update-time-form {
+  border: 1px solid #164b60;
+  width: 100% !important;
+}
+.time-form,
+.time-form > label {
+  background: #164b60 !important;
+  border: 1px solid #45cfdd !important;
+  color: white;
+}
+.time-btn {
+  width: 30% !important;
+  background: #45cfdd !important;
+  color: #164b60 !important;
+}
+.display-edit {
+  background: transparent !important;
+  border: 0px !important;
+}
+.input-display-holder {
+  display: flex;
+  width: 60%;
+  gap: 0.4em;
+}
+.input-display-holder > button {
+  background: #d71313;
+  padding: 0.4em;
+  color: white;
+  border-radius: 0.4em;
+}
+.submit-btn {
+  padding: 0.4em;
+  background: #164b60;
+  border: 0px;
+  color: white;
+  border-radius: 0.4em;
+}
+.botton-main {
+  width: 100%;
+  height: 42vh;
+  overflow-y: scroll;
+}

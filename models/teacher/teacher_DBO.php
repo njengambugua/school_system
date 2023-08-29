@@ -92,7 +92,7 @@ class teacherDBO
   function selectSubject($id)
   {
     try {
-      $this->sql = "SELECT s.subjectName FROM teachers t JOIN teacher_subjects ts ON t.id = ts.teacher_id JOIN subjects s ON s.id = ts.subject_id WHERE t.id = :id";
+      $this->sql = "SELECT s.subjectName FROM teachers t JOIN teacher_subjects ts ON t.id = ts.teacher_id JOIN subjects s ON s.id = ts.subject_id WHERE t.id = :id GROUP BY subjectName ";
       $this->stmt = $this->conn->prepare($this->sql);
       $this->stmt->bindParam("id", $id);
       $this->stmt->execute();
