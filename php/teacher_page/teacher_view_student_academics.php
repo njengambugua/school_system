@@ -11,7 +11,6 @@
 <body>
   <?php
   include('../../php/teacher_navbar.php');
-  include('../../DB.php');
   include("../../controllers/students/retrieve_student_academics.php");
   ?>
   <main class="main">
