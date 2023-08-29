@@ -23,4 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       
     }
   }
+
+  if (isset($_GET['src'])) {
+    if ($level->retrieve()) {
+      $_SESSION['level_data'] = $level->data;
+      header("Location: ../../php/admin/fees.php");
+    } else {
+      
+    }
+  }
 }

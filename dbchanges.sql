@@ -1,3 +1,24 @@
+-- 29 August 2023--------------------------------
+
+ALTER TABLE fee DROP COLUMN Date_Paid;
+
+ALTER TABLE fee DROP FOREIGN KEY fee_ibfk_1;
+
+ALTER TABLE fee DROP COLUMN studentId;
+
+ALTER TABLE fee ADD COLUMN level_id INT(11);
+
+ALTER TABLE fee DROP COLUMN bank_name;
+
+DROP TABLE IF EXISTS bank
+
+CREATE TABLE
+    bank(
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        bank_name VARCHAR(255),
+        bank_paybill VARCHAR(255)
+    );
+
 -- 25 August 2023--------------------------------
 
 ALTER TABLE teacher_subjects ADD COLUMN level_id VARCHAR(255);
