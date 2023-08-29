@@ -52,6 +52,24 @@ class Schedule
     {
 
         if ($this->scheduleInstance->selectByDay($obj)) {
+            $this->data = $this->scheduleInstance->data;
+            // print_r($_SESSION);
+            return true;
+        } else {
+            $this->error = $this->scheduleInstance->error;
+            return false;
+        }
+    }
+
+    function retriveForTeacher($obj)
+    {
+        if ($this->scheduleInstance->selectForTeacher($obj)) {
+            $this->data = $this->scheduleInstance->data;
+            // print_r($_SESSION);
+            return true;
+        } else {
+            $this->error = $this->scheduleInstance->error;
+            return false;
         }
     }
 }

@@ -58,7 +58,7 @@ if (empty($_SESSION['teacher_data'])) {
             </div>
         <?php  } ?>
 
-        <form action="" class="form-control attendance-form">
+        <form action="../../controllers/attendance/attendance_proc.php" method="POST" class="form-control attendance-form">
             <table class=" table table-sm table-bordered border-primary">
                 <thead class="thead-attendance">
                     <tr>
@@ -74,7 +74,7 @@ if (empty($_SESSION['teacher_data'])) {
                                 <td><?php echo $student->Name ?></td>
                                 <td><?php echo $student->regno ?></td>
                                 <td>
-                                    <input type="checkbox" name="studentId" value="<?php echo $student->regno ?>">
+                                    <input type="checkbox" name="studentId-<?php echo $student->regno ?>" value="<?php echo $student->student_id ?>">
                                 </td>
                             </tr>
 
