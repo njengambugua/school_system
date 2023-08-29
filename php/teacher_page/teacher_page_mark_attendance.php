@@ -3,8 +3,12 @@ session_start();
 if (empty($_SESSION['teacher_data'])) {
     header('Location: ../login.php');
 } else {
-    $teacher_level = (object)$_SESSION['teacher_level'];
-    $teacher_subject = (object)$_SESSION['teacher_subject'];
+    // $teacher_level = (object)$_SESSION['teacher_level'];
+    // $teacher_subject = (object)$_SESSION['teacher_subject'];
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $_GET['subject'];
+        $_GET['level'];
+    }
     $teacher_related = $_SESSION['teacher_related'];
 }
 ?>
@@ -25,30 +29,23 @@ if (empty($_SESSION['teacher_data'])) {
 
     <main class="main">
         <div class="main-content-holder">
-            <form class="select_heads" action="../../controllers/students/students_proc.php" method="post">
-                <div class="left-select-head">
-                    <select name="grade" class="select-grade" id="grade">
-                        <option selected>Select Grade</option>
-                        <?php foreach ($teacher_level as $item) { ?>
-                            <?php foreach ($item as $option) { ?>
-                                <option value="<?php echo $option ?>"><?php echo $option ?></option>
-                            <?php } ?>
 
-                        <?php } ?>
-                    </select>
+            <?php if (isset($_GET['subject']) && isset($_GET['level'])) { ?>
+                <form class="select_heads" action="../../controllers/students/students_proc.php" method="post">
+                    <div class="left-select-head">
+                        <input type="text" name="grade" class="select-grade" value="<?php echo $_GET['level'] ?>" readonly>
+                        <input type="text" name="subject" class="select-grade" value="<?php echo $_GET['subject'] ?>" readonly>
+                        <input type="submit" value="Submit" name="action">
+                    </div>
+                </form>
+            <?php } ?>
 
-                    <select name="subject" class="select-grade" id="subject">
-                        <option selected>Select Subject</option>
-                        <?php foreach ($teacher_subject as $item) { ?>
-                            <?php foreach ($item as $option) { ?>
-                                <option value="<?php echo $option ?>"><?php echo $option ?></option>
-                            <?php } ?>
+            <?php if (isset($_SESSION['error'])) { ?>
+                <p class="error-lesson" style="color: red;">
+                    <?php echo $_SESSION['error'] ?>
+                </p>
+            <?php } ?>
 
-                        <?php } ?>
-                    </select>
-                    <input type="submit" value="Submit" name="action">
-                </div>
-            </form>
         </div>
         <?php if (isset($teacher_related) && !empty($teacher_related)) { ?>
             <div class="table-header-display">
@@ -60,6 +57,7 @@ if (empty($_SESSION['teacher_data'])) {
 
         <form action="../../controllers/attendance/attendance_proc.php" method="POST" class="form-control attendance-form">
             <table class=" table table-sm table-bordered border-primary">
+                <input type="hidden" name="lesson_id" value="<?php echo $_SESSION['lesson_id'] ?>">
                 <thead class="thead-attendance">
                     <tr>
                         <th scope="col">Student Name</th>

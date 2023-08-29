@@ -41,22 +41,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (isset($_GET['teacher_id'])) {
-        if ($teacher->retrieveTeacherLevel($_GET['teacher_id'])) {
-            $teacher_levels = $teacher->data;
+// if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+//     if (isset($_GET['teacher_id'])) {
+//         if ($teacher->retrieveTeacherLevel($_GET['teacher_id'])) {
+//             $teacher_levels = $teacher->data;
 
-            $_SESSION['teacher_level'] = $teacher_levels;
-            if ($teacher->retrieveTeacherSubjects($_GET['teacher_id'])) {
-                $teacher_subject = $teacher->data;
+//             $_SESSION['teacher_level'] = $teacher_levels;
+//             if ($teacher->retrieveTeacherSubjects($_GET['teacher_id'])) {
+//                 $teacher_subject = $teacher->data;
 
-                $_SESSION['teacher_subject'] = $teacher_subject;
-                Header('Location: ../../php/teacher_page/teacher_page_mark_attendance.php');
-            } else {
-                echo "Error: " . $teacher->error;
-            }
-        } else {
-            echo "Error: " . $teacher->error;
-        }
-    }
-}
+//                 $_SESSION['teacher_subject'] = $teacher_subject;
+//                 Header('Location: ../../php/teacher_page/teacher_page_mark_attendance.php');
+//             } else {
+//                 echo "Error: " . $teacher->error;
+//             }
+//         } else {
+//             echo "Error: " . $teacher->error;
+//         }
+//     }
+// }
