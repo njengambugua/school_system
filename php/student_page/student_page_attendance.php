@@ -50,7 +50,7 @@
           'Geography' => 36,
           'History' => 23,
           'Agriculture' => 26,
-          'Business Studies' => 37
+          'Business Studies' => 37,
         );
         $term3 = (object)array(
           'Mathematics' => 40,

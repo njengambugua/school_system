@@ -18,7 +18,7 @@
                     <a href="./php/student_page/student_page.php">Home</a>
                     <a href="php/admission.php">Admissions</a>
                     <a href="#">Fees</a>
-                    <a href="#">About</a>
+                    <a href="php/about.php">About</a>
                     <a href="./php/login.php">Login</a>
                 </li>
             </ul>

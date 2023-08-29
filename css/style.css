@@ -155,13 +155,13 @@ article .img1 {
 }
 @keyframes slideInLeft {
   0% {
-    transform: translateX(-150px);
+    transform: translateX(-120px);
   }
   50% {
-    transform: translatex(150px);
+    transform: translatex(120px);
   }
   100% {
-    transform: translatex(-150px);
+    transform: translatex(-120px);
   }
 }
 .animate--fast {
