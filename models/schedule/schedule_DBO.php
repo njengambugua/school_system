@@ -170,10 +170,17 @@ class scheduleDBO
     public function selectForTeacher($obj)
     {
         try {
-            $this->sql = 'SELECT * FROM schedule sc JOIN level l ON l.id = sc.level_id JOIN subjects s ON s.id = sc.subject_id WHERE teacher_id = :teacher_id AND day_of_week = :time';
-            $this->stmt = $this->conn->prepare($this->sql);
+            $this->sql = 'SELECT * FROM schedule sc JOIN level l ON l.id = sc.level_id JOIN subjects s ON s.id = sc.subject_id WHERE teacher_id = :teacher_id';
+
+            if (!empty($obj->day)) {
+                $this->sql .= ' AND day_of_week = :time';
+                $this->stmt = $this->conn->prepare($this->sql);
+                $this->stmt->bindParam('time', $obj->day);
+            } else {
+                $this->stmt = $this->conn->prepare($this->sql);
+            }
+
             $this->stmt->bindParam('teacher_id', $obj->id);
-            $this->stmt->bindParam('time', $obj->day);
             $this->stmt->execute();
             $this->data = $this->stmt->fetchAll(PDO::FETCH_OBJ);
             return true;

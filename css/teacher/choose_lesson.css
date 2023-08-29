@@ -1,0 +1,23 @@
+.overlay-holder {
+  background: white;
+  height: 95vh;
+  position: relative;
+  grid-column: 1/3;
+  display: grid;
+  place-items: center;
+}
+.main-content-holder {
+  padding: 0 !important;
+}
+.select_lesson_form {
+  background: #164b60 !important;
+  height: 60vh !important;
+  width: 70% !important;
+  color: white !important;
+}
+.error-lesson {
+  color: #c70039;
+  font-weight: bold;
+  position: absolute;
+  top: 5rem;
+}

@@ -17,6 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             header('Location: ../../php/admin/timetable.php');
         }
     }
+
+
+    if (isset($_GET['teacher_id'])) {
+        $obj = new stdClass;
+        $obj->id = $_GET['teacher_id'];
+        if ($schedule->retriveForTeacher($obj)) {
+            $data = $schedule->data;
+            $_SESSION['teacher_select'] = $data;
+            header('Location: ../../php/teacher_page/teacher_page_choose_lesson.php');
+        } else {
+            echo "Error: " . $schedule->error;
+        }
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
