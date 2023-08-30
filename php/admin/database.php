@@ -43,7 +43,6 @@
                 $_SESSION['tableName'] = $_POST['table'];
                 ?>
 
-
                 <!-- Table Head -->
                 <table class="table table-bordered table-academics">
                     <thead class="thead-academics">
@@ -80,12 +79,12 @@
                             echo "
                             <form name='id' action='editRecord.php' method='post'>
                                 <td>
-                                    <button name='editBtn' type='submit' value = '$record->id'>$record->id EDIT</button>
+                                    <button name='editBtn' id='editBtn' type='submit' value = '$record->id'>EDIT</button>
                                 </td>
                             </form>
                             <form action='deleteRecord.php' method='post'>
                                 <td>
-                                    <button name='deleteBtn' type='submit' value = '$record->id'>$record->id DELETE</button>
+                                    <button name='deleteBtn' id='deleteBtn' type='submit' value = '$record->id'>DELETE</button>
                                 </td>
                                 </form>
                                 ";
