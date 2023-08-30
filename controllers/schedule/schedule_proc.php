@@ -30,6 +30,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             echo "Error: " . $schedule->error;
         }
     }
+
+
+
+    if (isset($_GET['id'])) {
+        $obj = new stdClass;
+        $obj->id = $_GET['id'];
+        if ($schedule->retriveForTeacher($obj)) {
+            $data = $schedule->data;
+            $_SESSION['teacher_select'] = $data;
+            header('Location: ../../php/teacher_page/teacher_view_student_attendance.php');
+        } else {
+            echo "Error: " . $schedule->error;
+        }
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -101,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "Enter valid day";
         }
         $obj = new stdClass;
-        $obj->id = $_SESSION['teacher_data']->id;
+        $obj->id = $_SESSION['teacher_data']->teacher_id;
         $obj->day = $day;
         if ($schedule->retriveForTeacher($obj)) {
             $data = $schedule->data;

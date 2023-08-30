@@ -36,6 +36,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // exit;
         }
     }
+
+    if ($_POST['action'] == 'Get All') {
+        $obj = (object)$_POST;
+        unset($_SESSION['all_student_attendance']);
+        if ($attendance->retrieve($obj)) {
+            $data = $attendance->data;
+            $_SESSION['all_student_attendance'] = $data;
+            header('Location: ../../php/teacher_page/teacher_view_many_attendance.php');
+        }
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {

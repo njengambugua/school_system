@@ -54,7 +54,7 @@ if (empty($_SESSION['teacher_data'])) {
         </a>
 
 
-        <a href="./teacher_pages_students.php" class="icon-item">
+        <a href="./teacher_pages_students.php?id=<?php echo $_SESSION['teacher_data']->teacher_id ?>" class="icon-item">
           <div class="nav-icon">
             <i class="bx bx-book-open"></i>
           </div>
