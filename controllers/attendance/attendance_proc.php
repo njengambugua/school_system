@@ -25,6 +25,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: ../../php/teacher_page/teacher_page_mark_attendance.php');
         }
     }
+
+
+    if ($_POST['action'] == 'Get Student') {
+        $obj = (object)$_POST;
+        if ($attendance->retrieve($obj)) {
+            $data = $attendance->data;
+            $_SESSION['student_attendance'] = $data;
+            header('Location: ../../php/teacher_page/teacher_view_student_attendance.php');
+            // exit;
+        }
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -33,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if ($_GET['id'] == $_SESSION['res']->id) {
         $obj->id = $_GET['id'];
         $obj->level = $_SESSION['res']->Level;
+        $obj->regno = $_SESSION['res']->regno;
+
 
         if ($attendance->retrieve($obj)) {
             $data = $attendance->data;

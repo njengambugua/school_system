@@ -51,23 +51,23 @@ class AttendanceDBO
     {
         try {
 
-            $query = "SELECT s.id, s.subjectName, COUNT(a.lession_id) as lesson_attend, t.total_lessons, t.level
+            $query = "SELECT s.id, s.subjectName, COUNT(a.lession_id) as lesson_attend, t.total_lessons
 FROM subjects s
 LEFT JOIN schedule sc ON s.id = sc.subject_id
 LEFT JOIN (
-  SELECT subject_id, COUNT(*) * 12 AS total_lessons, l.level as level
-  FROM schedule sch LEFT JOIN level l ON l.id = sch.level_id
-  WHERE l.level = :level
+  SELECT subject_id, COUNT(*) * 12 AS total_lessons
+  FROM schedule
+  WHERE level_id = (SELECT l.id FROM students s JOIN applicant app ON s.applicant_id = app.id JOIN level l ON app.Level = l.level WHERE s.regno = :regno)
   GROUP BY subject_id
 ) t ON t.subject_id = s.id
-LEFT JOIN attendance a ON sc.schedule_id = a.lession_id AND a.student_id = :id
-GROUP BY s.id, s.subjectName, t.total_lessons
-LIMIT 100;
-";
+LEFT JOIN attendance a ON sc.schedule_id = a.lession_id AND a.student_id = (SELECT s.id FROM students s LEFT JOIN applicant a ON a.id = s.applicant_id WHERE s.regno = :regno)
+GROUP BY s.id, s.subjectName, t.total_lessons";
 
             $this->stmt = $this->conn->prepare($query);
-            $this->stmt->bindParam(':id', $obj->id);
-            $this->stmt->bindParam(':level', $obj->level);
+            // $this->stmt->bindParam(':id', $obj->id);
+            // $this->stmt->bindParam(':level', $obj->level);
+            $this->stmt->bindParam(':regno', $obj->regno);
+
             $this->stmt->execute();
             $this->data = $this->stmt->fetchAll(PDO::FETCH_OBJ);
 

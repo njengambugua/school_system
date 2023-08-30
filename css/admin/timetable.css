@@ -14,10 +14,11 @@
 .timetable-table {
   background-image: linear-gradient(30deg, #45cfdd, white);
   color: #164b60 !important;
+  overflow-y: scroll !important;
 }
 .timetable-table > thead {
   position: sticky;
-  top: 8rem;
+  top: 4em;
   background-image: linear-gradient(30deg, #45cfdd, white);
 }
 .reset-form {
