@@ -23,7 +23,7 @@ foreach ($_SESSION['all_student_attendance'] as $att) {
             if (!isset($attendance[$att->Name])) {
                 $attendance[$att->Name] = [];
             }
-            $attendance[$att->Name][$subject] = $att->lesson_attend;
+            $attendance[$att->Name][$subject] = $att->total_lessons;
             $attendance[$att->Name]["regno"] = $att->regno;
         }
     }
@@ -49,6 +49,7 @@ foreach ($_SESSION['all_student_attendance'] as $att) {
                 <div class="left-select-head">
 
                     <select name="level" id="" class="form-control">
+                        <option value="" class="form-control" selected>Select Level</option>
                         <?php foreach ($uniqueLevel as $level) { ?>
                             <option value="<?php echo $level ?>" class="form-control"><?php echo $level ?></option>
                         <?php } ?>
@@ -59,7 +60,7 @@ foreach ($_SESSION['all_student_attendance'] as $att) {
                 </div>
             </form>
 
-            <a href="teacher_view_student_attendance.php">
+            <a href="teacher_view_student_attendance.php" class="back_button">
                 <button>Back To Single Student</button>
             </a>
 
