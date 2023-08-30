@@ -87,7 +87,7 @@ $id = $_SESSION['res']->id;
   <header class="student-header">
     <div class="header-items">
       <button class="header-btn"><a href="../../index.php">Home Main</a></button>
-      <button class="header-btn"><a href="">Logout</a></button>
+      <button class="header-btn"><a href="../logout.php">Logout</a></button>
     </div>
   </header>
 </body>
