@@ -1,6 +1,7 @@
 <?php
 session_start();
-$fees = (object)$_SESSION['fee_data']
+$fees = (object)$_SESSION['fee_data'];
+$bankdata = (object)$_SESSION['bank_data'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,62 +36,90 @@ $fees = (object)$_SESSION['fee_data']
   </section>
   <main class="bain">
     <div class="bain-content-holder">
-      <form action="../controllers/fee/fee_proc.php" method="post">
-        <div class="fees-tables">
+      <div class="fees-tables">
+        <div>
+          <h2 style="color: black">Wisedigits Day and Boarding School</h2>
           <h3>FEE STRUCTURE FOR ALL STUDENTS</h3>
-          <div class="table-holder">
-            <table class="table table-sm fee-table">
-              <thead class="thead-fee">
-                <tr>
-                  <th scope="col">ONE TIME PAYMENT</th>
-                  <th scope="col"></th>
-                  <th scope="col">ANNUAL PAYMENTS</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody class="tbody-fee">
-                <tr>
-                  <td>INTERVIEW CHARGES</td>
-                  <td>1,500.00</td>
-                  <td>MAINTENANCE LEVY</td>
-                  <td>2,000.00</td>
-                </tr>
-                <tr>
-                  <td>INTERVIEW CHARGES</td>
-                  <td>2,500.00</td>
-                  <td>INSURANCE COVER</td>
-                  <td>500.00</td>
-                </tr>
-                <tr>
-                  <td>INTERVIEW CHARGES</td>
-                  <td>1,500.00</td>
-                  <td>LIBRARY FEES</td>
-                  <td>400</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="table-holder">
-            <table class="table table-sm fee-table">
-              <thead class="thead-fee">
-                <tr>
-                  <th scope="col">Grade</th>
-                  <th scope="col">Total Amount Payable</th>
-                </tr>
-              </thead>
-              <tbody class="tbody-fee">
-                <?php foreach ($fees as $fee) { ?>
-                  <tr>
-                    <td scope="row"><?php echo $fee->level ?></td>
-                    <td><?php echo $fee->Amount ?></td>
-                  </tr>
-                <?php } ?>
-              </tbody>
-            </table>
-          </div>
         </div>
-        <input type="submit" class="btn btn-primary" name="action" value="Fees">
-      </form>
+        <div class="table-holder">
+          <table class="table table-sm fee-table">
+            <thead class="thead-fee">
+              <tr>
+                <th scope="col">ONE TIME PAYMENT</th>
+                <th scope="col"></th>
+                <th scope="col">ANNUAL PAYMENTS</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody class="tbody-fee">
+              <tr>
+                <td>INTERVIEW CHARGES</td>
+                <td>1,500.00</td>
+                <td>MAINTENANCE LEVY</td>
+                <td>2,000.00</td>
+              </tr>
+              <tr>
+                <td>INTERVIEW CHARGES</td>
+                <td>2,500.00</td>
+                <td>INSURANCE COVER</td>
+                <td>500.00</td>
+              </tr>
+              <tr>
+                <td>INTERVIEW CHARGES</td>
+                <td>1,500.00</td>
+                <td>LIBRARY FEES</td>
+                <td>400</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-holder">
+          <table class="table table-sm fee-table">
+            <thead class="thead-fee">
+              <tr>
+                <th scope="col">Grade</th>
+                <th scope="col">Total Amount Payable</th>
+              </tr>
+            </thead>
+            <tbody class="tbody-fee">
+              <?php foreach ($fees as $fee) { ?>
+                <tr>
+                  <td scope="row"><?php echo $fee->level ?></td>
+                  <td><?php echo $fee->Amount ?></td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>TERMS OF PAYMENT:</h3>
+          <h6>
+            * FEES SHOULD BE PAID IN FULL ON OR BEFORE THE FIRST DAY OF TERM.
+          </h6>
+          <h6>
+            * FEES IS PAYABLE BY PERSONAL/COMPANY/BANKERS CHEQUES, OR BY CASH DEPOSIT INTO EITHER OF THE
+            FOLLOWING BANK ACCOUNTS:
+          </h6>
+        </div>
+        <div class="table-holder">
+          <table class="table table-sm fee-table">
+            <thead class="thead-fee">
+              <tr>
+                <th scope="col">Grade</th>
+                <th scope="col">Bank Paybill</th>
+              </tr>
+            </thead>
+            <tbody class="tbody-fee">
+              <?php foreach ($bankdata as $bank) { ?>
+                <tr>
+                  <td><?php echo $bank->bank_name ?></td>
+                  <td><?php echo $bank->bank_paybill ?></td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </main>
 </body>
