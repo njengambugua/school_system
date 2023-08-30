@@ -19,3 +19,20 @@
     height: 100px;
     width: 100px;
 }
+#teacherPassportDiv{
+    position: relative;
+}
+#teacherPassportDiv button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "\1F58A";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 45%;
+    right: 0;
+    font-size: 20px;
+    border-radius: 50%;
+    background: var(--pri);
+}

@@ -4,13 +4,16 @@ if ($_POST['action'] == 'Login') {
     if (preg_match('/^SDT/', $_POST['regno'])) {
         $_SESSION['loginData'] = $_POST;
         header('Location: ../controllers/students/students_proc.php');
-    } elseif (preg_match("/^TCH/", $_POST['regno'])) {
+    }
+    elseif (preg_match("/^TCH/", $_POST['regno'])) {
         $_SESSION['loginData'] = $_POST;
         header('Location: ../controllers/teacher/teacher_proc.php');
-    } elseif (preg_match("/^Admin/", $_POST['regno'])) {
+    }
+    elseif (preg_match("/^Admin/", $_POST['regno'])) {
         $_SESSION['loginData'] = $_POST;
         header('Location: ../controllers/admin/admin_proc.php');
-    } else {
+    }
+    else {
         header('Location: login.php');
     }
 }
@@ -39,7 +42,6 @@ if ($_POST['action'] == 'Login') {
         <section class="log">
             <input type="hidden" name="id" value="<?php echo $_SESSION['student_id']; ?>">
             <input id="loginBtn" type="submit" name="action" value="Login">
-            <!-- <a id="loginBtn" href="./teacher_page/teacher_page.php">Login as Teacher</a> -->
         </section>
         <div>
             <a href="#">Forgot Password?</a>

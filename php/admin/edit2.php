@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include('../../DB.php');
+// include('../../DB.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $objToUpdates = (object)$_POST;

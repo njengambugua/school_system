@@ -1,6 +1,6 @@
 <?php
 include '../../DB.php';
-session_start();
+// session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -71,16 +71,17 @@ class ParentDBO
     function edit($obj, $id)
     {
         echo "<br>DBO called";
+        print_r($obj);
 
         $updateCmd =
             "UPDATE parent
-        SET Name = :name, Gender = :gender, Occupation = :occupation, Relationship = :relationship, Contact = :contact, Email = :email, Location = :location, Religion = :religion, applicant_id = :applicantId
+        SET Parent_Name = :name, Parent_Gender = :gender, Occupation = :occupation, Relationship = :relationship, Contact = :contact, Email = :email, Location = :location, Religion = :religion, applicant_id = :applicantId
         WHERE id = :id
         ";
         $stmt = $this->conn->prepare($updateCmd);
         $stmt->bindParam(':id', $id);
-        $stmt->bindParam(':name', $obj->Name);
-        $stmt->bindParam(':gender', $obj->Gender);
+        $stmt->bindParam(':name', $obj->Parent_Name);
+        $stmt->bindParam(':gender', $obj->Parent_Gender);
         $stmt->bindParam(':occupation', $obj->Occupation);
         $stmt->bindParam(':relationship', $obj->Relationship);
         $stmt->bindParam(':contact', $obj->Contact);

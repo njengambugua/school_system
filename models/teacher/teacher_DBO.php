@@ -39,7 +39,7 @@ class teacherDBO
 
     $cmd = 
     "UPDATE teachers 
-    SET name = :name, staff_no = :staffNo, password = :password
+    SET name = :name, staff_no = :staffNo, password = :password, phone = :phone, email = :email
     WHERE id = :teacherId
     ";
 
@@ -47,6 +47,8 @@ class teacherDBO
     $this->stmt->bindParam(':name', $obj->name);
     $this->stmt->bindParam(':staffNo', $obj->staff_no);
     $this->stmt->bindParam(':password', $obj->password);
+    $this->stmt->bindParam(':phone', $obj->phone);
+    $this->stmt->bindParam(':email', $obj->email);
     $this->stmt->bindParam(':teacherId', $teacherId);
     $this->stmt->execute();
     echo $cmd;
