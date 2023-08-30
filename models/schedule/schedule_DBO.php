@@ -89,7 +89,7 @@ class scheduleDBO
 
         // print_r($classTimes);
         //   ===
-        $truncate = "TRUNCATE TABLE schedule";
+        $truncate = "DELETE FROM schedule";
         if ($this->conn->query($truncate)) {
             if (!empty($timetable)) {
                 foreach ($timetable as $time) {
