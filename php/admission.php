@@ -16,11 +16,11 @@
         <div id="options">
             <ul>
                 <li>
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Admissions</a>
-                    <a href="#">Fees</a>
-                    <a href="#">Login</a>
+                    <a href="../index.php">Home</a>
+                    <a href="about.php">About</a>
+                    <a href="./admission.php">Admissions</a>
+                    <a href="fee.php">Fees</a>
+                    <a href="login.php">Login</a>
                 </li>
             </ul>
         </div>
@@ -42,7 +42,7 @@
                 <div id="info">
                     <label>Gender</label>
                     <select name="Gender">
-                    <!-- <select> -->
+                        <!-- <select> -->
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -50,7 +50,7 @@
                 <div id="info">
                     <label>Level of education</label>
                     <select name="Level">
-                    <!-- <select> -->
+                        <!-- <select> -->
                         <option value="PP1">PP1</option>
                         <option value="PP2">PP2</option>
                         <option value="Grade_1">Grade 1</option>

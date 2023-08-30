@@ -12,4 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       header('Location: ../../php/admin/fees.php');
     }
   }
+
+  if ($_POST['action'] == 'Fees') {
+    if ($fee->retrieve()) {
+      $_SESSION['fee_data'] = $fee->data;
+      header("location: ../../php/fee.php");
+    }
+  }
 }

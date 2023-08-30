@@ -42,6 +42,7 @@
   justify-items: center;
   background: #45cfdd;
   border-radius: 0.4rem;
+  padding: 1rem;
 }
 .table-holder > p {
   color: #164b60;
@@ -56,4 +57,15 @@
 .thead-fee{
     background: #164b60;
     color: white;
+}
+
+.bain{
+  width: 100%;
+  height: 100%;
+}
+
+.bain-content-holder{
+  width: 100%;
+  padding: 3rem;
+  height: 100%;
 }

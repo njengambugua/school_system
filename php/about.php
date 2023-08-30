@@ -19,11 +19,11 @@
         <div id="options">
             <ul>
                 <li>
-                    <a href="./php/student_page/student_page.php">Home</a>
-                    <a href="php/admission.php">Admissions</a>
-                    <a href="#">Fees</a>
-                    <a href="php/about.php">About</a>
-                    <a href="./php/login.php">Login</a>
+                    <a href="../index.php">Home</a>
+                    <a href="admission.php">Admissions</a>
+                    <a href="fee.php">Fees</a>
+                    <a href="./about.php">About</a>
+                    <a href="login.php">Login</a>
                 </li>
             </ul>
         </div>

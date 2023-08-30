@@ -1,9 +1,8 @@
 <?php
 include '../../DB.php';
-
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include '../../DB.php';
 
 class ParentDBO
 {
@@ -29,11 +28,11 @@ class ParentDBO
             $stmt->bindParam(":Name", $obj->name);
             $stmt->bindParam(":Gender", $obj->gender);
             $stmt->bindParam(":Occupation", $obj->occupation);
+            $stmt->bindParam(":Relationship", $obj->relationship);
             $stmt->bindParam(":Contact", $obj->contact);
             $stmt->bindParam(":Email", $obj->email);
-            $stmt->bindParam(":Religion", $obj->religion);
-            $stmt->bindParam(":Relationship", $obj->relationship);
             $stmt->bindParam(":Location", $obj->location);
+            $stmt->bindParam(":Religion", $obj->religion);
             $stmt->bindParam(":applicant_id", $_SESSION['applicant_id']);
 
             $stmt->execute();
@@ -69,11 +68,12 @@ class ParentDBO
         }
     }
 
-    function edit($obj, $id) {
+    function edit($obj, $id)
+    {
         echo "<br>DBO called";
 
         $updateCmd =
-        "UPDATE parent
+            "UPDATE parent
         SET Name = :name, Gender = :gender, Occupation = :occupation, Relationship = :relationship, Contact = :contact, Email = :email, Location = :location, Religion = :religion, applicant_id = :applicantId
         WHERE id = :id
         ";
