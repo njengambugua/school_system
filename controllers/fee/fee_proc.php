@@ -12,11 +12,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       header('Location: ../../php/admin/fees.php');
     }
   }
+}
 
-  if ($_POST['action'] == 'Fees') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+  if (isset($_GET['std_id'])) {
+    if ($fee->retrieveByLevel($_GET['std_id'])) {
+      $_SESSION['fee_data'] = $fee->blue;
+      header('Location: ../bank/bank_proc.php?src='.$_GET['std_id']);
+    }
+  }
+
+  if (isset($_GET['id'])) {
     if ($fee->retrieve()) {
       $_SESSION['fee_data'] = $fee->data;
-      header("location: ../../php/fee.php");
+      header('location: ../bank/bank_proc.php?id='.$_GET['id']);
     }
   }
 }

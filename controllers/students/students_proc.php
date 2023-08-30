@@ -1,6 +1,5 @@
 <?php
 include('../../models/students/students_class.php');
-// include('../../DB.php');
 
 $student = new students;
 
@@ -23,7 +22,7 @@ if (isset($_SESSION['loginData']) && $_SESSION['loginData']['action'] == 'Login'
     if ($student->numRows) {
       $_SESSION['res'] = $student->data;
       unset($_SESSION['loginData']);
-      header("Location: ../../php/student_page/student_page.php");
+      header("Location: ../fee/fee_proc.php?std_id=".($_SESSION['res']->Level));
     } else {
       unset($_SESSION['loginData']);
       header("Location: ../../php/login.php");

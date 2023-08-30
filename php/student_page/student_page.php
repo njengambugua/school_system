@@ -1,6 +1,5 @@
 <?php
 session_start();
-// print_r();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +23,7 @@ session_start();
       <div class="headline-fee">
         <div class="fees-amount">
           <h4>Total Fees</h4>
-          <h1>0.00</h1>
+          <h1><?php echo $_SESSION['fee_data']->Amount ?></h1>
         </div>
         <div class="attendance-display">
           <h4>Weeks Attended</h4>

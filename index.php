@@ -19,7 +19,7 @@
                 <li>
                     <a href="./index.php">Home</a>
                     <a href="php/admission.php">Admissions</a>
-                    <a href="php/fee.php">Fees</a>
+                    <a href="controllers/fee/fee_proc.php?id=<?php echo md5(1) ?>">Fees</a>
                     <a href="php/about.php">About</a>
                     <a href="./php/login.php">Login</a>
                 </li>

@@ -48,12 +48,6 @@ class students_DBO
       $this->stmt->execute();
       $this->numRows = $this->stmt->rowCount();
       $this->res = $this->stmt->fetch(PDO::FETCH_OBJ);
-      if (!$this->res) {
-        $_SESSION['error'] = 'This account does not exist';
-      } else {
-        $_SESSION['error'] = 'Login success';
-      }
-
       return true;
     } catch (PDOException $e) {
       $this->error = $e->getMessage();

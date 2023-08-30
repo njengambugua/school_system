@@ -8,6 +8,7 @@ class Fee
   public $data;
   public $lastInsertId;
   public $obj;
+  public $blue;
 
   public function __construct()
   {
@@ -43,6 +44,17 @@ class Fee
   {
     if ($this->feeObj->select()) {
       $this->data = $this->feeObj->res;
+      $this->numRows = $this->feeObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->feeObj->error;
+      return false;
+    }
+  }
+
+  function retrieveByLevel($level) {
+    if ($this->feeObj->selectbyLevel($level)) {
+      $this->blue = $this->feeObj->res;
       $this->numRows = $this->feeObj->numRows;
       return true;
     } else {

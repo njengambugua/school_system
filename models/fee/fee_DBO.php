@@ -48,4 +48,20 @@ class Fee_DBO
       return false;
     }
   }
+
+  public function selectbyLevel($level)
+  {
+    try {
+      $this->sql = "SELECT l.level, f.Amount FROM fee f LEFT JOIN level l ON l.id=f.level_id WHERE l.level=:level";
+      $this->stmt = $this->conn->prepare($this->sql);
+      $this->stmt->bindParam(':level', $level);
+      $this->stmt->execute();
+      $this->res = $this->stmt->fetch(PDO::FETCH_OBJ);
+      $this->numRows = $this->stmt->rowCount();
+      return true;
+    } catch (PDOException $e) {
+      $this->error = $e->getMessage();
+      return false;
+    }
+  }
 }
