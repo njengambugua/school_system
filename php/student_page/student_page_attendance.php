@@ -1,3 +1,10 @@
+<?php session_start();
+if (!isset($_SESSION['student_attendance'])) {
+  header('Location: ../logout.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,57 +31,9 @@
     ?>
     <div class="main-content-holder">
       <div class="attendance-holder">
-        <?php
-        // This object should be made dynamic currently hardcoded for testing purposes _________________________________
-        $term1 = (object)array(
-          'Mathematics' => 38,
-          'English' => 32,
-          'Kiswahili' => 29,
-          'Science' => 35,
-          'Social Studies' => 32,
-          'CRE' => 33,
-          'Computer' => 37,
-          'Geography' => 36,
-          'History' => 40,
-          'Agriculture' => 22,
-          'Business Studies' => 20
-        );
-        $term2 = (object)array(
-          'Mathematics' => 30,
-          'English' => 35,
-          'Kiswahili' => 34,
-          'Science' => 30,
-          'Social Studies' => 37,
-          'CRE' => 30,
-          'Computer' => 18,
-          'Geography' => 36,
-          'History' => 23,
-          'Agriculture' => 26,
-          'Business Studies' => 37,
-        );
-        $term3 = (object)array(
-          'Mathematics' => 40,
-          'English' => 36,
-          'Kiswahili' => 34,
-          'Science' => 33,
-          'Social Studies' => 36,
-          'CRE' => 33,
-          'Computer' => 38,
-          'Geography' => 36,
-          'History' => 32,
-          'Agriculture' => 34,
-          'Business Studies' => 32
-        );
-        $terms = [$term1, $term2, $term3];
-
-        // _______________________________________________________________________
-
-        $conn = $db->getConnection();
-        for ($x = 1; $x <= 3; $x++) {
-          echo "
-            <div class='attendance-table'>
-            <div class='attendance-term'>
-            <h4>Term $x</h4>
+        <div class='attendance-table'>
+          <div class='attendance-term'>
+            <h4>Term</h4>
           </div>
           <div class='table-holder-content'>
             <table class='table'>
@@ -86,34 +45,25 @@
                   <th scope='col'>Percentage Attendance</th>
                 </tr>
               </thead>
-              <tbody class='attendance-tbody'>";
+              <tbody class='attendance-tbody'>
 
-          $subjectCommand = "SELECT * FROM subjects";
-          $results = $conn->query($subjectCommand)->fetchAll(PDO::FETCH_OBJ);
-          foreach ($results as $subjects) {
-            echo "
-                <tr>
-                  <td>$subjects->subjectName</td>
-                  <td>";
-            $lessonAttendance = $terms[$x - 1]->{$subjects->subjectName};
-            echo $lessonAttendance;
-            echo "
-                  </td>
-                  <td>40</td>
-                  <td>";
-            $percentAttendance = ($lessonAttendance / 40) * 100;
-            echo $percentAttendance . "%";
-            echo "
-                  </td>
-                </tr>";
-          }
-          echo "
+                <?php foreach ($_SESSION['student_attendance'] as $time) { ?>
+                  <tr>
+                    <td><?php echo $time->subjectName ?></td>
+                    <td><?php echo $time->lesson_attend ?></td>
+                    <td><?php echo $time->total_lessons ?></td>
+                    <td><?php echo number_format((($time->lesson_attend) / ($time->total_lessons)) * 100, 2) . "%" ?></td>
+                  </tr>
+
+                <?php } ?>
+
               </tbody>
             </table>
           </div>
         </div>
-          ";
-        }
-        ?>
+
+      </div>
+    </div>
 </body>
+
 </html>

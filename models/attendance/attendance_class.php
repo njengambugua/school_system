@@ -26,4 +26,17 @@ class attendance
             return true;
         }
     }
+
+
+
+    function retrieve($obj)
+    {
+
+        if ($this->attendanceDBOInstance->select($obj)) {
+            $this->data = $this->attendanceDBOInstance->data;
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

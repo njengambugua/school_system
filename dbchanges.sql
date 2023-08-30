@@ -1,5 +1,11 @@
 -- 29 August 2023--------------------------------
 
+ALTER TABLE attendance
+ADD
+    CONSTRAINT fk_lesson FOREIGN KEY (lession_id) REFERENCES schedule(schedule_id) ON DELETE CASCADE;
+
+ALTER TABLE attendance DROP FOREIGN KEY attendance_ibfk_1;
+
 ALTER TABLE fee DROP COLUMN Date_Paid;
 
 ALTER TABLE fee DROP FOREIGN KEY fee_ibfk_1;
@@ -10,7 +16,7 @@ ALTER TABLE fee ADD COLUMN level_id INT(11);
 
 ALTER TABLE fee DROP COLUMN bank_name;
 
-DROP TABLE IF EXISTS bank
+DROP TABLE IF EXISTS bank 
 
 CREATE TABLE
     bank(
