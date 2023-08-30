@@ -50,23 +50,43 @@ class AttendanceDBO
     function select($obj)
     {
         try {
+            if ($obj->action == 'Get All') {
+                $query = 'SELECT s.id, s.subjectName, COUNT(a.lession_id) as lesson_attend, t.total_lessons, st.regno, app.Name
+                    FROM subjects s
+                    LEFT JOIN schedule sc ON s.id = sc.subject_id
+                    JOIN (
+                    SELECT subject_id, COUNT(*) * 12 AS total_lessons
+                    FROM schedule JOIN level lv ON lv.id = schedule.level_id
+                    WHERE lv.level = :level
+                    GROUP BY subject_id
+                    ) t ON t.subject_id = s.id
+                    LEFT JOIN attendance a ON sc.schedule_id = a.lession_id
+                    LEFT JOIN students st ON st.id = a.student_id
+                    LEFT JOIN applicant app ON app.id = st.applicant_id
+                    GROUP BY s.id, s.subjectName, t.total_lessons, st.regno, app.Name';
 
-            $query = "SELECT s.id, s.subjectName, COUNT(a.lession_id) as lesson_attend, t.total_lessons
-FROM subjects s
-LEFT JOIN schedule sc ON s.id = sc.subject_id
-LEFT JOIN (
-  SELECT subject_id, COUNT(*) * 12 AS total_lessons
-  FROM schedule
-  WHERE level_id = (SELECT l.id FROM students s JOIN applicant app ON s.applicant_id = app.id JOIN level l ON app.Level = l.level WHERE s.regno = :regno)
-  GROUP BY subject_id
-) t ON t.subject_id = s.id
-LEFT JOIN attendance a ON sc.schedule_id = a.lession_id AND a.student_id = (SELECT s.id FROM students s LEFT JOIN applicant a ON a.id = s.applicant_id WHERE s.regno = :regno)
-GROUP BY s.id, s.subjectName, t.total_lessons";
 
-            $this->stmt = $this->conn->prepare($query);
-            // $this->stmt->bindParam(':id', $obj->id);
-            // $this->stmt->bindParam(':level', $obj->level);
-            $this->stmt->bindParam(':regno', $obj->regno);
+                $this->stmt = $this->conn->prepare($query);
+                $this->stmt->bindParam(':level', $obj->level);
+            } else {
+
+                $query = "SELECT s.id, s.subjectName, COUNT(a.lession_id) as lesson_attend, t.total_lessons
+                FROM subjects s
+                LEFT JOIN schedule sc ON s.id = sc.subject_id
+                LEFT JOIN (
+                  SELECT subject_id, COUNT(*) * 12 AS total_lessons
+                  FROM schedule
+                  WHERE level_id = (SELECT l.id FROM students s JOIN applicant app ON s.applicant_id = app.id JOIN level l ON app.Level = l.level WHERE s.regno = :regno)
+                  GROUP BY subject_id
+                ) t ON t.subject_id = s.id
+                LEFT JOIN attendance a ON sc.schedule_id = a.lession_id AND a.student_id = (SELECT s.id FROM students s LEFT JOIN applicant a ON a.id = s.applicant_id WHERE s.regno = :regno)
+                GROUP BY s.id, s.subjectName, t.total_lessons";
+
+                $this->stmt = $this->conn->prepare($query);
+                // $this->stmt->bindParam(':id', $obj->id);
+                // $this->stmt->bindParam(':level', $obj->level);
+                $this->stmt->bindParam(':regno', $obj->regno);
+            }
 
             $this->stmt->execute();
             $this->data = $this->stmt->fetchAll(PDO::FETCH_OBJ);

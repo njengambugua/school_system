@@ -29,6 +29,10 @@ if (!isset($_SESSION['teacher_data'])) {
         </div>
       </form>
 
+      <a href="teacher_view_many_attendance.php">
+        <button>Open For All Students</button>
+      </a>
+
       <div class="att_rec">
         <h4>Attendance Records</h4>
       </div>
