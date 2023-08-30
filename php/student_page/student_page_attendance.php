@@ -1,6 +1,6 @@
 <?php session_start();
 if (!isset($_SESSION['student_attendance'])) {
-header('Location: ../logout.php');
+  header('Location: ../logout.php');
 }
 
 ?>
@@ -52,7 +52,7 @@ header('Location: ../logout.php');
                     <td><?php echo $time->subjectName ?></td>
                     <td><?php echo $time->lesson_attend ?></td>
                     <td><?php echo $time->total_lessons ?></td>
-                    <td><?php echo number_format((($time->lesson_attend) / ($time->total_lessons)) * 100, 2)."%"?></td>
+                    <td><?php echo number_format((($time->lesson_attend) / ($time->total_lessons)) * 100, 2) . "%" ?></td>
                   </tr>
 
                 <?php } ?>
