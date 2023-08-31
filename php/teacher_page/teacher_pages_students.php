@@ -28,7 +28,7 @@ if (isset($_GET['id'])) {
         </div>
       </a>
 
-      <a href="./teacher_view_student_attendance.php">
+      <a href="teacher_pages_students.php?id=<?php echo $_SESSION['teacher_data']->teacher_id ?>">
         <div class="student_attendance">
           <h4>Student Attendance</h4>
         </div>
