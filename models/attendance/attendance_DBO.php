@@ -88,4 +88,19 @@ class AttendanceDBO
             return false;
         }
     }
+
+    function studentTotalAttendance($obj)
+    {
+        try {
+            $this->query = 'SELECT COUNT(*) as total_lessons FROM attendance where student_id = :student_id GROUP BY student_id';
+            $this->stmt = $this->conn->prepare($this->query);
+            $this->stmt->bindParam("student_id", $obj->id);
+            $this->stmt->execute();
+            $this->data = $this->stmt->fetch(PDO::FETCH_OBJ);
+            return true;
+        } catch (PDOException $th) {
+            $this->error = $th->getMessage();
+            return false;
+        }
+    }
 }

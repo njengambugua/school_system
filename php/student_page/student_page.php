@@ -26,12 +26,26 @@ session_start();
           <h1><?php echo $_SESSION['fee_data']->Amount ?></h1>
         </div>
         <div class="attendance-display">
-          <h4>Weeks Attended</h4>
-          <span>
-            <h1>40</h1>
-            <p>Weeks</p>
-          </span>
+          <h4>Lessons Attended</h4>
+          <?php foreach ($_SESSION['bank_data'] as $data) {
+            if (isset($data->total_lessons)) {
+          ?>
+              <span>
+                <h1><?php echo $data->total_lessons ?></h1>
+                <p>Lessons</p>
+              </span>
+            <?php
+            } else {
+            ?>
+              <span>
+                <h1>0</h1>
+                <p>Lessons</p>
+              </span>
+          <?php
+            }
+          } ?>
         </div>
+
       </div>
       <div class="hostel-display">
         <h1>Student Hostel</h1>

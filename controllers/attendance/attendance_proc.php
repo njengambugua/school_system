@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $obj = new stdClass;
-    if ($_GET['id'] == $_SESSION['res']->id) {
+    if (isset($_GET['id']) && $_GET['id'] == $_SESSION['res']->id) {
         $obj->id = $_GET['id'];
         $obj->level = $_SESSION['res']->Level;
         $obj->regno = $_SESSION['res']->regno;
@@ -62,6 +62,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $_SESSION['student_attendance'] = $data;
             header('Location: ../../php/student_page/student_page_attendance.php');
             // exit;
+        }
+    }
+
+    if (isset($_GET['student_id'])) {
+        $obj = new stdClass;
+
+        $obj->id = $_GET['student_id'];
+        if ($attendance->retrieveStudentAttendance($obj)) {
+            $data = $attendance->data;
+            if ($data) {
+                array_push($_SESSION['bank_data'], $data);
+                header("Location: ../../php/student_page/student_page.php");
+            }
         }
     }
 }

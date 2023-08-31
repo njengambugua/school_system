@@ -36,6 +36,18 @@ class attendance
             $this->data = $this->attendanceDBOInstance->data;
             return true;
         } else {
+            $this->error = $this->attendanceDBOInstance->error;
+            return false;
+        }
+    }
+
+    function retrieveStudentAttendance($obj)
+    {
+        if ($this->attendanceDBOInstance->studentTotalAttendance($obj)) {
+            $this->data = $this->attendanceDBOInstance->data;
+            return true;
+        } else {
+            $this->error = $this->attendanceDBOInstance->error;
             return false;
         }
     }
