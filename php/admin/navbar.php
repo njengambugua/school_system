@@ -70,13 +70,6 @@
           <div class="nav-name">Level</div>
         </a>
 
-        <a href="#" class="icon-item">
-          <div class="nav-icon">
-            <i class="bx bx-list-ul"></i>
-          </div>
-          <div class="nav-name">Messages</div>
-        </a>
-
         <a href="bank.php" class="icon-item">
           <div class="nav-icon">
             <i class="bx bx-list-ul"></i>

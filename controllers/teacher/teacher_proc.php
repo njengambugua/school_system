@@ -1,12 +1,9 @@
 <?php
-
-
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include("../../models/teacher/teacher_class.php");
-// echo "vincent";
 $teacher = new Teacher();
 
 if (isset($_SESSION['loginData']) && $_SESSION['loginData']['action'] == 'Login') {
@@ -14,8 +11,13 @@ if (isset($_SESSION['loginData']) && $_SESSION['loginData']['action'] == 'Login'
     if ($teacher->retrieve($obj)) {
         if ($teacher->numRows) {
             $_SESSION['teacher_data'] = $teacher->data;
-            unset($_SESSION['loginData']);
-            header("Location: ../../php/teacher_page/teacher_page.php");
+            if ($teacher->retrieveTotalStudents($teacher->data->teacher_id)) {
+                if ($teacher->numRows) {
+                    $_SESSION['total'] = $teacher->data;
+                    unset($_SESSION['loginData']);
+                    header("Location: ../../php/teacher_page/teacher_page.php");
+                }
+            }
         } else {
             unset($_SESSION['loginData']);
             header("Location: ../../php/login.php");

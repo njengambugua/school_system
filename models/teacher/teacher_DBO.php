@@ -120,4 +120,28 @@ class teacherDBO
       throw $th;
     }
   }
+
+  function getTotalStudents($id) {
+    try {
+      $this->sql = "SELECT COUNT(DISTINCT st.regno) AS total_students
+      FROM students st
+      JOIN student_subject ss ON ss.student_id = st.id
+      JOIN subjects s ON s.id = ss.subject_id
+      WHERE s.subjectName IN (
+          SELECT s.subjectName
+          FROM teachers t
+          JOIN teacher_subjects ts ON ts.teacher_id = t.id
+          JOIN subjects s ON s.id = ts.subject_id
+          WHERE t.id=:id)";
+      $this->stmt = $this->conn->prepare($this->sql);
+      $this->stmt->bindParam(':id', $id);
+      $this->stmt->execute();
+      $this->res = $this->stmt->fetch(PDO::FETCH_OBJ);
+      $this->numRows = $this->stmt->rowCount();
+      return true;
+    } catch (PDOException $e) {
+      $this->error = $e->getMessage();
+      return false;
+    }
+  }
 }
