@@ -3,7 +3,7 @@
 
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-
+include('../../DB.php');
 include('adminDBO.php');
 
 class adminClass{

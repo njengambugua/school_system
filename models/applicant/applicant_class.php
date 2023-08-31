@@ -11,21 +11,21 @@ class applicant
     public $Gender;
     public $Level;
 
-    function __construct($obj)
+    function __construct()
     {
-        print_r($obj);
-        $this->validate($obj);
-        $this->Name = $obj->Name;
-        $this->Age = $obj->Age;
-        $this->Gender = $obj->Gender;
-        $this->Level = $obj->Level;
+        // print_r($obj);
+        // $this->validate($obj);
+        // $this->Name = $obj->Name;
+        // $this->Age = $obj->Age;
+        // $this->Gender = $obj->Gender;
+        // $this->Level = $obj->Level;
     }
 
 
     function validate($obj)
     {
         // check for empty fields
-        foreach (get_object_vars($obj) as $key => $value) {
+        foreach ($obj as $key => $value) {
             if ($key == 'Name') {
                 if (empty($value)) {
                     throw new Exception("Error Key Name is empty", 1);
@@ -66,10 +66,20 @@ class applicant
     function update($obj, $id){
         $dboObj = new applicant_DBO;
         try{
-            $dboObj->update($id, $obj);
+            $dboObj->update($obj, $id);
         }
         catch(Throwable $th){
             throw $th;
+        }
+    }
+
+    function delete($id) {
+        $applicantObj = new applicant_DBO;
+        if($applicantObj->delete($id)) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }
