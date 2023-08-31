@@ -1,3 +1,28 @@
+-- 31 August 2023-------------------------------
+
+DROP Table academics;
+
+SET @sql = NULL;
+
+SELECT
+    GROUP_CONCAT('`', subjectName, '` INT') INTO @sql
+FROM (
+        SELECT
+            DISTINCT subjectName
+        FROM
+            subjects
+    ) AS subject;
+
+SET @sql = CONCAT('CREATE TABLE academics (', @sql, ');');
+
+PREPARE stmt FROM @sql;
+
+EXECUTE stmt;
+
+DEALLOCATE PREPARE stmt;
+
+ALTER TABLE academics ADD COLUMN regno VARCHAR(20);
+
 -- 29 August 2023--------------------------------
 
 ALTER TABLE attendance
