@@ -68,6 +68,15 @@ class Teacher
         header('Location: ../../php/admin/database.php');
     }
 
+    function delete($id) {
+        try {
+            $this->teacherObj->remove($id);
+        }
+        catch (Throwable $th) {
+            throw $th;
+        }
+    }
+
     public function retrieveTeacherLevel($id)
     {
         if ($this->teacherObj->selectLevel($id)) {

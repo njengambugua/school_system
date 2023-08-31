@@ -16,7 +16,6 @@
     ini_set('display_errors', 1);
 
     include('navbar.php');
-    include('../../DB.php');
     include('../../models/admin/adminClass.php');
     $class = new adminClass;
     ?>

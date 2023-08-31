@@ -1,9 +1,10 @@
 <?php
-include("../../DB.php");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-session_start();
+include('../../DB.php');
+
+// session_start();
 class applicant_DBO
 {
     public $query;
@@ -62,16 +63,19 @@ class applicant_DBO
     function update($id, $data)
     {
         try {
-            foreach ($data as $key => $value) {
-                $query = "UPDATE applicant SET $key = :value WHERE id = :id";
-                $stmt = $this->conn->prepare($query);
-                $stmt->bindParam(':value', $value);
-                $stmt->bindParam(':id', $id);
-                if ($stmt->execute()) {
-                    return true;
-                } else {
-                    return false;
-                }
+
+            $query = "UPDATE applicant SET Name = :name, Age = :age, Gender = :gender, Level = :level WHERE id = :id";
+            echo "<br>$query<br>";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':name', $data->Name);
+            $stmt->bindParam(':age', $data->Age);
+            $stmt->bindParam(':gender', $data->Gender);
+            $stmt->bindParam(':level', $data->Level);
+            $stmt->bindParam(':id', $id);
+            if ($stmt->execute()) {
+                return true;
+            } else {
+                return false;
             }
         } catch (\Throwable $th) {
             return false;
@@ -79,15 +83,17 @@ class applicant_DBO
     }
 
 
-    function delete($id){
+    function delete($id)
+    {
         try {
-            $query="DELETE from applicant where id=$id ";
+            $query = "DELETE FROM applicant WHERE id = :id";
             $statement = $this->conn->prepare($query);
-            $statement->bindParam(":id",$id);
+            $statement->bindParam(':id', $id);
+            $statement->execute();
             return true;
-
         } catch (\Throwable $th) {
             return false;
         }
     }
 }
+?>

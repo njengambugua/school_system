@@ -109,10 +109,9 @@ class teacherDBO
   }
 
   function remove($id){
-    echo '<br>DBO called';
     $deleteCommand = "DELETE FROM teachers WHERE id = :id";
     $this->stmt = $this->conn->prepare($deleteCommand);
-    $this->stmt->bindParam('id', $id);
+    $this->stmt->bindParam(':id', $id);
     try{
       $this->stmt->execute();
     }

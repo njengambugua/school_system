@@ -10,13 +10,11 @@
 
 <body>
     <?php
-    session_start();
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-    // include('navbar.php')
+    include('navbar.php');
     include('../../models/admin/adminClass.php');
-    include "../../DB.php";
 
     $dbo = new adminClass();
     $colData = $dbo->getRow($_SESSION['tableName'], $_POST['editBtn']);

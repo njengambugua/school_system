@@ -1,9 +1,8 @@
 <?php
 session_start();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// include('../../DB.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $objToUpdates = (object)$_POST;
@@ -42,7 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // if applicant is the table chosen =====================================
     if ($_SESSION['tableName'] == 'applicant') {
         try{
-
+            include('../../models/applicant/applicant_class.php');
+            $applicantObj = new applicant;
+            $applicantObj->update($_SESSION['selectedId'], $objToUpdates);
+            header('Location: database.php');
         }
         catch(Throwable $th) {
             throw $th;
