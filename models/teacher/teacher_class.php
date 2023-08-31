@@ -63,7 +63,8 @@ class Teacher
         }
     }
 
-    function edit($obj, $teacherid){
+    function edit($obj, $teacherid)
+    {
         $this->teacherObj->update($obj, $teacherid);
         header('Location: ../../php/admin/database.php');
     }
@@ -84,6 +85,18 @@ class Teacher
     public function retrieveTeacherSubjects($id)
     {
         if ($this->teacherObj->selectSubject($id)) {
+            $this->data = $this->teacherObj->res;
+            $this->numRows = $this->teacherObj->numRows;
+            return true;
+        } else {
+            $this->error = $this->teacherObj->error;
+            return false;
+        }
+    }
+
+    public function retrieveTotalStudents($id)
+    {
+        if ($this->teacherObj->getTotalStudents($id)) {
             $this->data = $this->teacherObj->res;
             $this->numRows = $this->teacherObj->numRows;
             return true;

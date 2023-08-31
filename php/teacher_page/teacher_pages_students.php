@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_GET['id'])) {
   header("Location: ../../controllers/schedule/schedule_proc.php?id=" . $_GET['id']);
 }
@@ -19,7 +20,7 @@ if (isset($_GET['id'])) {
     <div class="main-content-holder">
       <div class="all_students">
         <h4>Total Students</h4>
-        <h1>180</h1>
+        <h1><?php echo $_SESSION['total']->total_students ?></h1>
       </div>
 
       <a href="./teacher_view_student_profile.php">
@@ -28,7 +29,7 @@ if (isset($_GET['id'])) {
         </div>
       </a>
 
-      <a href="teacher_pages_students.php?id=<?php echo $_SESSION['teacher_data']->teacher_id ?>">
+      <a href="./teacher_view_student_attendance.php">
         <div class="student_attendance">
           <h4>Student Attendance</h4>
         </div>
