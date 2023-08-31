@@ -63,3 +63,19 @@ body {
   background-color: #45cfdd;
   color: white;
 }
+.back_button {
+  text-decoration: none;
+}
+.back_button > button {
+  margin-top: 0.3em;
+  background: #164b60;
+  color: white;
+  border: 0px;
+  padding: 0.3em;
+  transition: all ease 2s;
+}
+.back_button > button:hover {
+  background: linear-gradient(45deg, #45cfdd, #164b60);
+  color: white;
+  transition: all ease 2s;
+}

@@ -51,20 +51,11 @@ class AttendanceDBO
     {
         try {
             if ($obj->action == 'Get All') {
-                $query = 'SELECT s.id, s.subjectName, COUNT(a.lession_id) as lesson_attend, t.total_lessons, st.regno, app.Name
-                    FROM subjects s
-                    LEFT JOIN schedule sc ON s.id = sc.subject_id
-                    JOIN (
-                    SELECT subject_id, COUNT(*) * 12 AS total_lessons
-                    FROM schedule JOIN level lv ON lv.id = schedule.level_id
-                    WHERE lv.level = :level
-                    GROUP BY subject_id
-                    ) t ON t.subject_id = s.id
-                    LEFT JOIN attendance a ON sc.schedule_id = a.lession_id
-                    LEFT JOIN students st ON st.id = a.student_id
-                    LEFT JOIN applicant app ON app.id = st.applicant_id
-                    GROUP BY s.id, s.subjectName, t.total_lessons, st.regno, app.Name';
-
+                $query = 'SELECT sc.schedule_id, COUNT(*) as total_lessons, lv.level, st.regno, sj.subjectName, app.Name
+                 FROM attendance at JOIN schedule sc ON at.lession_id = sc.schedule_id 
+                 JOIN level lv ON lv.id = sc.level_id JOIN students st ON st.id = at.student_id 
+                 JOIN subjects sj ON sj.id = sc.subject_id JOIN applicant app ON app.id = st.applicant_id 
+                 WHERE lv.level = :level GROUP BY sc.schedule_id, st.regno, app.Name';
 
                 $this->stmt = $this->conn->prepare($query);
                 $this->stmt->bindParam(':level', $obj->level);
