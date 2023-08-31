@@ -34,13 +34,6 @@ session_start();
                 <h1><?php echo $data->total_lessons ?></h1>
                 <p>Lessons</p>
               </span>
-            <?php
-            } else {
-            ?>
-              <span>
-                <h1>0</h1>
-                <p>Lessons</p>
-              </span>
           <?php
             }
           } ?>
