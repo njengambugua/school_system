@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 include('../../DB.php');
 
-// session_start();
+session_start();
 class applicant_DBO
 {
     public $query;

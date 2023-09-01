@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if (isset($_GET['src'])) {
     if ($bank->retrieve()) {
       $_SESSION['bank_data'] = $bank->data;
-      header("Location: ../attendance/attendance_proc.php?student_id=" . $_SESSION['res']->id);
+      header("Location: ../attendance/attendance_proc.php?student_id=" . $_SESSION['res']->applicant_id);
     }
   }
 

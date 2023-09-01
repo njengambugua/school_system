@@ -11,14 +11,14 @@ class applicant
     public $Gender;
     public $Level;
 
-    function __construct()
+    function __construct($obj)
     {
-        // print_r($obj);
-        // $this->validate($obj);
-        // $this->Name = $obj->Name;
-        // $this->Age = $obj->Age;
-        // $this->Gender = $obj->Gender;
-        // $this->Level = $obj->Level;
+        print_r($obj);
+        $this->validate($obj);
+        $this->Name = $obj->Name;
+        $this->Age = $obj->Age;
+        $this->Gender = $obj->Gender;
+        $this->Level = $obj->Level;
     }
 
 

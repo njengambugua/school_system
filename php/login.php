@@ -3,6 +3,7 @@ session_start();
 if ($_POST['action'] == 'Login') {
     if (preg_match('/^SDT/', $_POST['regno'])) {
         $_SESSION['loginData'] = $_POST;
+        // print_r($_SESSION['loginData']);
         header('Location: ../controllers/students/students_proc.php');
     }
     elseif (preg_match("/^TCH/", $_POST['regno'])) {
