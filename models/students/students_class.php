@@ -129,7 +129,8 @@ class students
     }
   }
 
-  function getParentStudentInformation(){
+  function getParentStudentInformation()
+  {
     $dataObj = new students_DBO;
     return $dataObj->getParentStudentInfo();
   }

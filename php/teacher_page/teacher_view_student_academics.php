@@ -41,12 +41,12 @@
           <input type="submit" class="select-view-btn" value="Select" name="action">
         </form>
 
-        </div>
-        <?php
-        // echo "Posting<br>";
-        // echo "Grade Chosen: ".$_POST['grade'];
-        // echo "<br>Term Chosen: ".$_POST['term'];
-        ?>
+      </div>
+      <?php
+      // echo "Posting<br>";
+      // echo "Grade Chosen: ".$_POST['grade'];
+      // echo "<br>Term Chosen: ".$_POST['term'];
+      ?>
 
       <div class="view-academics-container">
 
@@ -64,7 +64,7 @@
           </thead>
           <tbody class="tbody-academics">
             <?php
-            foreach($academics as $record) {
+            foreach ($academics as $record) {
               echo "
               <tr>
                 <td>$record->Name</td>
@@ -76,7 +76,8 @@
                 <td>$record->healthAndNutrition%</td>
                 <td>$record->movementAndCreatives%</td>
                 <td>";
-                  echo number_format(((int)$record->english + (int)$record->mathematics + (int)$record->kiswahili + (int)$record->envitonmentalArt + (int)$record->religiousAct + (int)$record->healthAndNutrition + (int)$record->movementAndCreatives) / 7, 2).'%';"
+              echo number_format(((int)$record->english + (int)$record->mathematics + (int)$record->kiswahili + (int)$record->envitonmentalArt + (int)$record->religiousAct + (int)$record->healthAndNutrition + (int)$record->movementAndCreatives) / 7, 2) . '%';
+              "
                 </td>
               </tr>
               ";
@@ -88,4 +89,5 @@
     </div>
   </main>
 </body>
+
 </html>

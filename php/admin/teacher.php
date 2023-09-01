@@ -91,7 +91,7 @@ if (isset($_SESSION['level_data']) && isset($_SESSION['subject_data'])) {
             <input type="submit" class="btn btn-primary" name="action" value="End">
           </div>
         </form>
-        <?php } ?>
+      <?php } ?>
     </div>
   </main>
 

@@ -69,11 +69,11 @@ class Teacher
         header('Location: ../../php/admin/database.php');
     }
 
-    function delete($id) {
+    function remove($id)
+    {
         try {
             $this->teacherObj->remove($id);
-        }
-        catch (Throwable $th) {
+        } catch (Throwable $th) {
             throw $th;
         }
     }

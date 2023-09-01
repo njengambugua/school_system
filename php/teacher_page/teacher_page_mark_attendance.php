@@ -3,8 +3,6 @@ session_start();
 if (empty($_SESSION['teacher_data'])) {
     header('Location: ../login.php');
 } else {
-    // $teacher_level = (object)$_SESSION['teacher_level'];
-    // $teacher_subject = (object)$_SESSION['teacher_subject'];
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $_GET['subject'];
         $_GET['level'];

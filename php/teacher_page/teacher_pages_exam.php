@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../css/teacher/exam.css">
   <title>Teacher Portal</title>
 </head>
+
 <body>
   <?php include('../teacher_navbar.php') ?>
   <main class="main">
@@ -92,7 +94,7 @@
 
       if (values.length > 0) {
         selectHolder.style.display = "flex";
-        selectEl.innerHTML = ""; 
+        selectEl.innerHTML = "";
 
         values.forEach((item) => {
           selectEl.innerHTML += `<option value="${item}">${item}</option>`;
@@ -109,7 +111,7 @@
         buttonSelect.removeAttribute("disabled");
       });
     });
-
   </script>
 </body>
+
 </html>

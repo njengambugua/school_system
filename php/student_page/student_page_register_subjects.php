@@ -3,7 +3,6 @@ session_start();
 if (isset($_SESSION['reg_details']) && isset($_SESSION['subjects'])) {
     $reg_student = (object)$_SESSION['reg_details'];
     $subjects = (object)$_SESSION['subjects'];
-    // ?teacher_id=<?php echo $_SESSION['teacher_data']->id; 
 } else {
     header('Location: ../login.php');
 }

@@ -1,3 +1,9 @@
+-- 01 Sep 2023 --------------------------------
+
+ALTER TABLE teachers ADD COLUMN phone INT;
+
+ALTER TABLE teachers ADD COLUMN email VARCHAR(50);
+
 -- 31 August 2023-------------------------------
 
 DROP Table academics;
@@ -38,6 +44,8 @@ ALTER TABLE fee DROP FOREIGN KEY fee_ibfk_1;
 ALTER TABLE fee DROP COLUMN studentId;
 
 ALTER TABLE fee ADD COLUMN level_id INT(11);
+
+ALTER TABLE fee ADD FOREIGN KEY (level_id) REFERENCES level(id);
 
 ALTER TABLE fee DROP COLUMN bank_name;
 

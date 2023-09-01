@@ -52,7 +52,7 @@ session_start();
         <?php } ?>
 
         <input type="submit" id="submit" name="action" value="submit-exam">
-        
+
     </form>
 
     <script>

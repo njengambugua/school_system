@@ -39,7 +39,8 @@ class Level
     }
   }
 
-  function retrieve(){
+  function retrieve()
+  {
     if ($this->levelObj->select()) {
       $this->data = $this->levelObj->res;
       $this->numRows = $this->levelObj->numRows;

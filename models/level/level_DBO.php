@@ -38,7 +38,7 @@ class Level_DBO
   function select()
   {
     try {
-      $this->sql="SELECT * FROM level";
+      $this->sql = "SELECT * FROM level";
       $this->stmt = $this->conn->query($this->sql);
       $this->res = $this->stmt->fetchAll(PDO::FETCH_OBJ);
       $this->numRows = $this->stmt->rowCount();

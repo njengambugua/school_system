@@ -5,7 +5,6 @@ $bank = new Bank;
 $obj = (object)$_POST;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // print_r($obj);
   if ($_POST['action'] == 'Add Bank') {
     if ($bank->create($obj)) {
       header('Location: ../../php/admin/bank.php');
