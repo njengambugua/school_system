@@ -71,10 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $obj->id = $_GET['student_id'];
         if ($attendance->retrieveStudentAttendance($obj)) {
             $data = $attendance->data;
-            if ($data) {
-                array_push($_SESSION['bank_data'], $data);
-                header("Location: ../../php/student_page/student_page.php");
-            }
+            // if ($data) {
+            print_r($obj);
+            array_push($_SESSION['bank_data'], $data);
+            header("Location: ../../php/student_page/student_page.php");
+            // }
         }
     }
 }
