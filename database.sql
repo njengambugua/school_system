@@ -128,7 +128,7 @@ LOCK TABLES `students` WRITE;
 /*!40000 ALTER TABLE `students` DISABLE KEYS */;
 /*!40000 ALTER TABLE `students` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+-- !40103 SET TIME_ZONE=@OLD_TIME_ZONE;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
@@ -139,3 +139,32 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-08-11 11:25:02
+
+CREATE TABLE academics (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  studentId INT,
+  mathematics INT,
+  english INT,
+  kiswahili INT,
+  envitonmentalArt INT,
+  religiousAct INT,
+  healthAndNutrition INT,
+  movementAndCreatives INT,
+  FOREIGN KEY (studentId) REFERENCES students(id)
+);
+
+SELECT `Name`, regno, english, mathematics, kiswahili, `envitonmentalArt`, `religiousAct`,  `healthAndNutrition`, `movementAndCreatives`
+FROM academics
+INNER JOIN applicant
+INNER JOIN students
+ON academics.id = applicant.id = students.applicant_id;
+
+
+CREATE TABLE events(  
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Primary Key',
+    eventName VARCHAR(225),
+    eventDate DATE,
+    eventTime TIME,
+    venue VARCHAR(255),
+    description TEXT
+);

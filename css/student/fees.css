@@ -26,7 +26,7 @@
 .fees-tables {
   margin-top: 1rem;
   width: 100%;
-  height: 78vh;
+  height: 100%;
   /* background: #164b60; */
   display: grid;
   gap: 1.3rem;
@@ -41,7 +41,8 @@
   grid-template-rows: 10% 90%;
   justify-items: center;
   background: #45cfdd;
-  border-radius: 0.4rem;
+  border-radius: 0.8rem;
+  padding: 1rem;
 }
 .table-holder > p {
   color: #164b60;
@@ -56,4 +57,15 @@
 .thead-fee{
     background: #164b60;
     color: white;
+}
+
+.bain{
+  width: 100%;
+  height: 100%;
+}
+
+.bain-content-holder{
+  width: 100%;
+  padding: 3rem;
+  height: 100%;
 }

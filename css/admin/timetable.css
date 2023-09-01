@@ -1,0 +1,55 @@
+.sort-form-main {
+  width: 40% !important;
+  display: flex !important;
+  gap: 0.2em;
+  /* position: sticky; */
+  top: 0;
+  background: #164b60 !important;
+  border: 0px !important;
+}
+.sort-form-main > input {
+  background: #45cfdd;
+  color: #164b60;
+}
+.timetable-table {
+  background-image: linear-gradient(30deg, #45cfdd, white);
+  color: #164b60 !important;
+  overflow-y: scroll !important;
+}
+.timetable-table > thead {
+  position: sticky;
+  top: 4em;
+  background-image: linear-gradient(30deg, #45cfdd, white);
+}
+.reset-form {
+  background: #164b60;
+  /* position: sticky; */
+  /* top: 4rem; */
+  right: 0 !important;
+  width: auto !important;
+  padding: 0.5rem !important;
+}
+.reset-form > input {
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 0.5rem !important;
+  border-radius: 0.4em;
+  background-image: linear-gradient(30deg, #45cfdd, #164b60);
+}
+.buttons-holder {
+  width: 100%;
+  height: 4rem;
+  position: sticky;
+  top: 4rem;
+  background-color: #164b60;
+  display: flex;
+  align-items: center;
+}
+.buttons-holder > a {
+  background: #45cfdd;
+  color: #164b60;
+  text-decoration: none;
+  padding: 0.4em;
+  border-radius: 0.4em;
+}

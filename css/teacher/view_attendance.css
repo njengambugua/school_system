@@ -1,4 +1,4 @@
-body{
+body {
   width: 100%;
 }
 .main {
@@ -6,15 +6,15 @@ body{
   width: 100%;
   height: 100%;
 }
-.main-content-holder{
-    width: 100%;
-    padding-left: 2rem;
-    padding-top: 0.5rem;
-    padding-right: 2rem;
+.main-content-holder {
+  width: 100%;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+  padding-right: 2rem;
 }
-.main-content-holder>*{
-    width: 100%;
-  }
+.main-content-holder > * {
+  width: 100%;
+}
 .select-grade {
   padding: 0.6em;
   background: #45cfdd;
@@ -23,7 +23,7 @@ body{
   outline: none;
   border-radius: 0.3em;
 }
-.select_heads{
+.select_heads {
   display: flex;
   background: #164b60;
   border-radius: 0.3em;
@@ -32,15 +32,15 @@ body{
   padding-left: 1rem;
   gap: 3rem;
 }
-.attendance_desc{
+.attendance_desc {
   display: flex;
   justify-content: space-evenly;
 }
-.att_rec{
+.att_rec {
   display: flex;
   justify-content: center;
 }
-.attendance-tables{
+.attendance-tables {
   margin-top: 3rem;
   height: 45vh;
   width: 100%;
@@ -52,14 +52,30 @@ body{
   justify-items: center;
   border-radius: 0.4rem;
 }
-.att-table{
+.att-table {
   height: 100%;
   width: 100%;
   background: white;
   box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.5);
 }
-.thead-att{
+.thead-att {
   width: 100%;
   background-color: #45cfdd;
   color: white;
+}
+.back_button {
+  text-decoration: none;
+}
+.back_button > button {
+  margin-top: 0.3em;
+  background: #164b60;
+  color: white;
+  border: 0px;
+  padding: 0.3em;
+  transition: all ease 2s;
+}
+.back_button > button:hover {
+  background: linear-gradient(45deg, #45cfdd, #164b60);
+  color: white;
+  transition: all ease 2s;
 }
