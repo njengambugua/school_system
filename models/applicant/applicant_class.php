@@ -1,26 +1,33 @@
 <?php
 include('applicant_DBO.php');
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 class applicant
 {
     public $Name;
     public $Age;
     public $Gender;
     public $Level;
+    public $obj;
+    public $applicant;
 
-    function __construct($obj)
+    function __construct()
     {
-        print_r($obj);
-        $this->validate($obj);
-        $this->Name = $obj->Name;
-        $this->Age = $obj->Age;
-        $this->Gender = $obj->Gender;
-        $this->Level = $obj->Level;
+        $this->applicant = new applicant_DBO();
     }
 
+    function setObj($obj)
+    {
+        $this->obj = new stdClass;
+        $this->obj->Name = $obj->Name;
+        $this->obj->Age = $obj->Age;
+        $this->obj->Gender = $obj->Gender;
+        $this->obj->Level = $obj->Level;
+    }
+
+    function getObj()
+    {
+        return $this->obj;
+    }
 
     function validate($obj)
     {
@@ -42,20 +49,22 @@ class applicant
         }
     }
 
-    function create()
+    function create($obj)
     {
-        $applicant = new applicant_DBO();
-        if ($applicant->insert($this)) {
-            return true;
-        } else {
-            return false;
+        $this->setObj($obj);
+        $this->getObj();
+        if ($this->validate($obj)) {
+            if ($this->applicant->insert($this)) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 
     function retrieve($id)
     {
-        $applicant = new applicant_DBO();
-        $data = $applicant->select($id);
+        $data = $this->applicant->select($id);
         if ($data) {
             return $data;
         } else {
@@ -63,22 +72,22 @@ class applicant
         }
     }
 
-    function update($obj, $id){
-        $dboObj = new applicant_DBO;
-        try{
-            $dboObj->update($obj, $id);
-        }
-        catch(Throwable $th){
+    function update($obj, $id)
+    {
+        $this->setObj($obj);
+        $this->getObj();
+        try {
+            $this->applicant->update($obj, $id);
+        } catch (Throwable $th) {
             throw $th;
         }
     }
 
-    function delete($id) {
-        $applicantObj = new applicant_DBO;
-        if($applicantObj->delete($id)) {
+    function remove($id)
+    {
+        if ($this->applicant->delete($id)) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

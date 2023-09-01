@@ -1,8 +1,8 @@
 <?php
+include("../../DB.php");
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-include("../../DB.php");
 
 class scheduleDBO
 {
@@ -22,18 +22,6 @@ class scheduleDBO
 
     public function insert($obj)
     {
-        // $lessonTimes = [
-        //     "8:00 AM - 9:00 AM",
-        //     "9:00 AM - 10:00 AM",
-        //     // "10:00 AM - 10:20 AM",
-        //     "10:20 AM - 11:20 AM",
-        //     "11:20 AM - 12:20 PM",
-        //     // "12:20 PM - 1:00 PM",
-        //     "1:00 PM - 2:00 PM",
-        //     "2:00 PM - 3:00 PM",
-        // ];
-        // $obj = (object)$lessonTimes;
-
         $this->sql = "SELECT s.id AS subject_id, t.name as teacher_name, l.id as level_id, s.subjectName as subject, t.id as teacher_id FROM teachers t JOIN teacher_subjects ts ON ts.teacher_id = t.id JOIN teacher_level tl ON tl.teacher_id = t.id JOIN subjects s ON s.id = ts.subject_id JOIN level l ON l.id = tl.level_id";
         $data = $this->conn->query($this->sql);
         $res = $data->fetchAll(PDO::FETCH_OBJ);

@@ -12,7 +12,6 @@
 <body>
     <?php
     session_start();
-    // print_r($_SESSION['teacher_data']);
     ?>
 
     <form action="edit2.php" method="post">

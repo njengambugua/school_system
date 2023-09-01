@@ -40,10 +40,33 @@ class Bank
     }
   }
 
-  function retrieve(){
+  function retrieve()
+  {
     if ($this->bankObj->select()) {
       $this->data = $this->bankObj->res;
       $this->numRows = $this->bankObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->bankObj->error;
+      return false;
+    }
+  }
+
+  function edit($obj, $id)
+  {
+    $this->setObj($obj);
+    $this->getObj();
+    if ($this->bankObj->update($obj, $id)) {
+      return true;
+    } else {
+      $this->error = $this->bankObj->error;
+      return false;
+    }
+  }
+
+  function remove($id)
+  {
+    if ($this->bankObj->delete($id)) {
       return true;
     } else {
       $this->error = $this->bankObj->error;

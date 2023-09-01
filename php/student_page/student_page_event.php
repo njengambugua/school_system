@@ -29,13 +29,13 @@
                     echo '
                     <div class="event-item">
                         <div class="event-details">
-                            <h4>'.$event->eventName.'</h4>
-                            <h3>'.$event->venue.'</h3>
-                            <p>'.$event->description.'</p>
+                            <h4>' . $event->eventName . '</h4>
+                            <h3>' . $event->venue . '</h3>
+                            <p>' . $event->description . '</p>
                         </div>
                         <div class="event-date">
-                            <p>Thursday'.$event->eventDate.'</p>
-                            <p>'.$event->eventTime.'</p>
+                            <p>Thursday' . $event->eventDate . '</p>
+                            <p>' . $event->eventTime . '</p>
                         </div>
                     </div>
                     ';
@@ -45,4 +45,5 @@
         </div>
     </main>
 </body>
+
 </html>

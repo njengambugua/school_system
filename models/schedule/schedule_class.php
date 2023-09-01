@@ -15,7 +15,6 @@ class Schedule
     public function create($obj)
     {
         if ($this->scheduleInstance->insert($obj)) {
-            // $this->data = $this->scheduleInstance->data;
             return true;
         } else {
             $this->error = $this->scheduleInstance->error;

@@ -11,10 +11,6 @@
 
 <body>
     <?php
-
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-
     include('navbar.php');
     include('../../models/admin/adminClass.php');
     $class = new adminClass;

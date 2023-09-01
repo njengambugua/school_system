@@ -45,18 +45,29 @@ class parent7
         }
     }
 
-    function change($obj, $id) {
+    function change($obj, $id)
+    {
         echo "<br>Class called";
         $parent = new ParentDBO;
         $parent->edit($obj, $id);
     }
 
-    function applicant_parent($id,$status)
+    function applicant_parent($id, $status)
     {
         $parent = new ParentDBO;
-        $data = $parent->join_applicant_parent($id,$status);
+        $data = $parent->join_applicant_parent($id, $status);
         if ($data) {
             return $data;
+        } else {
+            return false;
+        }
+    }
+
+    function remove($id)
+    {
+        $parent = new ParentDBO;
+        if ($parent->delete($id)) {
+            return true;
         } else {
             return false;
         }

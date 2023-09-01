@@ -36,7 +36,7 @@ for ($day = 1; $day <= 5; $day++) { // Assuming a 5-day work week
     foreach ($scheduleTimes as $time) {
         // Shuffle the teachers to assign them in a random order
         shuffle($teachers);
-        
+
         foreach ($teachers as $teacher) {
             $subject = array_rand($teacher["subjects"]);
             $grade = $teacher["grades"][array_rand($teacher["grades"])];

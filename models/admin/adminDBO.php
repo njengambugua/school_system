@@ -1,4 +1,6 @@
 <?php
+include('../../DB.php');
+session_start();
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -74,7 +76,8 @@ class adminDBO
         }
     }
 
-    function readEvent(){
+    function readEvent()
+    {
         $readCommand = "SELECT * FROM events";
         $stmt = $this->conn->prepare($readCommand);
         $stmt->execute();

@@ -1,15 +1,17 @@
 <?php
 
 include("timetable_DBO.php");
-class teacherClass {
+class teacherClass
+{
     private $obj;
 
-    function __construct() {
-    $this->obj = new teacherDBO;
+    function __construct()
+    {
+        $this->obj = new teacherDBO;
     }
 
-    public function retrieve() {
+    public function retrieve()
+    {
         return $this->obj->read();
     }
 }
-?>

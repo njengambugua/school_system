@@ -22,7 +22,7 @@ if (isset($_SESSION['loginData']) && $_SESSION['loginData']['action'] == 'Login'
     if ($student->numRows) {
       $_SESSION['res'] = $student->data;
       unset($_SESSION['loginData']);
-      header("Location: ../fee/fee_proc.php?std_id=".($_SESSION['res']->Level));
+      header("Location: ../fee/fee_proc.php?std_id=" . ($_SESSION['res']->Level));
     } else {
       unset($_SESSION['loginData']);
       header("Location: ../../php/login.php");

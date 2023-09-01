@@ -62,7 +62,7 @@ session_start();
             </p>
         </div>
         <hr>
-        <a href="../controllers/applicant/applicant_proc.php?applicant=<?php echo $_SESSION['applicant_id']?>" id="startExam">Start Exam</a>
+        <a href="../controllers/applicant/applicant_proc.php?applicant=<?php echo $_SESSION['applicant_id'] ?>" id="startExam">Start Exam</a>
     </div>
 </body>
 
