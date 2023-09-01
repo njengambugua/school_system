@@ -2,7 +2,6 @@
 session_start();
 if (empty($_SESSION['teacher_data'])) {
   header('Location: ../login.php');
-  // ?teacher_id=<?php echo $_SESSION['teacher_data']->id; 
 }
 ?>
 <!DOCTYPE html>

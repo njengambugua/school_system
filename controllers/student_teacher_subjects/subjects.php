@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($subject->create($obj)) {
         unset($_SESSION['reg_details']);
         unset($_SESSION['subjects']);
-        
+
         header("Location: ../../index.php");
     } else {
         $id = $obj->studentId;

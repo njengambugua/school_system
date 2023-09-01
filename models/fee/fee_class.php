@@ -52,10 +52,23 @@ class Fee
     }
   }
 
-  function retrieveByLevel($level) {
+  function retrieveByLevel($level)
+  {
     if ($this->feeObj->selectbyLevel($level)) {
       $this->blue = $this->feeObj->res;
       $this->numRows = $this->feeObj->numRows;
+      return true;
+    } else {
+      $this->error = $this->feeObj->error;
+      return false;
+    }
+  }
+
+  function edit($obj, $id)
+  {
+    $this->setObj($obj);
+    $this->getObj();
+    if ($this->feeObj->update($obj, $id)) {
       return true;
     } else {
       $this->error = $this->feeObj->error;

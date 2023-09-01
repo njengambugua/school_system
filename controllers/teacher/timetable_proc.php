@@ -4,4 +4,3 @@ $timetable = new teacherClass;
 
 $dataResults = $timetable->retrieve();
 return $dataResults;
-?>

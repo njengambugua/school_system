@@ -26,15 +26,16 @@ class Subjects
     return $this->obj;
   }
 
-  function validate($obj) {
+  function validate($obj)
+  {
     foreach ($obj as $key => $value) {
       if ($key !== "action") {
         if (is_string($value)) {
-            $modifiedValue = preg_replace('/\s+/', '_', $value);
-            $obj->$key = $modifiedValue;
+          $modifiedValue = preg_replace('/\s+/', '_', $value);
+          $obj->$key = $modifiedValue;
         }
       }
-  }
+    }
   }
 
   function create($obj)
@@ -51,7 +52,8 @@ class Subjects
     }
   }
 
-  function retrieve(){
+  function retrieve()
+  {
     if ($this->subjectsObj->select()) {
       $this->data = $this->subjectsObj->res;
       $this->numRows = $this->subjectsObj->numRows;

@@ -1,4 +1,5 @@
 <?php
+include('../../DB.php');
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -58,6 +59,22 @@ class Fee_DBO
       $this->stmt->execute();
       $this->res = $this->stmt->fetch(PDO::FETCH_OBJ);
       $this->numRows = $this->stmt->rowCount();
+      return true;
+    } catch (PDOException $e) {
+      $this->error = $e->getMessage();
+      return false;
+    }
+  }
+
+  public function update($obj, $id)
+  {
+    try {
+      $this->sql = "UPDATE fee SET Amount=:Amount, level_id=:level_id WHERE id=:id";
+      $this->stmt = $this->conn->prepare($this->sql);
+      $this->stmt->bindParam(':Amount', $obj->Amount);
+      $this->stmt->bindParam(':level_id', $obj->level_id);
+      $this->stmt->bindParam(':id', $id);
+      $this->stmt->execute();
       return true;
     } catch (PDOException $e) {
       $this->error = $e->getMessage();

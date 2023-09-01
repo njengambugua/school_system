@@ -1,4 +1,5 @@
 <?php
+include('../../DB.php');
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -37,7 +38,7 @@ class Subjects_DBO
   function select()
   {
     try {
-      $this->sql="SELECT * FROM subjects";
+      $this->sql = "SELECT * FROM subjects";
       $this->stmt = $this->conn->query($this->sql);
       $this->res = $this->stmt->fetchAll(PDO::FETCH_OBJ);
       $this->numRows = $this->stmt->rowCount();

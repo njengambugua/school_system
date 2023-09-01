@@ -39,10 +39,40 @@ class Bank_DBO
   function select()
   {
     try {
-      $this->sql="SELECT * FROM bank";
+      $this->sql = "SELECT * FROM bank";
       $this->stmt = $this->conn->query($this->sql);
       $this->res = $this->stmt->fetchAll(PDO::FETCH_OBJ);
       $this->numRows = $this->stmt->rowCount();
+      return true;
+    } catch (PDOException $e) {
+      $this->error = $e->getMessage();
+      return false;
+    }
+  }
+
+  function update($obj, $id)
+  {
+    try {
+      $this->sql = "UPDATE bank SET bank_name=:bank_name, bank_paybill=:bank_paybill WHERE id=:id";
+      $this->stmt = $this->conn->prepare($this->sql);
+      $this->stmt->bindParam(':bank_name', $obj->bank_name);
+      $this->stmt->bindParam(':bank_paybill', $obj->bank_paybill);
+      $this->stmt->bindParam(':id', $id);
+      $this->stmt->execute();
+      return true;
+    } catch (PDOException $e) {
+      $this->error = $e->getMessage();
+      return false;
+    }
+  }
+
+  function delete($id)
+  {
+    try {
+      $this->sql = "DELETE FROM bank WHERE id=:id";
+      $this->stmt = $this->conn->prepare($this->sql);
+      $this->stmt->bindParam(':id', $id);
+      $this->stmt->execute();
       return true;
     } catch (PDOException $e) {
       $this->error = $e->getMessage();

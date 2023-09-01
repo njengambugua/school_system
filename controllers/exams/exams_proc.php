@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if ($_POST['action'] == 'Filter') {
     $obj = (object)$_POST;
-    // print_r($obj);
     $exam = new exams();
     if ($exam->create($obj)) {
       echo "

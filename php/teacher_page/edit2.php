@@ -6,4 +6,3 @@ include('../../models/teacher/teacher_DBO.php');
 $tchObj = new teacherDBO;
 $tchObj->update($teacherObj, $teacherObj->id);
 header('Location: teacher_page_profile.php');
-?>

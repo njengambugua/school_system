@@ -1,10 +1,9 @@
 <?php
+include('../../DB.php');
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include('../../DB.php');
-
-session_start();
 class applicant_DBO
 {
     public $query;
@@ -86,14 +85,13 @@ class applicant_DBO
     function delete($id)
     {
         try {
-            $query = "DELETE FROM applicant WHERE id = :id";
-            $statement = $this->conn->prepare($query);
-            $statement->bindParam(':id', $id);
-            $statement->execute();
+            $query = "DELETE FROM applicant WHERE id=:id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
             return true;
         } catch (\Throwable $th) {
             return false;
         }
     }
 }
-?>

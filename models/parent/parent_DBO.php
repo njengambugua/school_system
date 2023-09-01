@@ -124,4 +124,17 @@ class ParentDBO
             }
         }
     }
+
+    function delete($id)
+    {
+        try {
+            $query = "DELETE FROM parent WHERE id=:id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

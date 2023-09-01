@@ -1,5 +1,8 @@
 <?php
 include('../../DB.php');
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 class teacherDBO
 {
   private $conn;
@@ -37,8 +40,8 @@ class teacherDBO
   {
     $count = 4;
 
-    $cmd = 
-    "UPDATE teachers 
+    $cmd =
+      "UPDATE teachers 
     SET name = :name, staff_no = :staffNo, password = :password, phone = :phone, email = :email
     WHERE id = :teacherId
     ";
@@ -55,7 +58,7 @@ class teacherDBO
     echo "<br>Complete";
   }
 
-  
+
   function select($obj)
   {
     try {
@@ -89,8 +92,8 @@ class teacherDBO
       return false;
     }
   }
-  
-  
+
+
   function selectSubject($id)
   {
     try {
@@ -100,7 +103,7 @@ class teacherDBO
       $this->stmt->execute();
       $this->numRows = $this->stmt->rowCount();
       $this->res = $this->stmt->fetchAll(PDO::FETCH_OBJ);
-      
+
       return true;
     } catch (PDOException $th) {
       $this->error = $th->getMessage();
@@ -108,19 +111,20 @@ class teacherDBO
     }
   }
 
-  function remove($id){
+  function remove($id)
+  {
     $deleteCommand = "DELETE FROM teachers WHERE id = :id";
     $this->stmt = $this->conn->prepare($deleteCommand);
     $this->stmt->bindParam(':id', $id);
-    try{
+    try {
       $this->stmt->execute();
-    }
-    catch(Throwable $th){
+    } catch (Throwable $th) {
       throw $th;
     }
   }
 
-  function getTotalStudents($id) {
+  function getTotalStudents($id)
+  {
     try {
       $this->sql = "SELECT COUNT(DISTINCT st.regno) AS total_students
       FROM students st

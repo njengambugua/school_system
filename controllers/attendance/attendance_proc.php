@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 include('../../models/attendance/attendance_class.php');
 $attendance = new attendance();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
         $full_obj = (object)$student;
-        // $attendance->create($full_obj);
         if ($attendance->create($full_obj)) {
             $_SESSION['message'] = 'You have successfully marked attendance';
             header('Location: ../../php/teacher_page/teacher_page_choose_lesson.php');
@@ -33,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $data = $attendance->data;
             $_SESSION['student_attendance'] = $data;
             header('Location: ../../php/teacher_page/teacher_view_student_attendance.php');
-            // exit;
         }
     }
 
@@ -61,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $data = $attendance->data;
             $_SESSION['student_attendance'] = $data;
             header('Location: ../../php/student_page/student_page_attendance.php');
-            // exit;
         }
     }
 
@@ -71,11 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $obj->id = $_GET['student_id'];
         if ($attendance->retrieveStudentAttendance($obj)) {
             $data = $attendance->data;
-            // if ($data) {
-            print_r($obj);
             array_push($_SESSION['bank_data'], $data);
             header("Location: ../../php/student_page/student_page.php");
-            // }
         }
     }
 }
